@@ -1,0 +1,108 @@
+<section data-part-group="part-ii" data-part-title="PART II"
+         style="--part-accent: var(--c-secondary-blue);">
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Better insoles measurements</h3>
+    <div style="display: flex; align-items: center; width: 100%;">
+        <div style="width: 50%;" class="col">
+        <img src="./assets/part-II/insoles.png" alt="Insoles" style="width: 30%;">
+        </div>
+        <div style="width: 50%;" class="col">
+        <img src="./assets/part-II/insoles2.png" alt="Insoles2" style="width: 40%;">
+        </div>
+      </div>
+    </div>
+
+    <div class="fragment" style="text-align:left; font-size:0.50em;">
+      <ul>
+        <li>Embedded insoles measuring normal forces only → how to go 6D ?</li>
+      </ul>
+    </div>
+
+    <div class="fragment" style="text-align:left; font-size:0.50em;">
+      <ul>
+        <li>Accuracy of <b>40N</b> only validated for gait or single support tasks</li>
+      </ul>
+    </div>
+
+    <div class="fragment" style="text-align:left; font-size:0.50em;">
+      <ul>
+        <li>Multimodality + Non-observability → typical <b>ML/DL</b> applications !</li>
+      </ul>
+    </div>
+
+  <div class="citation-small" style="text-align:center;">
+        <b> M. Sabbah </b> et al., <em>Ground Reaction Forces and Moments Estimation from Embedded Insoles using Machine Learning Regression Models</em>, BIOROB, 2024
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Better insoles measurements</h3>
+   <div style="display: flex; align-items: center; width: 100%;">
+    <img src="./assets/part-II/insole_pipeline.png" alt="pipeline">
+   </div>
+
+   <div class="fragment" style="text-align:center; font-size:0.75em;">
+        Random Forest regression models proven to be effective in this context
+        <div class="citation-small" style="text-align:center;">
+        A. Kammoun et al., <em>Comparison of the Accuracy of Ground Reaction Force Component Estimation between Supervised Machine Learning and Deep Learning Methods Using Pressure Insoles</em>, Sensors ,2024
+    </div>
+    </div>
+    
+    <div class="citation-small" style="text-align:center; font-size:0.3em;">
+        <b> M. Sabbah </b> et al., <em>Ground Reaction Forces and Moments Estimation from Embedded Insoles using Machine Learning Regression Models</em>, BIOROB, 2024
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Main results</h3>
+    <div style="text-align:left; font-size:0.75em;">
+        <div style="width:100%;font-size: 0.75em;" class="col">
+        <ul>
+            <li>Small dataset: 5 subjects, 4 different tasks (squat, hip and ankle balancing, and hula hoop exercise)</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="col" style="width:35%; font-size:0.75em; text-align:center;">
+      <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.75em;">
+      <ul class="pc-list">
+          <li class="pro">6D GRFM estimated with an accuracy of <b>10N</b> and <b>15N.m</b></li>
+          <li class="con">No model generalisation across tasks</li>
+      </ul>
+      </div>
+
+      <div class="fragment" style="text-align:center; font-size:0.75em;">
+          <b>Conclusion: encouraging pilot study results, more diverse sensor types and locations to explore with ML/DL! </b>
+      </div>
+    </div>
+
+    <div class = "col" style="width:65%; font-size:0.75em; text-align:center;">
+      <div class="r-stack">
+        <img class="fragment" data-fragment-index="1" src="./assets/part-II/insoles_fitting.png" style="width:100%;"/>
+        <figcaption class="fragment" data-fragment-index="1" style="font-size:0.4em;position: absolute; transform: translate(15%,1700%);">
+          Squat RMSE=14.1N, 10.5N.m
+        </figcaption>
+        <figcaption class="fragment" data-fragment-index="1" style="font-size:0.4em;position: absolute; transform: translate(90%,1850%);">
+          Hip balance RMSE=6.0N, 8.8N.m
+        </figcaption>
+        <figcaption class="fragment" data-fragment-index="1" style="font-size:0.4em;position: absolute; transform: translate(150%,1700%);">
+          Ankle balance RMSE=4.9N, 13.3N.m
+        </figcaption>
+        <figcaption class="fragment" data-fragment-index="1" style="font-size:0.4em;position: absolute; transform: translate(230%,1850%);">
+          Hula hoop RMSE=10.0N, 16.3N.m
+        </figcaption>
+      </div>
+    </div>
+
+    <div class="col" style="width:100%; text-align:center;">
+      <div class="citation-small" style="text-align:center; ">
+          <b> M. Sabbah </b> et al., <em>Ground Reaction Forces and Moments Estimation from Embedded Insoles using Machine Learning Regression Models</em>, BIOROB, 2024
+      </div>
+    </div>
+    
+</section>
+
+</section>

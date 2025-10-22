@@ -1,0 +1,64 @@
+<section data-part-group="part-iii" data-part-title="PART III"
+         style="--part-accent: var(--c-secondary-green);">
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Inverse Optimal Control
+    </h3>
+
+    <div style="font-size:0.8em; text-align: center;" >
+        <span>Let's consider </span>
+        <span>\(\mathcal{Y}^* = (X^*, U^*)\)</span>
+        <span>&nbsp;as the optimal motion demonstrated by an individual:</span>
+    </div>
+
+    <div style="display:grid; justify-items:center; width:100%; margin-top:.6rem;">
+      <div style="position:relative; display:inline-block;">
+
+        <!-- (1) Outer problem -->
+        <div class="fragment" data-fragment-index="1" style="font-size:0.7em; text-align:center;">
+          \[
+          \begin{split}
+          & \min_{\boldsymbol{\omega}} & \quad \lvert \lvert \mathcal{Y}^* - \hat{\mathcal{Y}}(\boldsymbol{\omega}) \rvert \rvert^2 \\
+          \end{split}
+          \]
+        </div>
+
+        <!-- (2) Inner DOC -->
+        <div class="fragment" data-fragment-index="2" style="font-size:0.7em; text-align:center; margin-top:.7rem;">
+          \[
+          \begin{split}
+          \hat{\mathcal{Y}}(\boldsymbol{\omega}) = & \ \text{arg}\min_{\mathcal{Y}} & \quad \Phi_{tot}(\mathcal{Y},\boldsymbol{\omega}) \\
+          & ~ \text{s.t.} & ~ \mathbf{g}(\mathcal{Y}) = 0 \ (\text{dynamics}) \\
+          & & ~ \mathbf{h}(\mathcal{Y}) \leq 0 \ (\text{boundaries}) \\
+          \end{split}
+          \]
+        </div>
+
+        <!-- (3) Red rounded contour overlay -->
+        <div class="fragment" data-fragment-index="3"
+             style="position:absolute; inset:0rem; border:3px solid #e11d48; border-radius:16px; pointer-events:none;"></div>
+
+        <!-- (3) Red label -->
+        <div class="fragment" data-fragment-index="3"
+             style="position:absolute; right:-40%; top:-2%; color:#e11d48; font-weight:700;font-size: 0.7em;">
+          “Bi-level” IOC
+        </div>
+      </div>
+    </div>
+
+    <div class="fragment" data-fragment-index="4" style="text-align:center; font-size:0.75em;">
+        <ul class="pc-list">
+            <li class="con">Very computationally expensive.</li>
+        </ul>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        K. Mombaur et al., <em>From human to humanoid locomotion—an inverse optimal control approach</em>, Autonomous Robots, 2010
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        S. Dempe et al., <em>Bilevel programming problems</em>, Springer, 2015
+    </div>
+  </section>
+</section>

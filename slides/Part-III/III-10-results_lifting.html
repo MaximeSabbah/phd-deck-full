@@ -1,0 +1,269 @@
+<section data-part-group="part-iii" data-part-title="PART III"
+         style="--part-accent: var(--c-secondary-green);">
+    <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 2: Human load lifting
+    </h3>
+
+    Lifting task :
+
+    <div style="display: flex; align-items: center; width: 100%;">
+        <div style="width: 50%;" class="col">
+            <img src="./assets/part-III/lifting_filip.png" alt="lifting_filip" style="width: 100%;">
+        </div>
+        <div style="width: 50%; font-size: 0.7em;" class="col">
+            <div class="fragment" data-fragment-index="1" style="text-align: left;">
+                <ul>
+                    <li>Dataset of 6 healthy male participants performing box (10 kg) lifting motions.</li>
+                </ul>
+            </div>
+            <div class="fragment" data-fragment-index="2" style="text-align: left;">
+                <ul class="pc-list">
+                    <li class="con">Solved using "Bi-level" IOC with a prediction accuracy of around 20deg.</li>
+                </ul>
+            </div>
+            <div class="fragment" data-fragment-index="2" style="text-align: left;">
+                <ul class="pc-list">
+                    <li class="con">No variable weights.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        F. Becanovic, <em>Uncovering optimal strategies in human motion through inverse optimal control</em>, PhD Thesis, 2024 
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 2: Human load lifting
+    </h3>
+
+    Lifting task :
+
+    <div style="display: flex; align-items: center; width: 100%;">
+        <div style="width: 50%;" class="col">
+            <img src="./assets/part-III/modele_lifting.png" alt="biomodel" style="width: 100%;">
+        </div>
+        <div style="width: 50%;font-size: 0.7em;" class="col">
+            <div class="fragment" data-fragment-index="1" style="text-align: left;">
+                <ul>
+                    <li>5 DoFs biomechanical sagittal planar model.</li>
+                </ul>
+            </div>
+            <div class="fragment" data-fragment-index="2" style="text-align: left;">
+                <ul>
+                    <li>Collision avoidance constraints: box with table and box with human.</li>
+                </ul>
+            </div>
+            <div class="fragment" data-fragment-index="3" style="text-align: left;">
+                <ul>
+                    <li>Balance constraint with the ZMP.</li>
+                </ul>
+            </div>
+            <div class="fragment" data-fragment-index="4" style="text-align: left;">
+                <ul>
+                    <li>Box final position and model limits enforced by constraints.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Minimal Observations Inverse Reinforcement Learning for Predicting Human Box-Lifting Motions</em>, IEEE Humanoids, 2025
+    </div>
+  </section>
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 2: Human load lifting
+    </h3>
+
+    <table style="width:100%; margin:auto;font-size: 0.7em;">
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_1$
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
+                <div class="fragment custom emphasize" data-fragment-index="1">Joint torque lower limbs</div>
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau_{ll}^2 \,dt $
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_2$
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
+               <div class="fragment custom emphasize" data-fragment-index="1">Joint torque shoulder</div>
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau_{sho}^2 \,dt $
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_3$
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
+                <div class="fragment custom emphasize" data-fragment-index="1">Joint torque elbow</div>
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau_{elb}^2 \,dt $
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_4$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Joint velocity
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \dot{q}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_5$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Joint acceleration
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \ddot{q}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_6$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Cartesian velocity
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \dot{p}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_7$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Joint torque change
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \dot{\tau}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_8$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Energy
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} \sum_i\left|\dot{q}_i\tau_i\right| \,dt $ 
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_9$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Geodesic
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} (\dot{q}^{\top}H(q)\dot{q})^{\frac{1}{2}} \,dt $ 
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_{10}$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                <div class="fragment custom emphasize" data-fragment-index="1">Box horizontal position (psychological)</div>
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \hat{p}_{box,z}^0 \,dt $
+            </td>
+        </tr>
+    </table>
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Minimal Observations Inverse Reinforcement Learning for Predicting Human Box-Lifting Motions</em>, Humanoids, 2025
+    </div>
+  </section>
+
+    <section data-auto-animate class="slide-anno-stage">
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+        Case study 2: Human load lifting
+    </h3>
+
+    <!-- Keep your 90% row exactly as-is -->
+    <div style="display:flex; align-items:center; width:90%; margin-inline:auto;">
+        <div style="width: 40%; padding-right:1.2rem;" class="col">
+            <div class="video-legend-wrap">
+                <video data-autoplay loop muted playsinline>
+                    <source data-src="./videos/Part-III/comparison_lifting_cut.mp4" type="video/mp4">
+                </video>
+                <figcaption style="text-align:center; font-size:0.5em; margin-top:0.3rem;">
+                    <b>7deg</b> of average error (more errors on upper limbs, planar hypothesis)
+                </figcaption>
+                <div class="video-legend"
+                    style="--legend-bottom:auto; --legend-right:auto; --legend-top:-2rem; --legend-left:-0.5rem;">
+                <div class="legend-item"><span class="legend-dot red"></span> Reference</div>
+                <div class="legend-item"><span class="legend-dot green"></span> Prediction</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 60%;" class="col">
+        <img src="./assets/part-III/weights_lifting.png" alt="weights" style="width:100%; display:block;">
+        </div>
+    </div>
+
+    <!-- FULL-SLIDE OVERLAY (now sibling of the row, not inside it) -->
+    <svg class="slide-anno-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet">
+        <defs>
+        <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+        </marker>
+        </defs>
+
+        <g class="fragment fade-in-then-semi-out" data-fragment-index="1">
+            <ellipse class="anno-stroke" cx="1050" cy="730" rx="25" ry="180" transform="rotate(40 1135 395)"/>
+            <line class="anno-stroke" x1="970" y1="460" x2="1060" y2="225" marker-end="url(#arrowRed)"/>
+            <circle class="anno-dot" cx="970" cy="460" r="6"/>
+            <text class="anno-text" x="920" y="205">Minimization of lower-limb joint torques</text>
+        </g>
+
+
+        <g class="fragment fade-in-then-semi-out" data-fragment-index="2">
+            <ellipse class="anno-stroke" cx="1220" cy="650" rx="80" ry="180" transform="rotate(40 1135 395)"/>
+            <line class="anno-stroke" x1="1145" y1="500" x2="1250" y2="315" marker-end="url(#arrowRed)"/>
+            <circle class="anno-dot" cx="1145" cy="500" r="6"/>
+            <text class="anno-text" x="1000" y="295">Combination of joint acceleration, box velocity, and energy</text>
+        </g>
+
+        <g class="fragment fade-in-then-semi-out" data-fragment-index="3">
+            <ellipse class="anno-stroke" cx="1360" cy="570" rx="30" ry="120" transform="rotate(35 1135 395)"/>
+            <line class="anno-stroke" x1="1290" y1="570" x2="1350" y2="415" marker-end="url(#arrowRed)"/>
+            <circle class="anno-dot" cx="1290" cy="570" r="6"/>
+            <text class="anno-text" x="1140" y="395">Psychological cost appearing from mid-motion</text>
+        </g>
+    </svg>
+
+    <div class="citation-small" style="text-align:center;">
+        <b>M. Sabbah</b> et al., <em>Minimal Observations Inverse Reinforcement Learning for Predicting Human Box-Lifting Motions</em>, IEEE Humanoids, 2025
+    </div>
+    </section>
+</section>

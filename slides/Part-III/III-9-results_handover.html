@@ -1,0 +1,268 @@
+<section data-part-group="part-iii" data-part-title="PART III"
+         style="--part-accent: var(--c-secondary-green);">
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 1: Human-robot handover
+    </h3>
+
+    Blindfolded pointing task :
+
+    <div style="display: flex; align-items: center; width: 100%;">
+        <div style="width: 50%;" class="col">
+        <img src="./assets/part-III/modele_pointing.png" alt="biomodel" style="width: 75%;">
+        </div>
+        <div style="width: 50%;" class="col">
+        <img src="./assets/part-III/berret_ours.png" alt="postures" style="width: 55%;">
+        </div>
+      </div>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        B. Berret et al., <em>Evidence for composite cost functions in arm movement planning: an inverse optimal control approach</em>, Plos Computational Biology, 2011
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
+    </div>
+
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 1: Human-robot handover
+    </h3>
+
+    <table style="width:100%; margin:auto;">
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_1$
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
+                Joint torque
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau^2 \,dt $
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_2$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Joint velocity
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \dot{q}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_3$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Joint acceleration
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \ddot{q}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_4$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Cartesian velocity
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \dot{p}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_5$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Joint torque change
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} \dot{\tau}^2 \,dt $
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_6$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Energy
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} \sum_i\left|\dot{q}_i\tau_i\right| \,dt $ 
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_7$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                Geodesic
+            </td>
+            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                $ \int_{0}^{T} (\dot{q}^{\top}H(q)\dot{q})^{\frac{1}{2}} \,dt $ 
+            </td>
+        </tr>
+    </table>
+
+    <div class="citation-small" style="text-align: center;">
+        B. Berret et al., <em>Evidence for composite cost functions in arm movement planning: an inverse optimal control approach</em>, Plos Computational Biology, 2011
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 1: Human-robot handover
+    </h3>
+
+    <div style="font-size:0.7em; text-align: center;" >
+        <span>Variable weights: </span>
+        <span>\(\boldsymbol{\omega}(t)\)</span>
+        <span>&nbsp;on optical mocap data, 20 participants performing 5 pointing tasks:</span>
+    </div>
+
+    <div style="display: flex; align-items: center; width: 100%;">
+        <div style="width: 50%;" class="col">
+        <img src="./assets/part-III/results_berret_novariable.png" alt="biomodel" style="width: 90%;">
+        <figcaption style="font-size: 0.7em;">Without: <b>7deg</b> of error</figcaption>
+        </div>
+        <div style="width: 50%;" class="col">
+        <img src="./assets/part-III/results_berret_variable.png" alt="postures" style="width: 90%;">
+        <figcaption style="font-size: 0.7em;">With: <b>1.5deg</b> of error</figcaption>
+        </div>
+      </div>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        B. Berret et al., <em>Evidence for composite cost functions in arm movement planning: an inverse optimal control approach</em>, Plos Computational Biology, 2011
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 1: Human-robot handover
+    </h3>
+
+    On COSMIK data: 
+
+    <div style="display: flex; align-items: center; width: 100%;">
+        <div class="video-legend-wrap">
+            <video data-autoplay loop muted playsinline style="width:100%;">
+                <source data-src="./videos/Part-III/results_handovers.mp4" type="video/mp4">
+            </video>
+        <!-- Overlay legend -->
+            <div class="video-legend">
+                <div class="legend-item">
+                    <span class="legend-dot red"></span> Reference
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot green"></span> Prediction
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 1: Human-robot handover
+    </h3>
+
+    <!-- Staged figure: image + three masks that fade out -->
+    <div class="fig-staged" style="position:relative; width:90%; margin:0 auto;">
+    <img src="./assets/part-III/overview_handover.png" style="width:100%; display:block;" />
+
+    <!-- 1) Mask the GREEN panel (top-right) — fades out first -->
+    <div class="fragment fade-out"
+        data-fragment-index="0"
+        style="position:absolute; left:59%; top:-1%; width:43%; height:55%;
+                background:#fff;">
+    </div>
+
+    <!-- 2) Mask the ORANGE panel (bottom-right) — fades out second -->
+    <div class="fragment fade-out"
+        data-fragment-index="1"
+        style="position:absolute; left:59%; top:52.5%; width:43%; height:53%;
+                background:#fff;">
+    </div>
+
+    <!-- 3) Mask the WHITE strip with time frames (bottom-left) — fades out third -->
+    <div class="fragment fade-out"
+        data-fragment-index="2"
+        style="position:absolute; left:0%; top:52.5%; width:59.9%; height:50%;
+                background:#fff;">
+    </div>
+    </div>
+
+
+    <div class="citation-small" style="text-align: center;">
+        <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Case study 1: Human-robot handover
+    </h3>
+
+    <div class ="col" style="width: 70%;">
+        <div style="display: flex; align-items: center; width: 100%;">
+            <video data-autoplay loop muted playsinline style="width:100%;">
+                <source data-src="./videos/Part-III/demo_handovers.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="col" style="width:30%;">
+        <div style="font-size: 0.5em;">Dataset of 10 healthy participants with simulated blindness:</div>
+        <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.5em;">
+            <ul class="pc-list">
+                <li class="pro">88% of success rate.</li>
+                <li class="pro">The robot arrived <b>0.67s</b> before the human in average and predicted the pose with an accuracy of <b>5.3cm</b> and <b>9.6deg</b>.</li>
+            </ul>
+        </div>
+        <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.5em;">
+            <ul class="pc-list">
+                <li class="con">Failure when the planar hypothesis is not respected.</li>
+                <li class="con">Unstable convergence of IRL.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class ="col" style="width: 100%;">
+        <div class="citation-small" style="text-align: center;">
+            <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
+        </div>
+    </div>
+  </section>
+
+</section>

@@ -1,0 +1,85 @@
+<section data-part-group="part-ii" data-part-title="PART II"
+         style="--part-accent: var(--c-secondary-blue);">
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Concurrent validity of embedded modalities</h3>
+    <div class="img-eq-flex" style="font-size: 0.4em;">
+    <!-- LEFT (step 1) -->
+    <div class="side left fragment" data-fragment-index="0">
+        <img src="./assets/part-II/xsens.png" alt="Xsens" style="width: 38%;">
+        <span class="op">+</span>
+        <img src="./assets/part-II/insoles.png" alt="Insoles" style="width: 20%;">
+        <span class="op">+</span>
+        <span class="badge badge-sysid">SysId</span>
+    </div>
+
+    <!-- questioned equality, shows with right side -->
+    <div class="op mid fragment" data-fragment-index="1">=</div>
+
+    <!-- RIGHT (step 2) -->
+    <div class="side right fragment" data-fragment-index="1">
+        <img src="./assets/part-II/mocap.png" alt="Mocap" style="width: 30%;">
+        <span class="op">+</span>
+        <img src="./assets/part-II/fp.png" alt="FP" style="width: 30%;">
+        <span class="op">+</span>
+        <span class="badge badge-at">AT</span> ?
+    </div>
+    </div>
+
+  <div class="citation-small" style="text-align:center;">
+        <b> M. Sabbah </b> et al., <em>Concurrent Validity of Embedded Solutions for Whole Body Dynamics Analysis</em>, IEEE Sensors, 2024
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Results</h3>
+    
+  <div style="text-align:left; font-size:0.75em;">
+      <ul>
+        <li>10 participants: identification first then cross-validation on Y-Balance Test</li>
+      </ul>
+  </div>
+
+  <div class="col" style="width:50%; font-size:0.75em; text-align:center;">
+    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.75em;">
+      <ul class="pc-list">
+          <li class="pro">GRFM well estimated on identification trials</li>
+      </ul>
+    </div>
+
+    <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.75em;">
+      <ul class="pc-list">
+          <li class="con">Insoles: <b>100N</b> of error, not mature enough to be directly used.</li>
+      </ul>
+    </div>
+
+    <div class="fragment" data-fragment-index="3" style="text-align:left; font-size:0.75em;">
+      <ul class="pc-list">
+          <li class="con">Embedded kinematics errors too important to be compensated → <b>20%</b> more errors in joint torques</li>
+      </ul>
+    </div>
+
+    <div class="fragment" data-fragment-index="4" style="text-align:center; font-size:0.75em;">
+          <b>Conclusion: need to improve embedded modalities accuracy! </b>
+      </div>
+    </div>
+  </div>
+
+  <div class = "col" style="width:50%; font-size:0.75em; text-align:center;">
+    <div class="r-stack">
+      <img class="fragment" data-fragment-index="1" src="./assets/part-II/identif_fitting.png" style="width:70%;"/>
+      <figcaption class="fragment" data-fragment-index="1" style="font-size:0.5em;position: absolute; transform: translate(0%,1550%);">
+        Average RMSE : $\text{SS}_{\text{ID}}$ = 3.8N, 5.9N.m , $\text{IMU}_{\text{ID}}$ = 5.8N, 10.6N.m
+      </figcaption>
+    </div>
+  </div>
+
+  <div class="col" style="width:100%; margin-top:0.5em; text-align:center;">
+    <div class="citation-small" style="text-align:center;">
+          <b> M. Sabbah </b> et al., <em>Concurrent Validity of Embedded Solutions for Whole Body Dynamics Analysis</em>, IEEE Sensors, 2024
+    </div>
+  </div>
+</section>
+
+</section>

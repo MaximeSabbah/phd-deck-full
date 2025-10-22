@@ -1,0 +1,238 @@
+<section data-part-group="part-iii" data-part-title="PART III"
+         style="--part-accent: var(--c-secondary-green);">
+    <section data-auto-animate>
+        <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+        [PART_NAME_III]
+        </h2>
+        <h3 style="background-color:#34c22fb9; margin-top:0px;">
+            State-of-the-art
+        </h3>
+        
+        <div>
+            How can we generate human motions ? 
+        </div>
+
+        <div style="text-align: center; width: 70%;" class="col">
+            <div class="fragment" data-fragment-index="1">
+                <video data-autoplay loop muted playsinline style="width:100%;">
+                <source data-src="./videos/Part-III/siggraph_ff_small.mp4" type="video/mp4">
+                </video>
+                <div class="citation-small" style="text-align:center;">
+                X. Huang et al., <em>Diffuse-CLoC: Guided Diffusion for Physics-based Character Look-ahead Control</em>, SIGGRAPH, 2025
+                </div>
+            </div>
+        </div>
+
+        <div class="col" style="width:30%; margin:0 auto; text-align:center;">
+            <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.65em;">
+                <ul class="pc-list">
+                    <li class="pro">Versatile model.</li>
+                    <li class="pro">Physically plausible.</li>
+                </ul>
+            </div>
+            <div class="fragment" data-fragment-index="3" style="text-align:left; font-size:0.65em;">
+                <ul class="pc-list">
+                    <li class="con">Data hungry.</li>
+                    <li class="con">Not explainable.</li>
+                    <li class="con">Real-time?</li>
+                    <li class="con">No safety guarantees.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</section>
+
+<section data-part-group="part-iii" data-part-title="[PART_NAME_III]"
+         style="--part-accent: var(--c-secondary-green);">
+    <section data-auto-animate>
+        <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+        [PART_NAME_III]
+        </h2>
+        <h3 style="background-color:#34c22fb9; margin-top:0px;">
+            Optimality principles of human motions
+        </h3>
+
+        <div>
+            <b>Hypothesis:</b> humans perform motions with respect to some optimality principles
+        </div>
+
+        <div class="fragment" data-fragment-index="1">
+            <div style="display: flex; align-items: center; width: 100%;">
+                \[
+                \begin{split}
+                & \min_{X,U} & \quad \Phi_{tot}(X,U,\boldsymbol{\omega}) \\
+                & ~ \text{s.t.} & ~ \mathbf{g}(X,U) = 0 \ (\text{dynamics}) \\
+                & & ~ \mathbf{h}(X,U) \leq 0 \ (\text{boundaries}) \\
+                \end{split}
+                \]
+            </div>
+        </div>
+
+        <div class="fragment" data-fragment-index="2">
+            <div style="display: flex; align-items: center; width: 100%; margin-top:-17rem; line-height:0;"">
+                \[
+                \underbrace{
+                \phantom{
+                \begin{aligned}
+                \min_{X,U}\quad & \Phi_{tot}(X,U,\boldsymbol{\omega}) \\
+                \text{s.t.}\quad & \mathbf{g}(X,U) = 0 \; (\text{dynamics}) \\
+                & \mathbf{h}(X,U) \le 0 \; (\text{boundaries})
+                \end{aligned}
+                }
+                }_{\text{Direct Optimal Control (DOC)}}
+                \]
+            </div>
+        </div>
+    </section>
+
+    <section data-auto-animate>
+        <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+        [PART_NAME_III]
+        </h2>
+        <h3 style="background-color:#34c22fb9; margin-top:0px;">
+            Optimality principles of human motions
+        </h3>
+
+        <div style="font-size:0.8em; text-align: center;" >
+            <span>\(\Phi_{tot}(X,U,\boldsymbol{\omega})\)</span>
+            <span>&nbsp;composed of biomechanical cost functions, for instance:</span>
+        </div>
+
+        <div class="fragment" data-fragment-index="1" >
+            <table style="width:100%; margin:auto;">
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_1$
+                </td>
+                <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
+                    Joint torque
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau^2 \,dt $
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_2$
+                </td>
+                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                    Joint velocity
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} \dot{q}^2 \,dt $
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_3$
+                </td>
+                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                    Joint acceleration
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} \ddot{q}^2 \,dt $
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_4$
+                </td>
+                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                    Cartesian velocity
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} \dot{p}^2 \,dt $
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_5$
+                </td>
+                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                    Joint torque change
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} \dot{\tau}^2 \,dt $
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_6$
+                </td>
+                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                    Energy
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                     $ \int_{0}^{T} \sum_i\left|\dot{q}_i\tau_i\right| \,dt $ 
+                </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
+                    $\Phi_7$
+                </td>
+                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
+                    Geodesic
+                </td>
+                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
+                    $ \int_{0}^{T} (\dot{q}^{\top}H(q)\dot{q})^{\frac{1}{2}} \,dt $ 
+                </td>
+            </tr>
+        </table>
+        <div class="citation-small" style="text-align: center;">
+        B. Berret et al., <em>Evidence for composite cost functions in arm movement planning: an inverse optimal control approach</em>, Plos Computational Biology, 2011
+        </div>
+    </div>
+    </section>
+</section>
+
+<section data-part-group="part-iii" data-part-title="[PART_NAME_III]"
+         style="--part-accent: var(--c-secondary-green);">
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Optimality principles of human motions
+    </h3>
+
+    <div style="display:grid; justify-items:center; width:100%; position:relative;">
+
+      <!-- (2) Base equation -->
+      <div style="grid-area:1/1;">
+        \[
+        \begin{aligned}
+        \min_{X,U}\quad & \Phi_{tot}(X,U,\boldsymbol{\omega}) \\
+        \text{s.t.}\quad & \mathbf{g}(X,U) = 0 \; (\text{dynamics}) \\
+        & \mathbf{h}(X,U) \le 0 \; (\text{boundaries})
+        \end{aligned}
+        \]
+      </div>
+
+      <!-- (3) Same equation, ω in blue (overlays previous) -->
+      <div class="fragment" data-fragment-index="1" style="grid-area:1/1;">
+        \[
+        \begin{aligned}
+        \min_{X,U}\quad & \Phi_{tot}(X,U,\color{#2979ff}{\boldsymbol{\omega}}) \\
+        \text{s.t.}\quad & \mathbf{g}(X,U) = 0 \; (\text{dynamics}) \\
+        & \mathbf{h}(X,U) \le 0 \; (\text{boundaries})
+        \end{aligned}
+        \]
+      </div>
+
+      <!-- (4) Blue annotation near ω -->
+      <div class="fragment" data-fragment-index="1"
+           style="position:absolute; left:62%; top:8%; color:#2979ff; font-size:0.9em;">
+        Time varying weight vector ?
+      </div>
+    </div>
+
+    <!-- (5) Blue sentence below -->
+    <div class="fragment" data-fragment-index="1"
+         style="color:#2979ff; margin-top:.6rem;">
+      Reproducing demonstrated human motion = determining the weight vector
+    </div>
+  </section>
+</section>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .frame { stroke:#0d2a4a; stroke-width:6; fill:none; }
+      .panelTitle { font:700 36px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0d2a4a; }
+      .legend { font:500 28px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0d2a4a; }
+      .tick { stroke:#0d2a4a; stroke-width:2; stroke-dasharray:8 10; opacity:.35; }
+      .meas { fill:#ef7f1a; }
+      .measfade { fill:#f7c99a; }
+      .estmeas { fill:#1f66b3; }
+      .state { fill:#1f66b3; }
+      .outlier { fill:none; stroke:#d9365f; stroke-width:8; }
+      .curve { fill:none; stroke:#27b3af; stroke-width:8; opacity:.92; }
+      .window { fill:#eaf2fc; stroke:#1f66b3; stroke-width:5; rx:20; }
+      .axisLbl { font:600 30px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0d2a4a; }
+    </style>
+  </defs>
+<rect x="80" y="90" width="1440" height="330" class="frame"/>
+<rect x="80" y="480" width="1440" height="330" class="frame"/>
+<rect x="541.2" y="110" width="649.8" height="290" class="window"/>
+<rect x="541.2" y="500" width="649.8" height="290" class="window"/>
+<line x1="150.0" y1="90" x2="150.0" y2="810" class="tick"/>
+<line x1="252.3" y1="90" x2="252.3" y2="810" class="tick"/>
+<line x1="354.6" y1="90" x2="354.6" y2="810" class="tick"/>
+<line x1="456.9" y1="90" x2="456.9" y2="810" class="tick"/>
+<line x1="559.2" y1="90" x2="559.2" y2="810" class="tick"/>
+<line x1="661.5" y1="90" x2="661.5" y2="810" class="tick"/>
+<line x1="763.8" y1="90" x2="763.8" y2="810" class="tick"/>
+<line x1="866.2" y1="90" x2="866.2" y2="810" class="tick"/>
+<line x1="968.5" y1="90" x2="968.5" y2="810" class="tick"/>
+<line x1="1070.8" y1="90" x2="1070.8" y2="810" class="tick"/>
+<line x1="1173.1" y1="90" x2="1173.1" y2="810" class="tick"/>
+<line x1="1275.4" y1="90" x2="1275.4" y2="810" class="tick"/>
+<line x1="1377.7" y1="90" x2="1377.7" y2="810" class="tick"/>
+<line x1="1480.0" y1="90" x2="1480.0" y2="810" class="tick"/>
+<text x="98" y="72" class="panelTitle">Measurements</text>
+<text x="98" y="462" class="panelTitle">States</text>
+
+    <g class="legend" transform="translate(1090,128)">
+      <circle cx="20" cy="0" r="10" class="meas"/><text x="40" y="6">measured</text>
+      <circle cx="220" cy="0" r="10" class="estmeas"/><text x="240" y="6">estimated</text>
+    </g>
+    <g class="legend" transform="translate(1260,518)">
+      <circle cx="20" cy="0" r="10" class="state"/><text x="40" y="6">state</text>
+    </g>
+    <path d="M559.2,263.0 C581.7,262.3 616.5,258.5 661.5,260.0 C706.6,261.5 718.8,270.0 763.8,269.8 C808.9,269.6 821.1,260.5 866.2,259.0 C911.2,257.5 923.4,266.5 968.5,263.0 C1013.5,259.5 1025.8,245.6 1070.8,243.0 C1115.8,240.4 1150.6,249.2 1173.1,251.0 " class="curve"/>
+<circle cx="150.0" cy="230.0" r="12" class="meas"/>
+<circle cx="252.3" cy="260.0" r="12" class="meas"/>
+<circle cx="354.6" cy="250.0" r="12" class="meas"/>
+<circle cx="456.9" cy="210.0" r="12" class="meas"/>
+<circle cx="559.2" cy="270.0" r="12" class="meas"/>
+<circle cx="661.5" cy="245.0" r="12" class="meas"/>
+<circle cx="763.8" cy="340.0" r="12" class="meas"/>
+<circle cx="866.2" cy="235.0" r="12" class="meas"/>
+<circle cx="968.5" cy="220.0" r="12" class="meas"/>
+<circle cx="1070.8" cy="255.0" r="12" class="meas"/>
+<circle cx="1173.1" cy="265.0" r="12" class="meas"/>
+<circle cx="1275.4" cy="240.0" r="12" class="measfade"/>
+<circle cx="1377.7" cy="275.0" r="12" class="measfade"/>
+<circle cx="1480.0" cy="230.0" r="12" class="measfade"/>
+<circle cx="763.8" cy="340.0" r="16" class="outlier"/>
+<circle cx="559.2" cy="263.0" r="10" class="estmeas"/>
+<circle cx="661.5" cy="260.0" r="10" class="estmeas"/>
+<circle cx="763.8" cy="269.8" r="10" class="estmeas"/>
+<circle cx="866.2" cy="259.0" r="10" class="estmeas"/>
+<circle cx="968.5" cy="263.0" r="10" class="estmeas"/>
+<circle cx="1070.8" cy="243.0" r="10" class="estmeas"/>
+<circle cx="1173.1" cy="251.0" r="10" class="estmeas"/>
+<circle cx="150.0" cy="660.0" r="12" class="state"/>
+<circle cx="252.3" cy="640.0" r="12" class="state"/>
+<circle cx="354.6" cy="642.0" r="12" class="state"/>
+<circle cx="456.9" cy="646.0" r="12" class="state"/>
+<circle cx="559.2" cy="643.0" r="12" class="state"/>
+<circle cx="661.5" cy="639.0" r="12" class="state"/>
+<circle cx="763.8" cy="635.0" r="12" class="state"/>
+<circle cx="866.2" cy="636.0" r="12" class="state"/>
+<circle cx="968.5" cy="633.0" r="12" class="state"/>
+<circle cx="1070.8" cy="631.0" r="12" class="state"/>
+<circle cx="1173.1" cy="629.0" r="12" class="state"/>
+<text x="800" y="850" text-anchor="middle" class="axisLbl">horizon</text>
+<text x="150.0" y="850" text-anchor="middle" class="axisLbl">t₀</text>
+<text x="1480.0" y="850" text-anchor="middle" class="axisLbl">tₙ (now)</text>
+</svg>

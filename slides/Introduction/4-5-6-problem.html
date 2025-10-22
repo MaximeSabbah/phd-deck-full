@@ -1,0 +1,107 @@
+<section data-part-group="intro" data-part-title="Introduction"
+         style="--part-accent: var(--c-secondary-dark-blue);">
+<section data-auto-animate>
+    <h2 style="margin:0px; color: white;">
+        Introduction
+    </h2>
+    <h3 style="margin-top:0px; color: white;">
+        Our approach
+    </h3>
+    <p>
+    Proposing <b>software tools</b> for modelling, estimating and predicting human motion, to progress towards more natural and ergonomic physical HRC.
+    </p>
+    <!-- <div class="fragment" style="text-align: left; font-size: 0.85em;">
+        <div style="width: 25%;" class="col">
+            Focus:
+        </div>
+        <div style="width: 37%;" class="col">
+            <ul>
+                <li>Safety</li>
+                <li>Speed</li>
+            </ul>
+        </div>
+        <div style="width: 37%;" class="col">
+            <ul>
+                <li>Ergonomics</li>
+                <li>Practicality</li>
+            </ul>
+        </div>
+    </div> -->
+</section>
+</section>
+
+<section data-part-group="intro" data-part-title="Introduction"
+         style="--part-accent: var(--c-secondary-dark-blue);">
+<section data-auto-animate>
+  <h2 style="margin:0px; color: white;">Introduction</h2>
+  <h3 style="margin-top:0px; color: white;">Human biomechanical model</h3>
+
+  <div style="width: 50%;" class="col">
+    <img src="./assets/intro/human_model.png" alt="Human Model">
+  </div>
+
+  <div style="width: 50%; font-size:1.50rem; line-height:1.35;" class="col">
+    <p style="margin:0 0 .3rem 0; font-weight:800;">Gepetto Mannequin:</p>
+    <ul style="margin:0; padding-left:1.2rem;">
+      <li>Built on ISB recommendations<sup>1</sup></li>
+      <li>Scaled using anthropometric tables<sup>2</sup></li>
+      <li>36 actuated DoFs + floating base at the pelvis</li>
+      <li>Model boundaries (joint positions, velocities, torques) derived from literature<sup>3,4</sup></li>
+      <li>Available in open-source under the URDF format<sup>5</sup></li>
+    </ul>
+  </div>
+
+  <!-- Footnotes (unchanged; small size already) -->
+  <div class="citation-small" style="text-align: left; font-size:0.25em; margin-top: 40%;">
+    <div><sup>1</sup> G. Wu et al., <em>ISB recommendation on definitions of joint coordinate systems of various joints [...]</em>, Journal of Biomechanics, 2022-2025.</div>
+    <div><sup>2</sup> R. Dumas et&nbsp;al., <em>Adjustments to McConville et al. and Young et al. body segment inertial parameters</em>, Journal of Biomechanics, 2007.</div>
+    <div><sup>3</sup> D. Boone and S. Azen, <em>Normal range of motion of joints in male subjects</em>, JBJS, 1979.</div>
+    <div><sup>4</sup> T. Robert et al., <em>Estimation of external contact loads using an inverse dynamics and optimization approach: [...] maneuvers</em>, Journal of Biomechanics, 2013.</div>
+    <div><sup>5</sup> <em>https://github.com/Gepetto/example-robot-data</em></div>
+  </div>
+
+  <div class="overlay-left fragment" data-fragment-index="1">
+    <img src="./assets/intro/human_models_generation.png" alt="Human Model Gen">
+  </div>
+</section>
+</section>
+
+<section data-part-group="intro" data-part-title="Introduction"
+         style="--part-accent: var(--c-secondary-dark-blue);">
+<section data-auto-animate>
+  <h2 style="margin:0px; color: white;">Introduction</h2>
+  <h3 style="margin-top:0px; color: white;">Contributions</h3>
+
+  <div class="fragment" style="text-align:left; font-size:0.85em;">
+    <div style="width:100%;" class="col">
+      <ul>
+        <li><b>RT-COSMIK:</b> real-time full-body kinematics estimation from two webcams.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fragment" style="text-align:left; font-size:0.85em;">
+    <div style="width:100%;" class="col">
+      <ul>
+        <li><b>Personalized dynamics:</b> online identification of subject-specific models with embedded sensors.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fragment" style="text-align:left; font-size:0.85em;">
+    <div style="width:100%;" class="col">
+      <ul>
+        <li><b>Forces from wearables:</b> data-driven GRFM estimation using embedded insoles.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fragment" style="text-align:left; font-size:0.85em;">
+    <div style="width:100%;" class="col">
+      <ul>
+        <li><b>Few-shot prediction → Model Predictive Control (MPC):</b> learn from demos and deploy in proactive HRC control.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</section>

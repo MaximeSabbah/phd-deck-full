@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>C. Perrot - PhD Defense</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/laas.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+    <link rel="stylesheet" href="css/logos.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom_fragments.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <img src="assets/logos/Logo_LAAS.png" alt="LAAS Logo" class="laas-logo">
+                <h1>Reactive coordinated motion planning by robots with free-flying bases in factories
+                    using AI</h1>
+                <div style="font-size: 0.75em; margin-top: 50px">Côme Perrot</div>
+                <div style="font-size: 0.7em; margin-top: 25px">
+                    Under the supervision of: <br />
+                    <table>
+                        <tr>
+                            <td>Olivier Stasse</td>
+                            <td>(Gepetto, LAAS-CNRS)</td>
+                        </tr>
+                    </table>
+                </div>
+                <table style="width:100%">
+                    <tr>
+                        <td style="text-align: left; vertical-align: middle; padding:0 0 60px 60px">
+                            <div class="logo-container">
+                                <img src="assets/logos/Logo_CNRS.svg" alt="CNRS Logo" class="cnrs-logo">
+                            </div>
+                        </td>
+                        <td style="text-align: right; vertical-align: middle; width:20%;">
+                            <img src="assets/logos/logo_region.png" alt="Occitanie Logo" class="occitanie-log">
+                        </td>
+                        <td style="text-align: left; vertical-align: middle; width:30%;">
+                            <img src="assets/logos/logo_rob4fam.png" alt="ROB4FAM Logo" class="occitanie-log">
+                        </td>
+                        <td style="text-align: right; vertical-align: middle;">
+                            <img src="assets/logos/Logo_universiteToulouse.svg" alt="Université de Toulouse Logo"
+                                class="toulouse-logo">
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <!-- Introduction -->
+            <section>
+                <h2 style="margin:0px; color: white;">
+                    Introduction
+                </h2>
+                <h3 style="margin-top:0px; color: white;">
+                    General Context
+                </h3>
+                <div
+                    style="color: var(--c-complementary-grey2); text-align: left; font-size: 0.75em; font-style:italic;">
+                    <p style="margin: 5px 0;">"These [humanoid] robots will eliminate the need for unsafe and
+                        undesirable jobs,
+                        allowing future generations to live
+                        happier, more purposeful lives."</p>
+                    <p style="margin: 5px 0;">"[...] the opportunity to make an unprecedented impact on humankind."</p>
+                </div>
+                <div style="text-align: right; font-size: 0.6em;">
+                    <p style="margin: 0; font-weight:bold;">Brett Adcock</p>
+                    <p style="margin: 0;">Founder & CEO @ Figure</p>
+                </div>
+            </section>
+            <section>
+                <section data-auto-animate data-auto-animate-reset>
+                    <h2 style="margin:0px; color: white;">
+                        Introduction
+                    </h2>
+                    <h3 style="margin-top:0px; color: white;">
+                        State of the art
+                    </h3>
+                    <p>
+                        Lots of prototypes:
+                    </p>
+                    <div style="display:flex; justify-content: center; flex-wrap:wrap;">
+                        <div style="display: flex; justify-content:center; margin: 0.2em;" class="col">
+                            <img src="assets/intro/robots/Atlas_nobg.png" style="height: 9em;" alt="Atlas">
+                        </div>
+                        <div style="display: flex; justify-content:center; margin: 0.2em;" class="col">
+                            <img src="assets/intro/robots/Digit_nobg.png" style="height: 9em;" alt="Digit">
+                        </div>
+                        <div style="display: flex; justify-content:center; margin: 0.2em;" class="col">
+                            <img src="assets/intro/robots/figure02_nobg.png" style="height: 9em;" alt="Figure 02">
+                        </div>
+                        <div style="display: flex; justify-content:center; margin: 0.2em;" class="col">
+                            <img src="assets/intro/robots/h1.png" style="height: 9em;" alt="H1">
+                        </div>
+                        <div style="display: flex; justify-content:center; margin: 0.2em;" class="col">
+                            <img src="assets/intro/robots/Optimus_nobg.png" style="height: 9em;" alt="Optimus">
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="margin:0px; color: white;">
+                        Introduction
+                    </h2>
+                    <h3 style="margin-top:0px; color: white;">
+                        State of the art
+                    </h3>
+                    <p>
+                        Few actual industrial uses:
+                    </p>
+                    <video data-autoplay loop muted playsinline style="display: block; margin: auto; width: 80%;">
+                        <source data-src="./assets/intro/sota/Atlas.mp4" type="video/mp4">
+                    </video>
+                </section>
+            </section>
+            <section>
+                <h2 style="margin:0px; color: white;">
+                    Introduction
+                </h2>
+                <h3 style="margin-top:0px; color: white;">
+                    Scientific collaboration
+                </h3>
+                <div style="width: 60%;" class="col">
+                    <img src="assets/logos/logo_rob4fam.png" style="width:90%;" alt="ROB4FAM Logo">
+                    <p style="font-size: 0.9em;">Torque-controlled humanoid robots for aircraft manufacturing</p>
+                    <p>Focus on <span style="font-weight: bold;">Deburring</span></p>
+                </div>
+                <div style="width: 40%;" class="col">
+                    <img src="assets/intro/talos_deburring_cropped.png" style="width: 100%;" alt="P72">
+                </div>
+            </section>
+            <section>
+                <section data-auto-animate>
+                    <h2 style="margin:0px; color: white;">
+                        Introduction
+                    </h2>
+                    <h3 style="margin-top:0px; color: white;">
+                        Robotic platform
+                    </h3>
+                    <div style="width: 50%;" class="col">
+                        <img src="assets/intro/Talos_pal.webp" alt="Talos">
+                    </div>
+                    <div style="width: 50%;" class="col">
+                        <p>Talos:</p>
+                        <ul>
+                            <li>1.75 m</li>
+                            <li>95 kg</li>
+                            <li>32 Degrees of freedom</li>
+                            <li>6 kg manipulation capability</li>
+                        </ul>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="margin:0px; color: white;">
+                        Introduction
+                    </h2>
+                    <h3 style="margin-top:0px; color: white;">
+                        Robotic platform
+                    </h3>
+                    <div style="width: 50%;" class="col">
+                        <img src="assets/intro/Pyrene_cropped.jpg" style="width:80%" alt="Pyrene">
+                    </div>
+                    <div style="width: 50%;" class="col">
+                        <p>Pyrène:</p>
+                        <ul>
+                            <li>2016</li>
+                            <li>First prototype</li>
+                            <li>>1000 h of use</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h2 style="margin:0px; color: white;">
+                    Introduction
+                </h2>
+                <h3 style="margin-top:0px; color: white;">
+                    State of the art
+                </h3>
+                <div style="width: 50%; text-align: center;" class="col">
+                    <span style="font-weight: bold; font-size: 0.8em;">Model Predictive Control</span>
+                    <video data-autoplay loop muted playsinline style="width: 85%; margin: 0 auto; display: block;">
+                        <source data-src="./assets/intro/sota/Talos_ILP.mp4" type="video/mp4">
+                    </video>
+                    <img src="assets/intro/sota/tikz_modelBased.svg" style="margin: 0; width: 75%; text-align: center;">
+                    <div class="citation-small">- Villa et al. (2022), Torque Controlled Locomotion of a Biped Robot
+                        with Link
+                        Flexibility, ICHR</div>
+                </div>
+                <div style="width: 50%; text-align: center;" class="col">
+                    <span style="font-weight: bold; font-size: 0.8em;">Reinforcement Learning</span>
+                    <video data-autoplay loop muted playsinline style="width: 85%; margin: 0 auto; display: block;">
+                        <source data-src="./assets/intro/sota/Solo.mp4" type="video/mp4">
+                    </video>
+                    <img src="assets/intro/sota/tikz_modelFree.svg" style="margin: 0; width: 75%; text-align: center;">
+                    <div class="citation-small">- Chane-Sane et al. (2024), CaT: Constraints as Terminations for Legged
+                        Locomotion
+                        Reinforcement Learning, IROS</div>
+                </div>
+            </section>
+            <section>
+                <h2 style="margin:0px; color: white;">
+                    Introduction
+                </h2>
+                <h3 style="margin-top:0px; color: white;">
+                    Our approach
+                </h3>
+                <p>
+                    Use a <span style="font-weight: bold;">torque-controlled humanoid</span> robot
+                    to carry out a <span style="font-weight: bold;">deburring</span> (fine insertion) task.
+                </p>
+                <div class="fragment" style="text-align: left; font-size: 0.85em;">
+                    <div style="width: 25%;" class="col">
+                        Focus:
+                    </div>
+                    <div style="width: 75%;" class="col">
+                        <ul>
+                            <li>Precision</li>
+                            <li>Speed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fragment" style="text-align: left; font-size: 0.85em;">
+                    <div style="width: 25%;" class="col">
+                        Contribution:
+                    </div>
+                    <div style="width: 75%;" class="col">
+                        Combine Model Predictive Control and Reinforcement Learning.
+                    </div>
+                </div>
+
+            </section>
+            <!-- Part I -->
+            <section>
+                <h2 style="background-color: transparent;">Outline</h2>
+
+                <div style="margin:auto">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                I.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color:var(--c-secondary-green);">
+                                [PART_NAME_I]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.6em; font-size: 0.6em; text-align: left;" class="col">
+                            Demonstration for the Memory of Motion project, June 2022
+                        </div>
+                        <div style="width: 10%; margin:0;" class="col">
+                            <img src="assets/slide2/Logo_memmo.png" alt="Memory of Motion">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fragment semi-fade-out" data-fragment-index="1" style="margin:auto;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                II.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: var(--c-secondary-orange);">
+                                [PART_NAME_II]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.2em;" class="citation col">
+                            C. Perrot and O. Stasse,
+                            <em>Step toward deploying the torque-controlled robot talos on industrial operations</em>,
+                            IROS, 2023
+                        </div>
+                        <div style="width: 10%; margin:0;" class="col">
+                            <img src="assets/slide2/Logo_IROS_2023.svg" alt="IROS 2023">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fragment semi-fade-out" data-fragment-index="1" style="margin:auto">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                III.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: var(--c-secondary-blue);">
+                                [PART_NAME_III]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.2em;" class="citation col">
+                            C. Perrot and O. Stasse,
+                            <em>Industrial operations with torque-controlled robot talos: an rl-mpc hybrid
+                                approach</em>,
+                            Submitted to TASE, 2024
+                        </div>
+                        <div style="width: 10%; margin-top: 0.4em;" class="col">
+                            <img src="assets/slide2/Logo_RAS.png" alt="IEEE RAS">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                    [PART_NAME_I]
+                </h2>
+                <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                    Part Focus
+                </h3>
+                <div>
+                    How to design a
+                    <span class="fragment custom emphasize" data-fragment-index="1" data-id="feature_1">generic</span>
+                    controller that exploits the full
+                    <span class="fragment custom emphasize" data-fragment-index="1"
+                        data-id="feature_2">capabilities</span>
+                    of the hardware?
+                </div>
+            </section>
+            <section data-auto-animate data-transition="fade-out">
+                <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                    [PART_NAME_I]
+                </h2>
+                <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                    Part Focus
+                </h3>
+                <div style="width: 50%; font-size: 0.8em;" class="col">
+                    <span style="font-weight: bold;" data-id="feature_1">Generic:</span>
+                    <ul>
+                        <li>Various architectures</li>
+                        <video data-autoplay loop muted playsinline style="display: block; margin: auto; width: 55%;">
+                            <source data-src="./assets/part-I/Solo.mp4" type="video/mp4">
+                        </video>
+                        <div class="citation-small">- Assirelli et al. (2022), Whole-Body MPC without Foot References
+                            for the
+                            Locomotion of an Impedance-Controlled Robot</div>
+                        <li>Various tasks</li>
+                        <video data-autoplay loop muted playsinline style="display: block; margin: auto; width: 25%;">
+                            <source data-src="./assets/part-I/Talos_stairs.mp4" type="video/mp4">
+                        </video>
+                        <div class="citation-small">- Dantec et al. (2022), Whole-Body Model Predictive Control for
+                            Biped Locomotion
+                            on a Torque-Controlled Humanoid Robot, ICHR</div>
+                    </ul>
+                </div>
+                <div style="width: 50%; font-size: 0.8em;" class="col">
+                    <span style="font-weight: bold;" data-id="feature_2">Capabilities:</span>
+                    <ul>
+                        <li>Dynamical movements</li>
+                        <video data-autoplay loop muted playsinline style="width: 100%;">
+                            <source data-src="./assets/part-I/Atlas.mp4" type="video/mp4">
+                        </video>
+                        <li>Human performances</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Part Focus
+                    </h3>
+                    <video data-src="assets/part-I/DubBack.mp4" type="video/mp4" data-autoplay loop controls></video>
+                </section>
+                <section data-auto-animate data-visibility="uncounted">
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Part Focus
+                    </h3>
+                    <video data-src="assets/part-I/Overshoot.mp4" type="video/mp4" data-autoplay loop controls></video>
+                </section>
+            </section>
+            <section data-auto-animate data-auto-animate-restart>
+                <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                    [PART_NAME_I]
+                </h2>
+                <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                    Whole Body Model Predictive Controller
+                </h3>
+                <div style="text-align: left;">
+                    <div style="width: 30%;" class="col">
+                        Requirements:
+                    </div>
+                    <div style="width: 70%;" class="col">
+                        <ul>
+                            <li>Whole-body dynamics</li>
+                            <li>Prediction horizon</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fragment">
+                    <div class="down" style="font-weight: bold;"></div>
+                    <div style="text-align: center; font-weight: bold;">
+                        Model predictive control
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                    [PART_NAME_I]
+                </h2>
+                <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                    Whole Body Model Predictive Controller
+                </h3>
+                <div class="r-stack">
+                    <image src="assets/part-I/MPC/1.svg" style="width:100%;" />
+                    <image src="assets/part-I/MPC/2.svg" style="width:100%;" class="fragment" />
+                    <image src="assets/part-I/MPC/3.svg" style="width:100%;" class="fragment" />
+                    <image src="assets/part-I/MPC/4.svg" style="width:100%;" class="fragment" />
+                    <image src="assets/part-I/MPC/5.svg" style="width:100%;" class="fragment" />
+                </div>
+            </section>
+            <section>
+                <section data-auto-animate data-auto-animate-restart>
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Optimal Control Problem
+                    </h3>
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <div style="width: 70%;" class="col">
+                            \[
+                            \begin{split}
+                            & \min_{x,u} & \sum_{t=0}^{N-1}l(x_t,u_t) + l_{term}(x_N) \\
+                            & ~ \text{s.t.} & ~ x_{t+1}=f(x_t,u_t) \\
+                            & & ~ h(x_t,u_t) \leq 0 \\
+                            & & ~ h_{term}(x_N) \leq 0 \\
+                            \end{split}
+                            \]
+                        </div>
+                        <div style="width: 30%;" class="col">
+                            $
+                            x=\begin{pmatrix}
+                            q \\
+                            \dot{q}
+                            \end{pmatrix}
+                            $
+                            $u: \textit{torque}$
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Optimal Control Problem
+                    </h3>
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <div style="width: 70%;" class="col">
+                            \[
+                            \begin{split}
+                            & \min_{x,u} & \sum_{t=0}^{N-1}l(x_t,u_t) + l_{term}(x_N) \\
+                            & ~ \text{s.t.} & ~ x_{t+1}=f(x_t,u_t) \\
+                            \end{split}
+                            \]
+                        </div>
+                        <div style="width: 30%;" class="col">
+                            $
+                            x=\begin{pmatrix}
+                            q \\
+                            \dot{q}
+                            \end{pmatrix}
+                            $
+                            $u: \textit{torque}$
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <div style="width: 40%;" class="col">
+                            <img src="assets/part-I/crocoddyl_logo.png"
+                                style="margin: 0; width: 80%; text-align: center;">
+                        </div>
+                        <div style="width: 60%; font-size: 0.8em;" class="col">
+                            <p style="text-align: left; margin: 0;">
+                                No constraints
+                                <span class="right" style="font-size: 0.9em;"></span>
+                                penalties in $l(x,u)$
+                            </p>
+                        </div>
+                    </div>
+                    <div class="citation-small">- Mastalli et al. (2020), Crocoddyl: An Efficient and Versatile
+                        Framework for
+                        Multi-Contact Optimal Control, ICRA</div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Optimal Control Problem
+                    </h3>
+                    <p>
+                        Feasibility-driven Differential Dynamic Programming
+                    </p>
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <div style="text-align: left; width: 50%;" class="col">
+                            <div>Output:</div>
+                            <ul>
+                                <li>$u_0$</li>
+                                <li>$x_0$</li>
+                                <li>$K_0 = \left.\dfrac{\partial u}{\partial x}\right|_{x_0}$</li>
+                            </ul>
+                        </div>
+                        <div style="text-align: left; width: 50%;" class="col">
+                            Locally optimal policy : $u_t = u_0 + K_0(x_t - x_0)$
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                    [PART_NAME_I]
+                </h2>
+                <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                    Cost Function
+                </h3>
+                <div>
+                    <div style="text-align: left; width: 30%;" class="col">
+                        Cost function:
+                    </div>
+                    <div style="text-align: left; width: 70%;" class="col">
+                        encodes all the information about the desired behavior of the robot
+                    </div>
+                </div>
+                <div style="margin-top: 3.8em; font-size: 0.95em;">
+                    $l(x,u) =
+                    w_\mathit{cons}l_\mathit{cons}
+                    + w_\mathit{eq}l_\mathit{eq}
+                    + w_\mathit{goal}l_\mathit{goal}
+                    + w_\mathit{reg}l_\mathit{reg}
+                    $
+                </div>
+                <div style="text-align: left; margin-top: 0.8em; font-size: 0.9em;">Weights to enforce practical
+                    priorities:</div>
+                <div>
+                    $w_\mathit{cons}\gg w_\mathit{eq}\gg w_\mathit{goal}\gg w_\mathit{reg}$
+                </div>
+                <div style="margin-top: 2%;" class="citation-small">- Dantec et al. (2021), Whole Body Model
+                    Predictive Control with
+                    a Memory of Motion: Experiments on a Torque-Controlled Talos, ICRA</div>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                    [PART_NAME_I]
+                </h2>
+                <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                    Cost Function
+                </h3>
+                <table style="width:100%; margin:auto;">
+                    <tr>
+                        <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                            $l_\mathit{cons}$
+                        </td>
+                        <td style="vertical-align: middle; font-size: 0.6em;">
+                            Constraints:
+                        </td>
+                        <td style="vertical-align: middle; font-size: 0.6em;">
+                            <ul>
+                                <li>
+                                    Joints positions
+                                </li>
+                                <li>
+                                    Joints velocities
+                                </li>
+                                <li>
+                                    Joints torques
+                                </li>
+                            </ul>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                            $l_\mathit{eq}$
+                        </td>
+                        <td style="vertical-align: middle;  font-size: 0.6em;">
+                            Equilibrium:
+                        </td>
+                        <td style="vertical-align: middle;  font-size: 0.6em;">
+                            <ul>
+                                <li>
+                                    Position of the Center Of Mass
+                                </li>
+                            </ul>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                            $l_\mathit{goal}$
+                        </td>
+                        <td style="vertical-align: middle; font-size: 0.6em;">
+                            Task:
+                        </td>
+                        <td style="vertical-align: middle; font-size: 0.6em;">
+                            <ul>
+                                <li class="fragment custom emphasize" data-fragment-index="1">
+                                    Position of the End-Effector
+                                </li>
+                                <li>
+                                    Orientation of the End-Effector
+                                </li>
+                                <li>
+                                    Velocity of the End-Effector
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="vertical-align: top; text-align: right;  font-size: 0.55em;" class="fragment"
+                            data-fragment-index="1">$|p_{EF} - p_{target}|$</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                            $l_\mathit{reg}$
+                        </td>
+                        <td style="vertical-align: middle;  font-size: 0.6em;">
+                            Regularization:
+                        </td>
+                        <td style="vertical-align: middle;  font-size: 0.6em;">
+                            <ul>
+                                <li class="fragment custom emphasize" data-fragment-index="1">
+                                    State (Joints positions and velocities)
+                                </li>
+                                <li>
+                                    Torque
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="vertical-align: top; text-align: right;  font-size: 0.55em;" class="fragment"
+                            data-fragment-index="1">
+                            $|x_t - x_{ref}|_w$
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <section data-auto-animate data-auto-animate-restart>
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Results
+                    </h3>
+                    <p style="text-align: left;">
+                        Not precise enough:
+                    </p>
+                    <video data-autoplay controls style="display: block; margin: auto; width: 80%;">
+                        <source data-src="./assets/part-I/Baseline.mp4" type="video/mp4">
+                    </video>
+
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+                        [PART_NAME_I]
+                    </h2>
+                    <h3 style="background-color:rgba(176, 238, 137,0.7); margin-top:0px;">
+                        Results
+                    </h3>
+                    <div style="text-align: left;">
+                        Conflict between posture regularization and task:
+                    </div>
+                    <div style="overflow: hidden;">
+                        <image src="assets/part-I/cost_conflict.png" style="width:45%;" />
+                    </div>
+                </section>
+            </section>
+            <!-- Part II -->
+            <section>
+                <h2 style="background-color: transparent;">Outline</h2>
+
+                <div style="margin:auto; opacity: 50%;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                I.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color:var(--c-secondary-green);">
+                                [PART_NAME_I]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.6em; font-size: 0.6em; text-align: left;" class="col">
+                            Demonstration for the Memory of Motion project, June 2022
+                        </div>
+                        <div style="width: 10%; margin:0;" class="col">
+                            <img src="assets/slide2/Logo_memmo.png" alt="Memory of Motion">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin:auto;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                II.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: var(--c-secondary-orange);">
+                                [PART_NAME_II]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.2em;" class="citation col">
+                            C. Perrot and O. Stasse,
+                            <em>Step toward deploying the torque-controlled robot talos on industrial
+                                operations</em>,
+                            IROS, 2023
+                        </div>
+                        <div style="width: 10%; margin:0;" class="col">
+                            <img src="assets/slide2/Logo_IROS_2023.svg" alt="IROS 2023">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin:auto; opacity: 50%;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                III.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: var(--c-secondary-blue);">
+                                [PART_NAME_III]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.2em;" class="citation col">
+                            C. Perrot and O. Stasse,
+                            <em>Industrial operations with torque-controlled robot talos: an rl-mpc hybrid
+                                approach</em>,
+                            Submitted to TASE, 2024
+                        </div>
+                        <div style="width: 10%; margin-top: 0.4em;" class="col">
+                            <img src="assets/slide2/Logo_RAS.png" alt="IEEE RAS">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                    [PART_NAME_II]
+                </h2>
+                <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                    Part Focus
+                </h3>
+                <div style="text-align: left;">
+                    <div style="width: 25%;" class="col">
+                        Hypothesis:
+                    </div>
+                    <div style="width: 75%;" class="col">
+                        Every behavior can be transcribed as the minimization of a cost function
+                    </div>
+                </div>
+                <div style="margin-top: 3.5em;">
+                    <div style="font-weight: bold;">
+                        How to design the proper cost function?
+                    </div>
+                    <ul>
+                        <li>
+                            Suited to the task
+                        </li>
+                        <li>
+                            Suited to the resolution strategy
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Hand tuning
+                    </h3>
+                    <div style="text-align: left;">
+                        <div>
+                            Traditional approach:
+                        </div>
+                        <div style="margin-left: 10%;">
+                            Hand-tuned function with fixed parameters
+                        </div>
+                        <ul style="margin-left: 7%;">
+                            <li>Not generic</li>
+                            <li>Tedious to tune</li>
+                        </ul>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Hand tuning
+                    </h3>
+                    <div style="text-align: left; font-size: 0.8em;">
+                        <div>
+                            Traditional approach:
+                        </div>
+                        <div style="margin-left: 10%;">
+                            Hand-tuned function with fixed parameters
+                        </div>
+                        <ul style="margin-left: 7%;">
+                            <li>Not generic</li>
+                            <li>Tedious to tune</li>
+                        </ul>
+                    </div>
+                    <div style="width: 40%; font-size: 0.5em;" class="col">
+                        <pre>
+                            <code data-trim data-noescape>
+                                w_state_reg: 0.02
+                                w_control_reg: 0.001
+                                w_state_limits: 1000
+                                w_control_limit: 0
+                                w_com_pos: 500
+                                w_gripper_pos: 5
+                                w_gripper_rot: 30
+                                w_gripper_vel: 2
+                            </code>
+                        </pre>
+                    </div>
+                    <div style="width: 60%; font-size: 0.5em;" class="col">
+                        <pre>
+                            <code data-trim data-noescape>
+                            state_pos_weights:
+                              base: [500, 500, 500, 1000, 1000, 1000]
+                              left_leg: [500, 500, 500, 500, 1000, 1000]
+                              right_leg: [500, 500, 500, 500, 1000, 1000]
+                              torso: [100, 200]
+                              left_arm: [100, 100, 100, 100, 1, 1, 1]
+                              right_arm: [500, 500, 500, 500]
+                            state_vel_weights:
+                              base: [1, 1, 1, 1, 1, 1]
+                              left_leg: [1, 1, 1, 1, 1, 1]
+                              right_leg: [1, 1, 1, 1, 1, 1]
+                              torso: [10, 10]
+                              left_arm: [10, 10, 10, 10, 10, 10, 10]
+                              right_arm: [10, 10, 10, 10]
+                            control_weights:
+                              left_leg: [1, 1, 1, 1, 1, 1]
+                              right_leg: [1, 1, 1, 1, 1, 1]
+                              torso: [1, 1]
+                              left_arm: [1, 1, 1, 1, 1, 1, 1]
+                              right_arm: [1, 1, 1, 1]
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="citation-small">- D'Elia et al. (2022), Automatic Tuning and Selection of Whole-Body
+                        Controllers, IROS</div>
+                </section>
+            </section>
+            <section data-auto-animate-restart>
+                <section data-auto-animate data-auto-animate-restart>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <div>
+                        Reactively adapt the cost function to the situation:
+                    </div>
+                    <div style="font-size: 0.9em">
+                        $l(x,u) =
+                        w_\mathit{cons}l_\mathit{cons}
+                        + w_\mathit{eq}l_\mathit{eq}
+                        + w_\mathit{goal}l_\mathit{goal}
+                        + w_\mathit{reg}l_\mathit{reg}
+                        $
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <div>
+                        Reactively adapt the cost function to the situation:
+                    </div>
+                    <div style="font-size: 0.9em">
+                        $l(x,u) =
+                        w_\mathit{cons}l_\mathit{cons}
+                        + w_\mathit{eq}l_\mathit{eq}
+                        + w_\mathit{goal}l_\mathit{goal}
+                        + w_\mathit{reg}l_\mathit{reg}
+                        $
+                    </div>
+                    <div class="down"></div>
+                    <div style="font-size: 0.9em">
+                        $l^t(x,u) =
+                        w_\mathit{cons}l_\mathit{cons}
+                        + w_\mathit{eq}l_\mathit{eq}
+                        + w^t_\mathit{goal}l_\mathit{goal}
+                        + w_\mathit{reg}l^t_\mathit{reg}
+                        $
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <div>
+                        Reactively adapt the cost function to the situation:
+                    </div>
+                    <div style="font-size: 0.9em">
+                        $l(x,u) =
+                        w_\mathit{cons}l_\mathit{cons}
+                        + w_\mathit{eq}l_\mathit{eq}
+                        + w_\mathit{goal}l_\mathit{goal}
+                        + w_\mathit{reg}l_\mathit{reg}
+                        $
+                    </div>
+                    <div class="down"></div>
+                    <div style="font-size: 0.9em">
+                        $l^t(x,u) =
+                        w_\mathit{cons}l_\mathit{cons}
+                        + w_\mathit{eq}l_\mathit{eq} + $
+                        <span style="color: var(--c-laas-red);">$w^t_\mathit{goal}$</span>
+                        $l_\mathit{goal} + w_\mathit{reg}$
+                        <span style="color: blue;">$l^t_\mathit{reg}$</span>
+                    </div>
+                    <div style="width: 50%;" class="col">
+                        <span style="font-weight: bold; color: var(--c-laas-red);" data-id="feature_1">Weight
+                            Scheduling</span>
+                    </div>
+                    <div style="width: 50%;" class="col">
+                        <span style="font-weight: bold; color: blue;" data-id="feature_2">Posture Scheduling</span>
+                    </div>
+                </section>
+            </section>
+            <section data-auto-animate-restart>
+                <section data-auto-animate data-auto-animate-restart>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <p style="text-align: left; font-size: 0.9em;">MPC horizon is sliding on a pre-planned
+                        trajectory.</p>
+                    <image src="assets/part-II/targetSwitch/0.svg" style="width:100%;" />
+                    <p style="text-align: left; font-size: 0.9em;">One new node in the horizon at every timestep.
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <p style="text-align: left; font-size: 0.9em;">MPC horizon is sliding on a pre-planned
+                        trajectory.</p>
+                    <image src="assets/part-II/targetSwitch/1.svg" style="width:100%;" />
+                    <p style="text-align: left; font-size: 0.9em;">One new node in the horizon at every timestep.
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <p style="text-align: left; font-size: 0.9em;">MPC horizon is sliding on a pre-planned
+                        trajectory.</p>
+                    <image src="assets/part-II/targetSwitch/2.svg" style="width:100%;" />
+                    <p style="text-align: left; font-size: 0.9em;">One new node in the horizon at every timestep.
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <p style="text-align: left; font-size: 0.9em;">MPC horizon is sliding on a pre-planned
+                        trajectory.</p>
+                    <image src="assets/part-II/targetSwitch/3.svg" style="width:100%;" />
+                    <p style="text-align: left; font-size: 0.9em;">One new node in the horizon at every timestep.
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                        [PART_NAME_II]
+                    </h2>
+                    <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                        Variable Cost
+                    </h3>
+                    <p style="text-align: left; font-size: 0.9em;">MPC horizon is sliding on a pre-planned
+                        trajectory.</p>
+                    <image src="assets/part-II/targetSwitch/4.svg" style="width:100%;" />
+                    <p style="text-align: left; font-size: 0.9em;">One new node in the horizon at every timestep.
+                    </p>
+                </section>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                    [PART_NAME_II]
+                </h2>
+                <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                    Weight Scheduling
+                </h3>
+                <span style="color: var(--c-laas-red);">$w_\mathit{goal}(t) = w_\mathit{slope}t+w_0$</span>
+                <image src="assets/part-II/gain_scheduling_results.svg" style="width:100%;" />
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                    [PART_NAME_II]
+                </h2>
+                <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                    Weight Scheduling
+                </h3>
+                <video data-src="assets/part-II/WeightScheduling.mp4" type="video/mp4" data-autoplay loop
+                    controls></video>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                    [PART_NAME_II]
+                </h2>
+                <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                    Posture Scheduling
+                </h3>
+                <span style="color: blue;">$l_\mathit{reg}(t) = \|x(t) - x_\mathit{reg}(t)\|$</span>
+                <image src="assets/part-II/comparision_precision.svg" style="width:70%;" />
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-orange); margin:0px;">
+                    [PART_NAME_II]
+                </h2>
+                <h3 style="background-color:rgba(255, 188, 117,0.7); margin-top:0px;">
+                    Posture Scheduling
+                </h3>
+                <p style="text-align: left;">Hardware issues:</p>
+                <div style="text-align: left; font-size: 0.9em;">
+                    <div>EtherCAT frequently disconnecting</div>
+                    <div style="width: 5%;" class="col"><span class="right"></span></div>
+                    <div style="width: 95%;" class="col">Lack of reliability = time-consuming experiments</div>
+                </div>
+                <div style="text-align: left; font-size: 0.9em; margin-top: 2.2em;">
+                    <div>Breakdown of the wrist's control board</div>
+                    <div style="width: 5%;" class="col"><span class="right"></span></div>
+                    <div style="width: 95%;" class="col">No precise manipulation possible</div>
+                </div>
+            </section>
+            <!-- Part III -->
+            <section>
+                <h2 style="background-color: transparent;">Outline</h2>
+
+                <div style="margin:auto; opacity: 50%;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                I.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color:var(--c-secondary-green);">
+                                [PART_NAME_I]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.6em; font-size: 0.6em; text-align: left;" class="col">
+                            Demonstration for the Memory of Motion project, June 2022
+                        </div>
+                        <div style="width: 10%; margin:0;" class="col">
+                            <img src="assets/slide2/Logo_memmo.png" alt="Memory of Motion">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin:auto; opacity: 50%;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                II.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: var(--c-secondary-orange);">
+                                [PART_NAME_II]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.2em;" class="citation col">
+                            C. Perrot and O. Stasse,
+                            <em>Step toward deploying the torque-controlled robot talos on industrial
+                                operations</em>,
+                            IROS, 2023
+                        </div>
+                        <div style="width: 10%; margin:0;" class="col">
+                            <img src="assets/slide2/Logo_IROS_2023.svg" alt="IROS 2023">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin:auto;">
+                    <div>
+                        <div style="width: 10%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: transparent;">
+                                III.
+                            </h2>
+                        </div>
+                        <div style="width: 90%;" class="col">
+                            <h2 style="font-size: var(--r-heading3-size); background-color: var(--c-secondary-blue);">
+                                [PART_NAME_III]
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width: 11%;" class="col"></div>
+                        <div style="width: 79%; margin-top: 1.2em;" class="citation col">
+                            C. Perrot and O. Stasse,
+                            <em>Industrial operations with torque-controlled robot talos: an rl-mpc hybrid
+                                approach</em>,
+                            Submitted to TASE, 2024
+                        </div>
+                        <div style="width: 10%; margin-top: 0.4em;" class="col">
+                            <img src="assets/slide2/Logo_RAS.png" alt="IEEE RAS">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Part Focus
+                </h3>
+                <div style="font-weight: bold;">
+                    How to increase the adaptability of the controller?
+                </div>
+            </section>
+            <section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                        [PART_NAME_III]
+                    </h2>
+                    <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                        Part Focus
+                    </h3>
+                    <video data-src="assets/part-III/TripleFlair.mp4" type="video/mp4" data-autoplay loop
+                        controls></video>
+                </section>
+                <section data-background-video="assets/part-III/TripleFlairFail.mp4" data-auto-animate>
+                </section>
+            </section>
+            <section>
+                <section data-auto-animate data-auto-animate-restart>
+                    <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                        [PART_NAME_III]
+                    </h2>
+                    <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                        Principle
+                    </h3>
+                    <p>
+                        Exploit past experiences to improve performances.
+                    </p>
+                    <div style="text-align: left;">
+                        <div>
+                            Memory of Motion:
+                        </div>
+                        <ul style="width: 100%;">
+                            <li>What experience?</li>
+                            <li>How to leverage it?</li>
+                        </ul>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                        [PART_NAME_III]
+                    </h2>
+                    <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                        Principle
+                    </h3>
+                    <p>
+                        Exploit past experiences to improve performances.
+                    </p>
+                    <div style="text-align: left;">
+                        <div>
+                            Memory of Motion:
+                        </div>
+                        <ul style="width: 100%;">
+                            <li>What experience?</li>
+                            <div style="width: 5%;" class="col"><span class="right"></span></div>
+                            <div style="width: 95%;" class="col">We don't know</div>
+                            <li>How to leverage it?</li>
+                        </ul>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                        [PART_NAME_III]
+                    </h2>
+                    <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                        Principle
+                    </h3>
+                    <p>
+                        Exploit past experiences to improve performances.
+                    </p>
+                    <div style="text-align: left;">
+                        <div>
+                            Memory of Motion:
+                        </div>
+                        <ul style="width: 100%;">
+                            <li>What experience?</li>
+                            <div style="width: 5%;" class="col"><span class="right"></span></div>
+                            <div style="width: 95%;" class="col">We don't know</div>
+                            <li>How to leverage it?</li>
+                            <div style="width: 5%;" class="col"><span class="right"></span></div>
+                            <div style="width: 95%;" class="col">Through the cost function $l(x,u)$</div>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Principle
+                </h3>
+                <div style="text-align: left; width: 100%;">
+                    <div style="width: 10%; text-align: right" class="col">
+                        RL:
+                    </div>
+                    <div style="width: 90%;" class="col">
+                        Learn by interacting with the environment
+                    </div>
+                </div>
+                <div style="text-align: left;">
+                    <div style="width: 10%; text-align: right" class="col"><span class="right"></span></div>
+                    <div style="width: 90%;" class="col">Let the system explore, unsupervised</div>
+                </div>
+                <div style="margin-top: 5em;">
+                    $$\pi(s) = arg \max_{\pi}
+                    \mathbb{E}_{(s_t, a_t) \sim \rho^\pi} \left[\sum_{t=0}^{\infty} \gamma^t r(s_t,
+                    a_t)\right]$$
+                </div>
+            </section>
+            <section data-auto-animate data-auto-animate-restart>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Architecture
+                </h3>
+                <image src="assets/part-III/tikz_rl.svg" style="width:75%;" />
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Architecture
+                </h3>
+                <div style="position:relative;  text-align: center;">
+                    <image src="assets/part-III/tikz_rl.svg" style="width:75%;" />
+                    <div
+                        style="width:50%; position:absolute; top: 30%; right: 0%; background: rgba(255, 255, 255, 0.9);">
+                        <span style="font-weight: bold;">Environment:</span>
+                        <ul>
+                            <li>Robot (PyBullet)</li>
+                            <li>Controller (WBMPC)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Architecture
+                </h3>
+                <div style="position:relative;  text-align: center;">
+                    <image src="assets/part-III/tikz_rl.svg" style="width:75%;" />
+                    <div
+                        style="width:50%; position:absolute; bottom: 0%; left: 0%; background: rgba(255, 255, 255, 0.9);">
+                        <div style="font-weight: bold;">
+                            Observation:
+                        </div>
+                        <ul>
+                            <li>Robot state $x_t$</li>
+                            <li>Controller state $X$</li>
+                            <li>Target position $p_{target}$</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="width:50%; position:absolute; bottom: 0%; right: 0%; background: rgba(255, 255, 255, 0.9);">
+                        <div style="font-weight: bold;">
+                            Reward:
+                        </div>
+                        <ul>
+                            <li>Precision</li>
+                            <li>Speed</li>
+                            <li>Torque</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Architecture
+                </h3>
+                <div style="position:relative;  text-align: center;">
+                    <image src="assets/part-III/tikz_rl.svg" style="width:75%;" />
+                    <div
+                        style="width:80%; position:absolute; top: 0%; left: 50%; transform: translate(-50%, 0%); background: rgba(255, 255, 255, 0.9);">
+                        <div style="font-weight: bold;">
+                            Action:
+                        </div>
+                        <div>
+                            Next regulatization target $x_{ref}$:
+                        </div>
+                        <div>
+                            $
+                            x_{ref}=\begin{pmatrix}
+                            q_{arm} &=& \pi(x_t, X, p_{target}) \\
+                            q_{body} &=& q_t \\
+                            \dot{q} &=& 0
+                            \end{pmatrix}
+                            $
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Architecture
+                </h3>
+                <div style="position:relative;  text-align: center;">
+                    <image src="assets/part-III/tikz_rl.svg" style="width:75%;" />
+                    <div
+                        style="width:90%; position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255, 255, 255, 0.9);">
+                        <div style="font-weight: bold;">
+                            Soft Actor Critic
+                        </div>
+                        <ul>
+                            <li>Off-Policy: sample efficiency</li>
+                            <li>Maximizes entropy: encourages exploration</li>
+                        </ul>
+                        <div class="citation-small">- Haarnoja et al. (2018), Soft Actor-Critic: Off-Policy Maximum
+                            Entropy Deep
+                            Reinforcement Learning with a Stochastic Actor, PMLR</div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Benchmark
+                </h3>
+                <div>
+                    Comparing various strategies on 125 targets:
+                </div>
+                <ul>
+                    <div>
+                        <li>Baseline</li>
+                        <div>$x_{ref}=x_0$</div>
+                    </div>
+                    <div>
+                        <li>Variable posture</li>
+                        <div>$x_{ref}=x_t$</div>
+                    </div>
+                    <div>
+                        <li>RL policy</li>
+                        <div>$x_{ref}=\pi(x_t, X, p_{target})$</div>
+                    </div>
+                </ul>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Results
+                </h3>
+                <video data-autoplay loop controls style="display: block; margin: auto; width: 100%;">
+                    <source data-src="./assets/part-III/MethodsComparison.mp4" type="video/mp4">
+                </video>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Results
+                </h3>
+                <table style="font-size: 0.8em;" class="results-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%; border-bottom: 2px solid black;"></th>
+                            <th style="text-align: center;
+                            vertical-align: middle;
+                            width: 25%;
+                            border-bottom: 2px solid black;">
+                                Baseline</th>
+                            <th
+                                style="text-align: center; vertical-align: middle; width: 25%; border-bottom: 2px solid black;">
+                                Posture Feedback</th>
+                            <th style="
+                                text-align: center;
+                                vertical-align: middle;
+                                width: 15%;
+                                border: 4px solid var(--c-base-yellow);
+                                border-bottom: 2px solid black;
+                                ">
+                                RL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>Safe movements</div>
+                                <div>(No limits triggered)</div>
+                            </td>
+                            <td style="text-align: center;">98 %
+                            </td>
+                            <td style="text-align: center;">72 %
+                            </td>
+                            <td style="text-align: center;
+                            border-left: 4px solid var(--c-base-yellow);
+                            border-right: 4px solid var(--c-base-yellow);
+                            border-bottom: 1px solid black;">100 %</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>Success</div>
+                                <div>(target reached)</div>
+                            </td>
+                            <td style="text-align: center;">5 %</td>
+                            <td style="text-align: center;">50 %</td>
+                            <td style="text-align: center;
+                            border: 4px solid var(--c-base-yellow);
+                            border-top:none;">74 %</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Results
+                </h3>
+                <table style="font-size: 0.8em;" class="results-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%; border-bottom: 2px solid black;"></th>
+                            <th
+                                style="text-align: center; vertical-align: middle; width: 25%; border-bottom: 2px solid black;">
+                                Baseline</th>
+                            <th
+                                style="text-align: center; vertical-align: middle; width: 25%; border-bottom: 2px solid black;">
+                                Posture Feedback</th>
+                            <th
+                                style="text-align: center; vertical-align: middle; width: 15%; border: 4px solid var(--c-base-yellow); border-bottom: 2px solid black;">
+                                RL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Modeled limits triggered</td>
+                            <td style="text-align: center;">0 %</td>
+                            <td style="text-align: center;">23 %</td>
+                            <td
+                                style="text-align: center; border-left: 4px solid var(--c-base-yellow); border-right: 4px solid var(--c-base-yellow); border-bottom: 1px solid black;">
+                                0 %</td>
+                        </tr>
+                        <tr>
+                            <td>Unmodeled limits triggered</td>
+                            <td style="text-align: center;">2 %</td>
+                            <td style="text-align: center;">5 %</td>
+                            <td style="text-align: center; border: 4px solid var(--c-base-yellow); border-top:none;">
+                                0 %</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+                    [PART_NAME_III]
+                </h2>
+                <h3 style="background-color:rgba(154, 226, 255,0.7); margin-top:0px;">
+                    Limitations
+                </h3>
+                <div style="width: 50%; margin-top: 5%;" class="col">
+                    <div style="text-align: left;">
+                        <div>Slow convergence:</div>
+                        <div>~ 12h of training</div>
+                    </div>
+                    <div style="text-align: left; margin-top: 10%;">
+                        <div>Noisy output:</div>
+                        <div>Filtered out by MPC to obtain viable movements</div>
+                    </div>
+                </div>
+                <div style="width: 50%;" class="col">
+                    <video data-src="assets/part-III/RL_noise.mp4" type="video/mp4" data-autoplay loop controls
+                        style="width: 100%;"></video>
+                </div>
+            </section>
+            <!-- Conclusion -->
+            <section>
+                <h2 style="margin:0px; color: white;">
+                    Conclusion
+                </h2>
+                <h3 style="margin-top:0px; color: white;">
+                    Contributions
+                </h3>
+                <ol>
+                    <li>
+                        Fine insertion with a Talos humanoid
+                    </li>
+                    <li>
+                        Exploration of the limitations of WBMPC
+                    </li>
+                    <li>
+                        Control strategy combining RL and MPC
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2 style="margin:0px; color: white;">
+                    Conclusion
+                </h2>
+                <h3 style="margin-top:0px; color: white;">
+                    Future Works
+                </h3>
+                <div style="text-align: left; margin-left: 10%;">
+                    RL/MPC hybrid approach:
+                </div>
+                <ul>
+                    <li>Test in the real world</li>
+                    <li>Extend to new tasks (loco-manipulation)</li>
+                    <div><span class="right"></span> Speed-up training (transfer learning)</div>
+                    <div style="text-align: center;" class="citation-small">- Smith et al. (2023), Learning and
+                        Adapting Agile
+                        Locomotion Skills by Transferring Experience, RSS</div>
+                </ul>
+            </section>
+            <section>
+                <section data-auto-animate data-auto-animate-restart>
+                    <h2 style="margin:0px; color: white;">
+                        Conclusion
+                    </h2>
+                    <h3 style="margin-top:0px; color: white;">
+                        Perspectives
+                    </h3>
+                    <div class="citation"
+                        style="border: 2px solid var(--c-complementary-grey2); padding: .2em; border-radius: .1em;">
+                        <div>
+                            C. Perrot and O. Stasse,
+                            <em>Step toward deploying the torque-controlled robot talos on industrial
+                                operations</em>,
+                            IROS, 2023
+                        </div>
+                        <div>
+                            C. Perrot and O. Stasse,
+                            <em>Industrial operations with torque-controlled robot talos: an rl-mpc hybrid
+                                approach</em>,
+                            Submitted to TASE, 2024
+                        </div>
+                    </div>
+                    <div class="down"></div>
+                    <div
+                        style="border: 4px solid var(--c-base-yellow); padding: .2em; border-radius: .1em; margin: 0 15%;">
+                        Learn
+                        directly on the hardware</div>
+                    <div style="margin-top: 3%;">
+                        <div style="width: 35%; margin-left: 10%; font-size: 0.8em;
+                        border: 2px solid var(--c-base-blue); padding: .2em; border-radius: .1em;" class="col">Sample
+                            efficient RL
+                        </div>
+                        <div style="width: 10%; font-weight: bold; color: var(--c-base-blue);" class="col">+</div>
+                        <div style="width: 35%; margin-right: 10%; font-size: 0.8em;
+                        border: 2px solid var(--c-base-blue); padding: .2em; border-radius: .1em;" class="col">MPC for
+                            viability
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2 style="margin:0px; color: white;">
+                        Conclusion
+                    </h2>
+                    <h3 style="margin-top:0px; color: white;">
+                        Perspectives
+                    </h3>
+                    <div class="citation"
+                        style="border: 2px solid var(--c-complementary-grey2); padding: .2em; border-radius: .1em;">
+                        <div>
+                            C. Perrot and O. Stasse,
+                            <em>Step toward deploying the torque-controlled robot talos on industrial
+                                operations</em>,
+                            IROS, 2023
+                        </div>
+                        <div>
+                            C. Perrot and O. Stasse,
+                            <em>Industrial operations with torque-controlled robot talos: an rl-mpc hybrid
+                                approach</em>,
+                            Submitted to TASE, 2024
+                        </div>
+                    </div>
+                    <div class="down"></div>
+                    <div
+                        style="border: 4px solid var(--c-base-yellow); padding: .2em; border-radius: .1em; margin: 0 15%;">
+                        Let the
+                        robot learn in the real world</div>
+                    <div style="margin-top: 3%;">
+                        <div style="width: 35%; margin-left: 10%; font-size: 0.8em;
+                        border: 2px solid var(--c-base-blue); padding: .2em; border-radius: .1em;" class="col">Sample
+                            efficient RL
+                        </div>
+                        <div style="width: 10%; font-weight: bold; color: var(--c-base-blue);" class="col">+</div>
+                        <div style="width: 35%; margin-right: 10%; font-size: 0.8em;
+                        border: 2px solid var(--c-base-blue); padding: .2em; border-radius: .1em;" class="col">MPC for
+                            viability
+                        </div>
+                    </div>
+                    <div style="margin-top: 12%; font-weight: bold; text-align: right;">What is the controller of
+                        the future?</div>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // Edit the part names here:
+        const partNameI = "A whole body controller for deburring";
+        const partNameII = "Reactive cost MPC";
+        const partNameIII = "Reinforcement Learning based planner";
+
+        function replacePlaceholders() {
+            const slides = document.querySelectorAll('.slides section');
+            slides.forEach(slide => {
+                slide.innerHTML = slide.innerHTML.replace(/\[PART_NAME_I\]/g, partNameI);
+                slide.innerHTML = slide.innerHTML.replace(/\[PART_NAME_II\]/g, partNameII);
+                slide.innerHTML = slide.innerHTML.replace(/\[PART_NAME_III\]/g, partNameIII);
+            });
+        }
+
+        function loadIncludes() {
+            return Promise.all(
+                [...document.querySelectorAll("include")].map((include) => {
+                    return fetch(include.getAttribute("src"))
+                        .then((response) => response.text())
+                        .then((html) => (include.outerHTML = html))
+                        .catch(console.error);
+                })
+            );
+        }
+
+        loadIncludes().then(() => {
+            replacePlaceholders();
+            Reveal.initialize({
+                hash: true,
+                slideNumber: 'h.v',
+                disableLayout: false,
+                center: true,
+                plugins: [RevealZoom, RevealHighlight, RevealMath]
+            });
+        });
+    </script>
+</body>
+
+</html>

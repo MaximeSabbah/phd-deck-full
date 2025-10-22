@@ -1,0 +1,82 @@
+<section data-part-group="part-i" data-part-title="PART I"
+         style="--part-accent: var(--c-laas-red);">
+<section data-auto-animate data-transition="fade">
+    <h2 style="background-color:var(--c-laas-red); margin:0;">Estimating human state in real time</h2>
+    <h3 style="background-color:#e94b58d2; margin-top:0;">RT-COSMIK</h3>
+
+    <!-- Compact frame (no fragments: full pipeline appears at once) -->
+    <div class="pipeline-frame">
+    <!-- COSMIK badge on the frame border -->
+    <div style="position:absolute; left:50%; top:0; transform:translate(-50%,-40%);
+            display:inline-flex; align-items:center;">
+        <img src="./assets/logos/cosmik.png" alt="COSMIK" style="height:55px; width:auto; display:block;">
+    </div>
+
+
+    <!-- Pipeline cards -->
+    <div class="pipeline-cards" style="margin-top: 2.2rem;">
+        <!-- CARD 1: Multi-view 2D keypoints -->
+        <div class="pipeline-card">
+        <h4>Multi-view 2D keypoints</h4>
+        <div style="display:flex; flex-direction:column; gap:.3rem;">
+            <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
+            <source data-src="./videos/Part-I/cosmik_pipeline/camera_0_with_keypoints.mp4" type="video/mp4">
+            </video>
+            <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
+            <source data-src="./videos/Part-I/cosmik_pipeline/camera_2_with_keypoints.mp4" type="video/mp4">
+            </video>
+        </div>
+        </div>
+
+        <!-- Arrow -->
+        <svg class="pipeline-arrow" viewBox="0 0 34 12" width="34" height="12">
+        <defs><marker id="arrA" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0,0 8,4 0,8" fill="#0d2a4a"/></marker></defs>
+        <line x1="1" y1="6" x2="33" y2="6" stroke="#0d2a4a" stroke-width="3" marker-end="url(#arrA)"/>
+        </svg>
+
+        <!-- CARD 2: Triangulation -->
+        <div class="pipeline-card">
+        <h4>Triangulation + Filtering</h4>
+        <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
+            <source data-src="./videos/Part-I/cosmik_pipeline/viz_jcp.mp4" type="video/mp4">
+        </video>
+        </div>
+
+        <!-- Arrow -->
+        <svg class="pipeline-arrow" viewBox="0 0 34 12" width="34" height="12">
+        <use href="#arrA"></use>
+        <line x1="1" y1="6" x2="33" y2="6" stroke="#0d2a4a" stroke-width="3" marker-end="url(#arrA)"/>
+        </svg>
+
+
+        <!-- CARD 4: Marker augmentation -->
+        <div class="pipeline-card">
+        <h4>Marker augmentation</h4>
+        <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
+            <source data-src="./videos/Part-I/cosmik_pipeline/viz_mks.mp4" type="video/mp4">
+        </video>
+        </div>
+
+        <!-- Arrow -->
+        <svg class="pipeline-arrow" viewBox="0 0 34 12" width="34" height="12">
+        <use href="#arrA"></use>
+        <line x1="1" y1="6" x2="33" y2="6" stroke="#0d2a4a" stroke-width="3" marker-end="url(#arrA)"/>
+        </svg>
+
+        <!-- CARD 5: Real-time IK (+ optional REBA hint) -->
+        <div class="pipeline-card">
+        <h4>Sliding Window IK</h4>
+        <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
+            <source data-src="./videos/Part-I/cosmik_pipeline/viz_all_data.mp4" type="video/mp4">
+        </video>
+        </div>
+    </div>
+    </div>
+
+    <!-- Single citation (smaller) -->
+    <div class="citation-small" style="font-size:.4em; text-align:center;">
+      <b> M. Sabbah </b> et al., <em>RT-COSMIK: a Real-Time low-Cost and Open-Source toolbox for Markerless Inverse Kinematics</em>, submitted to IEEE TASE, 2025
+    </div>
+  </section>
+</section>

@@ -1,0 +1,6 @@
+.fragment.emphasize {
+    font-weight: normal;
+}
+.fragment.emphasize.visible {
+    font-weight: bold;
+}

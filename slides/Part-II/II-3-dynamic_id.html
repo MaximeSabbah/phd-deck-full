@@ -1,0 +1,97 @@
+<section data-part-group="part-ii" data-part-title="PART II"
+         style="--part-accent: var(--c-secondary-blue);">
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Identification of the dynamic model</h3>
+
+  <div class = "fragment" data-fragment-index="4" style="text-align: center;font-size: 0.5em;">
+    Inaccuracies in these parameters lead to important errors on the estimation of joint torques: <span style="font-weight: bold;">up to 50%</span> at the knee level for walking.
+  </div>
+
+  <div class="fragment" data-fragment-index="4" style="text-align: center; font-size:0.5em; font-weight: bold;">
+    Especially true for atypical individuals (infant, pathological)
+  </div>
+
+  <div class="id-frame">
+    <!-- ===== DRAWING ===== -->
+    <svg viewBox="0 0 1000 320" width="100%" height="auto" aria-label="segment + parameters">
+      <defs>
+        <marker id="arrRed" markerWidth="14" markerHeight="14" refX="6" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+          <polygon points="0,0 12,6 0,12" fill="#d64545"/>
+        </marker>
+        <marker id="arrBlue" markerWidth="12" markerHeight="12" refX="5" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+          <polygon points="0,0 10,6 0,12" fill="#2a6fbf"/>
+        </marker>
+      </defs>
+      <!-- slimmer capsule -->
+      <rect x="100" y="100" width="600" height="180" rx="90" ry="90" class="seg-body"/>
+
+      <!-- joint triad -->
+      <circle cx="170" cy="190" r="15" fill="#eef6ff" stroke="#0d2a4a" stroke-width="6"/>
+      <line x1="170" y1="190" x2="220" y2="190" class="triad-x"/>
+      <line x1="170" y1="190" x2="170" y2="140" class="triad-y"/>
+      <line x1="170" y1="190" x2="210" y2="160" class="triad-z"/>
+
+      <!-- CoM cross -->
+      <g id="com" class="fragment" data-fragment-index="1">
+        <line x1="420" y1="232" x2="442" y2="254" class="com-cross"/>
+        <line x1="420" y1="254" x2="442" y2="232" class="com-cross"/>
+      </g>
+
+      <!-- MASS: slim force -->
+      <g class="fragment" data-fragment-index="1">
+        <line x1="431" y1="242" x2="431" y2="306" class="mass-arrow" marker-end="url(#arrRed)"/>
+      </g>
+
+      <!-- CoM_x and CoM_y arrows -->
+      <g class="fragment" data-fragment-index="2">
+        <line x1="170" y1="190" x2="430" y2="190" class="com-line"/>
+        <line x1="430" y1="190" x2="430" y2="232" class="com-line thin"/>
+      </g>
+    </svg>
+
+    <!-- ===== MATHJAX OVERLAYS (positions are percentages of the viewBox) ===== -->
+    <!-- Mass label -->
+    <div class="math-label fragment" data-fragment-index="1"
+         style="left:52.2%; top:90%;">
+      \(\color{red}{F}=M\,g\)
+    </div>
+
+    <!-- CoM_x -->
+    <div class="math-label fragment" data-fragment-index="2"
+         style="left:30.5%; top:45.6%;">
+      \(\mathrm{CoM}_{x}\)
+    </div>
+
+    <!-- CoM_y -->
+    <div class="math-label fragment" data-fragment-index="2"
+         style="left:52.4%; top:62.6%;">
+      \(\mathrm{CoM}_{y}\)
+    </div>
+
+    <!-- Inertia matrix (small) -->
+    <div class="math-label small fragment" data-fragment-index="3"
+         style="left:90%; top:58%;">
+      \(\begin{bmatrix}
+        I_{xx} & I_{xy} & I_{xz}\\
+        I_{yx} & I_{yy} & I_{yz}\\
+        I_{zx} & I_{zy} & I_{zz}
+      \end{bmatrix}\)
+    </div>
+  </div>
+
+  <!-- χ vector, single row -->
+  <div class="chi-row"style="font-size:0.8em; text-align: center;" >
+    <span>\(\color{#2979ff}{\boldsymbol{\chi}}=[\,\)</span>
+    <span class="fragment" data-fragment-index="1">\(M,\)</span>
+    <span class="fragment" data-fragment-index="2">\(\;\mathrm{CoM}_x,\;\mathrm{CoM}_y,\;\mathrm{CoM}_z,\)</span>
+    <span class="fragment" data-fragment-index="3">\(\;I_{xx},\,I_{xy},\,I_{xz},\,I_{yy},\,I_{yz},\,I_{zz}\)</span>
+    <span>\(\,]\)</span>
+  </div>
+
+  <div class="fragment" data-fragment-index="4" style="font-size: 0.75em;">
+    <div class="citation-small" style="text-align: center;">A. Cappozo et al., <em>The interplay of muscular and external forces in human ambulation</em>, Journal of Biomechanics, 1976  </div>
+    <div class="citation-small" style="text-align: center;">G. Rao et al., <em>Influence of body segments' parameters estimation models on inverse dynamics solutions during gait</em>, Journal of Biomechanics, 2006 </div>
+  </div>
+  </section>
+</section>

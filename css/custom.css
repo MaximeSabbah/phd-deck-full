@@ -1,0 +1,517 @@
+.reveal h1{
+    position: relative; /* Make the title container a positioning context */
+    background-color: var(--c-base-blue);
+    color: white;
+    border-radius: .2em;
+    padding: 1vh 0.7vh 2vh 0.7vh;
+    text-align: right;
+    z-index: 1;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+    text-transform: none;
+}
+
+.reveal h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0; 
+    width: 60%;
+    height: 20px;
+    background-color: var(--c-laas-red);
+    z-index: 2; /* Make sure it appears in front of the title */
+    border-radius: .05em;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.reveal h2{
+    position: relative; /* Make the title container a positioning context */
+    background-color: var(--c-base-blue);
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
+    padding: 1vh 0vh 1vh 0vh;
+    text-transform: none;
+}
+
+.reveal h3{
+    position: relative; /* Make the title container a positioning context */
+    background-color: var(--c-base-blue);
+    border-bottom-left-radius: .2em;
+    border-bottom-right-radius: .2em;
+    padding: 1vh 0vh 1vh 0vh;
+    text-transform: none;
+}
+
+.citation{
+    font-size: 0.6em;
+    text-align: left;
+    color: var(--c-complementary-grey2);   
+}
+
+.citation-small{
+    font-size: 0.4em;
+    text-align: left;
+    color: var(--c-complementary-grey2);   
+}
+
+.col {
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    float: left;
+    min-height: 1px;
+    padding: 0em 0.15em;
+}
+
+.reveal .slide-number{
+    font-size: 25px;
+    left: 1%;
+    right: 90%;
+    text-align: center;
+}
+
+.right::before { content: "\2192" }
+.down::before { content: "\2193" }
+
+/* Outline slide layout */
+.out-row{ display:flex; align-items:center; gap:1rem; }
+.out-row .num{ flex:0 0 10%; }          /* left gutter for I./II./III. */
+.out-row .pill{ flex:1 1 0; }
+
+.out-cite{ display:flex; align-items:center; margin-top:.25em; }
+.out-cite .sp{ flex:0 0 10%; }          /* same 10% spacer as numerals */
+.out-cite .txt{ flex:1 1 0; }
+.out-cite .logo{ flex:0 0 10%; text-align:right; }
+
+.out-row h2,
+.out-cite h2{ margin:0; background:transparent; } /* kill default h2 margins */
+.out-row .pill h2{ padding:.15em .5em; border-radius:.6em; } /* pill look */
+
+.out-cite .logo img{ max-height:48px; object-fit:contain; } /* prevent logo push */
+
+section.outline-tight { font-size: .92em; }               /* global shrink */
+section.outline-tight .citation { font-size: .88em; line-height:1.22; }
+section.outline-tight .logo img { max-height:26px; }
+section.outline-tight .pill h2 { padding:.06em .55em; }
+
+/* Auto-fit container: we scale this box to the viewport */
+.outline-fit .fitbox{
+  transform-origin: top left;
+  /* A stable baseline size to measure against.
+     Use your Reveal size (default 1280x720 unless you changed it). */
+  width: 1280px;
+}
+
+/* Small hygiene: kill extra vertical space leaked by headings/lists */
+.outline-fit h2 { margin: 0.1em 0; }
+.outline-fit .citation { line-height: 1.22; }
+
+/* Two-up video grid for Reveal slides */
+.reveal .two-up{
+  display:flex; gap:1rem; justify-content:center; align-items:flex-start; flex-wrap:wrap;
+}
+.reveal .two-up .v{
+  flex:1 1 48%; max-width:720px; min-width:420px;
+}
+.reveal .two-up video{
+  display:block; width:100%;
+  border-radius:12px; border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.03);
+}
+/* On narrower screens, stack */
+@media (max-width:1200px){
+  .reveal .two-up .v{ flex-basis:100%; max-width:100%; min-width:auto; }
+}
+
+/* ===== Part progress indicator (bigger, colorizable) ===== */
+.reveal .part-indicator{
+  position:absolute; right:16px; top:12px; z-index:50;
+  display:none; align-items:center; gap:10px;
+  font-size:14px; letter-spacing:.2px;
+  color:var(--c-complementary-dark-blue,#6f879b);
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(13,42,74,.15);
+  border-radius:999px; padding:8px 12px;
+  backdrop-filter:blur(4px);
+  --active-dot: #0d2a4a; /* fallback; is set per slide by JS */
+}
+/* hide the title – we only want dots */
+.part-indicator .title{ display:none; }
+.part-indicator .dots{ display:inline-flex; align-items:center; gap:8px; }
+.part-indicator .dot{
+  width:10px; height:10px; border-radius:50%;
+  background:rgba(13,42,74,.25);
+  transform:translateY(0); transition:all .25s ease;
+}
+.part-indicator .dot.active{
+  background:var(--active-dot);
+  transform:scale(1.9) translateY(-1px);
+}
+@media (max-width:900px){
+  .reveal .part-indicator{ right:12px; top:10px; font-size:13px; padding:7px 10px; }
+  .part-indicator .dot{ width:9px; height:9px; }
+}
+
+/* Full-width, partitioned part progress (centered) */
+.reveal .part-indicator{
+  position: absolute;
+  top: 10px;
+  left: 1rem;
+  right: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;      /* center the whole row */
+  gap: 1.2rem;
+  padding: .55rem .9rem;        /* bigger bar */
+  border-radius: 999px;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(3px);
+  z-index: 30;
+  max-width: calc(100% - 2rem);
+}
+
+.reveal .part-indicator .pi-part{
+  display: flex; align-items: center; gap: .6rem;
+  --group-accent: currentColor;
+}
+.reveal .part-indicator .pi-title{
+  font-size: .8rem;             /* larger label */
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--group-accent);
+  white-space: nowrap;
+}
+.reveal .part-indicator .pi-dots{ display:flex; gap:.4rem; }
+.reveal .part-indicator .pi-dot{
+  width: .72rem;                /* larger dot */
+  height: .72rem;
+  border-radius: 999px;
+  border: 3px solid var(--group-accent);
+  background: transparent;
+  opacity: .85;
+}
+.reveal .part-indicator .pi-dot.is-filled{ background: var(--group-accent); opacity: 1; }
+.reveal .part-indicator .pi-dot.is-current{
+  box-shadow: 0 0 0 4px rgba(0,0,0,.06), 0 0 0 7px var(--group-accent);
+}
+
+/* Compact fallback if space is tight (labels hide, dots shrink) */
+.reveal .part-indicator.is-compact{ justify-content: center; }
+.reveal .part-indicator.is-compact .pi-title{ display:none; }
+.reveal .part-indicator.is-compact .pi-dots{ gap:.28rem; }
+.reveal .part-indicator.is-compact .pi-dot{ width:.56rem; height:.56rem; border-width:2px; }
+
+
+/* ---- COSMIK pipeline layout ---- */
+.pipeline-frame {
+  position: relative;
+  max-width: 1250px;
+  margin: .35rem auto 0;
+  padding: .55rem .7rem .7rem;
+  border: 2px solid #0d2a4a;
+  border-radius: 14px;
+  font-size: .52em;
+  line-height: 1.22;
+}
+
+/* badge sits on the frame border, so cards start higher */
+.pipeline-badge {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -60%);
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  background: transparent; /* logo has its own colors */
+}
+
+.pipeline-cards {
+  display: flex;
+  gap: .55rem;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: .1rem; /* pulls cards closer to the badge */
+}
+
+.pipeline-card {
+  flex: 0 0 215px;                 /* compact cards so all fit */
+  background: #fff;
+  border: 1px solid #0d2a4a;
+  border-radius: 10px;
+  padding: .5rem;
+}
+
+.pipeline-card h4 {
+  margin: 0 0 .25rem 0;
+  font-weight: 900;
+  color: #0d2a4a;
+  font-size: 1.05em;
+}
+
+.pipeline-card .sub {
+  color: #6f879b;
+  margin: .05rem 0 .3rem 0;
+  font-size: .95em;
+}
+
+.pipeline-arrow {
+  flex: 0 0 32px;
+  align-self: center;
+}
+
+.r-stack .fragment.fade-out { transition: opacity .2s ease; }
+
+/* position overlays relative to the SVG frame */
+.id-frame{ position:relative; max-width:1180px; margin:.6rem auto 0; padding:.6rem}
+
+/* math overlays scale with slide size; centered on (left,top) point */
+.math-label{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  font-size:clamp(.9em,1.8vw,1.2em);
+  line-height:1;
+}
+.math-label.small{ font-size:clamp(.75em,1.4vw,.95em); }
+
+/* drawing styles (unchanged) */
+.seg-body{fill:#eef6ff;stroke:#0d2a4a;stroke-width:7}
+.triad-x{stroke:#d64545;stroke-width:7}
+.triad-y{stroke:#2e9a4f;stroke-width:7}
+.triad-z{stroke:#2a6fbf;stroke-width:7}
+.com-cross{stroke:#0d2a4a;stroke-width:6;stroke-linecap:round}
+.mass-arrow{stroke:#d64545;stroke-width:7}
+.com-line{stroke:#000000;stroke-width:3;stroke-dasharray:12 6}
+.com-line.thin{stroke:#000000;stroke-width:3;stroke-dasharray:12 6}
+
+/* χ row stays on a single line */
+.chi-row{
+  max-width:96%;
+  margin:.5rem auto 0;
+  text-align:center;
+  white-space:nowrap;
+  font-size:clamp(.9em,2vw,1.08em);
+}
+.chi-row .fragment{ display:inline-block; }
+
+.id-marker{
+        position:absolute; width:10px; height:10px;
+        border:3px solid #1db954; border-radius:50%;
+        transform:translate(-50%,-50%);
+      }
+
+.eq2-arrow{
+            position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:4; /* arrow on top */
+            }
+
+/* Pros/cons bullets */
+.reveal .pc-list{ list-style:none; padding-left:0; margin:0; }
+.reveal .pc-list li{
+  position:relative; margin:.35em 0; padding-left:1.6em;
+}
+.reveal .pc-list li::before{
+  position:absolute; left:0; top:.05em; font-size:1.2em; line-height:1;
+  font-weight:800;
+  content:""; /* set per-variant below */
+}
+.reveal .pc-list li.pro::before{ content:"✓"; color:#1db954; }   /* green check */
+.reveal .pc-list li.con::before{ content:"✗"; color:#d64545; }   /* red cross  */
+
+ /* Horizontal image equation */
+.reveal .img-eq-flex{
+  --img-eq-h: 160px;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:1.1rem; flex-wrap:nowrap; width:100%;
+  margin-top:1rem;
+}
+.reveal .img-eq-flex .side{
+  display:inline-flex; align-items:center; gap:1.1rem; flex:0 1 auto;
+}
+.reveal .img-eq-flex img{
+  height:var(--img-eq-h); width:auto; object-fit:contain;
+  border-radius:.5rem; background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.reveal .img-eq-flex .op{
+  font-size:2.2em; font-weight:700; line-height:1; user-select:none;
+}
+.reveal .img-eq-flex .op.mid{ margin:0 .2rem; }
+
+
+/* Badges */
+.reveal .img-eq-flex .badge{
+  display:inline-block; padding:.28em .7em;
+  border-radius:999px; font-weight:650; font-size:1.05em; line-height:1;
+  border:2px solid currentColor;
+  background: transparent;
+}
+.reveal .img-eq-flex .badge-sysid{
+  color:#1db954; background:rgba(29,185,84,.10);
+}
+.reveal .img-eq-flex .badge-at{
+  color:#2979ff; background:rgba(41,121,255,.10);
+}
+
+/* Responsive tweak */
+@media (max-width: 1100px){
+  .reveal .img-eq-flex{ gap:.8rem; }
+  .reveal .img-eq-flex img{ --img-eq-h: 130px; }
+}
+
+.reveal .img-eq-flex .op::before,
+.reveal .img-eq-flex .op::after,
+.reveal .img-eq-flex .side.right::before,
+.reveal .img-eq-flex .side.right::after{
+  content: none !important;
+}
+
+.overlay-center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:999;                 /* sit above other elements */
+  pointer-events:none;         /* clicks pass through */
+}
+.overlay-center img{
+  max-width:70vw;
+  max-height:70vh;
+  width:auto;
+  height:auto;
+}
+
+.overlay-left{
+  position:absolute;
+  top:0%;
+  left:0%;
+  transform:translate(-10%,25%);
+  z-index:999;                 /* sit above other elements */
+  pointer-events:none;         /* clicks pass through */
+}
+.overlay-left img{
+  max-width:70vw;
+  max-height:70vh;
+  width:auto;
+  height:auto;
+}
+
+
+/* Pros/cons grid under the badge (top of the frame) */
+.pipeline-pc{
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* pros | cons */
+  gap: .25rem 2rem;
+  align-items: start;
+  margin: -.25rem 0 .25rem;        /* pull closer to the pill */
+  font-size: .7em;                 /* same size you used inline */
+}
+
+/* push columns to the edges */
+.pipeline-pc > *:first-child{ justify-self: start; }
+.pipeline-pc > *:last-child{  justify-self: end;   }
+
+/* lists already have no left padding via .pc-list; keep margins tight */
+.pipeline-pc .pc-list{ margin: -4.25rem 0 .25rem; }
+
+@media (max-width: 1100px){
+  .pipeline-pc{ grid-template-columns: 1fr; gap: .35rem; }
+}
+
+/* Grid for this slide’s math block */
+.moirl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "eqL eqR"
+    "arrow arrow"
+    "caption caption"
+    "update update";
+  row-gap: .8rem;   /* vertical spacing between rows */
+  column-gap: 1.6rem;
+  width: 100%;
+  max-width: 1100px;
+  justify-items: center;
+  align-items: start;
+  font-size: .85em;
+}
+.moirl-eqL   { grid-area: eqL;   width: 100%; font-size: .5em; }
+.moirl-eqR   { grid-area: eqR;   width: 100%; font-size: .5em; }
+.moirl-arrow { grid-area: arrow; position: relative; height: 3.6rem; width: 100%; }
+.moirl-caption { grid-area: caption; font-size:0.6em; font-weight: 700; text-align: center; }
+.moirl-update  { grid-area: update; font-size: .5em; max-width: 1100px; text-align: center; }
+
+/* Arrow centered; label sits to the right, vertically centered */
+.moirl-arrow svg { display: block; margin: 0 auto; }
+.moirl-linesearch {
+  position: absolute;
+  left: calc(50% + 7.5rem);   /* move to the right of the arrow shaft */
+  top: 50%;
+  transform: translate(-60%,-70%);
+  white-space: nowrap;
+  font-size: .5em;
+}
+
+/* Make slide a positioning context and allow drawings to spill out */
+.reveal .slides section { overflow: visible; }
+.slide-anno-stage { position: relative; }
+
+/* Full-slide overlay lives on top of everything but doesn't block clicks */
+.slide-anno-svg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 10; pointer-events: none;
+}
+
+/* Annotation styling */
+.anno-stroke { stroke:#dc2626; stroke-width:3; fill:transparent; }
+.anno-dot    { fill:#dc2626; }
+.anno-text   {
+  font-size:0.5em; font-weight:700; fill:#b91c1c;
+  paint-order: stroke; stroke:#fff; stroke-width:3px;
+}
+
+ /* Video legend overlay */
+.video-legend-wrap{ position:relative; }
+.video-legend {
+  position:absolute; top:.5rem; left:.5rem;
+  display:flex; gap:.6rem; align-items:center;
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:.5rem; padding:.35rem .55rem;
+  font-size:.55em; line-height:1; z-index:5;
+  pointer-events:none; /* don't block video controls */
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+.legend-item{ display:flex; align-items:center; gap:.35rem; white-space:nowrap; }
+.legend-dot{
+  width:.7rem; height:.7rem; border-radius:999px; flex:0 0 auto; border:1px solid rgba(0,0,0,.25);
+}
+.legend-dot.black{ background:#111; }
+.legend-dot.green{ background:#3eff04; } /* RT-COSMIK */
+.legend-dot.red{ background:#ff0000; } 
+
+/* Per-instance positioning via data-pos OR CSS variables */
+.video-legend {
+  /* defaults (top-left) */
+  top: var(--legend-top, .5rem);
+  left: var(--legend-left, .5rem);
+  right: var(--legend-right, auto);
+  bottom: var(--legend-bottom, auto);
+}
+
+/* Quick presets (override the defaults above) */
+.video-legend[data-pos="tr"] { top:.5rem;  right:.5rem; left:auto;  bottom:auto; }
+.video-legend[data-pos="bl"] { bottom:.5rem; left:.5rem; right:auto; top:auto;  }
+.video-legend[data-pos="br"] { bottom:.5rem; right:.5rem; left:auto;  top:auto;  }
+
+/* Optional: make a compact variant */
+.video-legend.small { font-size:.45em; padding:.25rem .45rem; gap:.45rem; }
+.video-legend.small .legend-dot { width:.6rem; height:.6rem; }
+
+
+

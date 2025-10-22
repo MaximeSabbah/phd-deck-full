@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>M. Sabbah - PhD Defense</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/laas.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+    <link rel="stylesheet" href="css/logos.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom_fragments.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <include src="slides/title.html"></include>
+            <!-- Introduction -->
+            <include src="slides/Introduction/1-2-opening.html"></include>
+            <include src="slides/Introduction/3-context.html"></include>
+            <include src="slides/Introduction/4-5-6-problem.html"></include>
+            <!-- Part I -->
+            <include src="slides/Part-I/I-1-outline.html"></include>
+            <include src="slides/Part-I/I-2-3-focus.html"></include>
+            <include src="slides/Part-I/I-4-cosmik_pipeline.html"></include>
+            <include src="slides/Part-I/I-5-MHE.html"></include>
+            <include src="slides/Part-I/I-6-OCP.html"></include>
+            <include src="slides/Part-I/I-7-cost.html"></include>
+            <include src="slides/Part-I/I-9-comfi_dataset.html"></include>
+            <include src="slides/Part-I/I-8-demo.html"></include>
+            <!-- <include src="slides/Part-I/I-10-results.html"></include> -->
+
+
+            <!-- Part II -->
+            <include src="slides/Part-II/II-1-outline.html"></include>
+            <include src="slides/Part-II/II-2-focus.html"></include>
+            <include src="slides/Part-II/II-3-dynamic_id.html"></include>
+            <include src="slides/Part-II/II-4-dynid_theory.html"></include>
+            <include src="slides/Part-II/II-5-biofeedback.html"></include>
+            <include src="slides/Part-II/II-6-results_sensors.html"></include>
+            <include src="slides/Part-II/II-7-insoles.html"></include>
+
+            <!-- Part III -->
+            <include src="slides/Part-III/III-1-outline.html"></include>
+            <include src="slides/Part-III/III-2-focus.html"></include>
+            <include src="slides/Part-III/III-3-4-5-sota.html"></include>
+            <include src="slides/Part-III/III-6-ioc.html"></include>
+            <include src="slides/Part-III/III-7-irl.html"></include>
+            <include src="slides/Part-III/III-9-results_handover.html"></include>
+            <include src="slides/Part-III/III-8-moirl.html"></include>
+            <include src="slides/Part-III/III-10-results_lifting.html"></include>
+            <!-- Conclusion -->
+            <include src="slides/conclusion.html"></include>
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="js/part-progress.js"></script>
+    <script>
+    (function () {
+    function fitCurrentOutline() {
+        const slide = Reveal.getCurrentSlide();
+        if (!slide || !slide.classList.contains('outline-fit')) return;
+
+        const box = slide.querySelector('.fitbox');
+        if (!box) return;
+
+        // reset scale, measure natural size, then scale to fit
+        box.style.transform = 'scale(1)';
+        const parent = slide.getBoundingClientRect();
+        const rect   = box.getBoundingClientRect();
+
+        const pad = 8; // small breathing room
+        const sx = (parent.width  - pad) / rect.width;
+        const sy = (parent.height - pad) / rect.height;
+        const s  = Math.min(sx, sy, 1);   // never scale up
+
+        box.style.transform = `scale(${s})`;
+    }
+
+    // Re-fit whenever the slide appears/changes/resize/fragments reveal more rows
+    Reveal.on('ready', fitCurrentOutline);
+    Reveal.on('slidechanged', fitCurrentOutline);
+    Reveal.on('resize', fitCurrentOutline);
+    Reveal.on('fragmentshown', fitCurrentOutline);
+    Reveal.on('fragmenthidden', fitCurrentOutline);
+    })();
+    </script>
+
+    <script>
+        // Edit the part names here:
+        const partNameI = "Estimating human state in real-time";
+        const partNameII = "Adaptation to embedded modalities";
+        const partNameIII = "Building robotic predictive assistance";
+
+        function replacePlaceholders() {
+            const slides = document.querySelectorAll('.slides section');
+            slides.forEach(slide => {
+                slide.innerHTML = slide.innerHTML.replace(/\[PART_NAME_I\]/g, partNameI);
+                slide.innerHTML = slide.innerHTML.replace(/\[PART_NAME_II\]/g, partNameII);
+                slide.innerHTML = slide.innerHTML.replace(/\[PART_NAME_III\]/g, partNameIII);
+            });
+        }
+
+        function loadIncludes() {
+            return Promise.all(
+                [...document.querySelectorAll("include")].map((include) => {
+                    return fetch(include.getAttribute("src"))
+                        .then((response) => response.text())
+                        .then((html) => (include.outerHTML = html))
+                        .catch(console.error);
+                })
+            );
+        }
+
+        loadIncludes().then(() => {
+            replacePlaceholders();
+            Reveal.initialize({
+                hash: true,
+                slideNumber: 'h.v',
+                disableLayout: false,
+                center: true,
+                plugins: [RevealZoom, RevealHighlight, RevealMath]
+            });
+        });
+    </script>
+    <script>
+    // Live screen receiver (works with your include loader)
+    (function(){
+    const WS_URL = 'ws://' + location.hostname + ':3001';  // same machine as deck
+    const MY_ID   = 'reveal';
+    const PEER_ID = 'mocap';
+
+    let ws = null, pc = null, videoEl = null;
+
+    function connect() {
+        const slide = Reveal.getCurrentSlide();
+        if (!slide || slide.id !== 'live-mocap-slide') return;
+
+        videoEl = slide.querySelector('#liveFeed');
+        teardown(); // clean old
+
+        ws = new WebSocket(WS_URL);
+        ws.onopen = () => ws.send(JSON.stringify({type:'hello', id:MY_ID}));
+        ws.onmessage = async (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.type === 'answer') {
+            await pc.setRemoteDescription(msg.sdp);
+        } else if (msg.type === 'ice') {
+            try { await pc.addIceCandidate(msg.candidate); } catch {}
+        }
+        };
+
+        pc = new RTCPeerConnection({ iceServers:[{urls:'stun:stun.l.google.com:19302'}] });
+        pc.ontrack = (e) => { videoEl.srcObject = e.streams[0]; };
+        pc.onicecandidate = (e) => e.candidate && ws.send(JSON.stringify({to: PEER_ID, type:'ice', candidate:e.candidate}));
+        pc.createOffer({ offerToReceiveVideo: true }).then(off => {
+        pc.setLocalDescription(off);
+        ws.send(JSON.stringify({to: PEER_ID, type:'offer', sdp: off}));
+        });
+    }
+
+    function teardown(){
+        try { ws && ws.close(); } catch{}
+        try { pc && pc.close(); } catch{}
+        ws = pc = null;
+        if (videoEl) { try { videoEl.srcObject = null; } catch{} }
+    }
+
+    // Hook into Reveal (your scripts already listen before init; this is safe too)
+    Reveal.on('ready', connect);
+    Reveal.on('slidechanged', e => {
+        if (e.currentSlide && e.currentSlide.id === 'live-mocap-slide') connect();
+        if (e.previousSlide && e.previousSlide.id === 'live-mocap-slide') teardown();
+    });
+    window.addEventListener('beforeunload', teardown);
+    })();
+    </script>
+
+</body>
+
+</html>

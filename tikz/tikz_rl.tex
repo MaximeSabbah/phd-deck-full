@@ -1,0 +1,38 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, positioning}
+
+\definecolor{myDeepBlue}{RGB}{0, 40, 75}
+\definecolor{myBlue}{RGB}{98, 196, 221}
+\definecolor{myRed}{RGB}{233, 75, 87}
+
+\tikzstyle{box}= [draw=myDeepBlue, line width=0.5mm,rounded corners=0.5mm]
+\tikzstyle{Box}= [minimum width=1.5cm, minimum height=0.75cm, box]
+
+\begin{document}
+\begin{tikzpicture}[node distance=2cm,auto,>=latex']
+    % Define a distance variable
+    \pgfmathsetmacro{\mydist}{4cm}
+
+    \node [Box] (RL) {Policy};
+    \node [Box, right of=RL, node distance=\mydist] (Env) {Environment};
+
+    % action path
+    \draw[->, line width=1pt] (RL.north)
+    -| ++(0,0.75)
+    -| (Env.north) node[near start, above] {action $a$};
+
+    % observation path
+    \node [coordinate, right=0.5cm of RL.south] (observation_split) {};
+    \draw[->, line width=1pt] (Env.south) ++(-0.5,0)
+    -| ++(0,-0.75)
+    -| (observation_split) node[near start, above] {observation $s$};
+
+    % reward path
+    \node [coordinate, left=0.5cm of RL.south] (reward_split) {};
+    \draw[->, line width=1pt] (Env.south) ++(+0.5,0)
+    -| ++(0,-1.25)
+    -| (reward_split) node[near start, below] {reward $r$};
+
+\end{tikzpicture}
+\end{document}

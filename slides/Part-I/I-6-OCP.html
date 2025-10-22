@@ -1,0 +1,35 @@
+<section data-part-group="part-i" data-part-title="PART I"
+         style="--part-accent: var(--c-laas-red);">
+    <section data-auto-animate data-auto-animate-restart>
+        <h2 style="background-color:var(--c-laas-red); margin:0px;">
+        [PART_NAME_I]
+        </h2>
+        <h3 style="background-color:#e94b58d2; margin-top:0px;">
+            Optimal Control Problem
+        </h3>
+        <div style="display: flex; align-items: center; width: 100%;">
+            <div style="width: 70%; font-size: 0.7em;" class="col">
+                \[
+                \begin{split}
+                & \min_{X,U} & \quad \Phi_{tot}(X,U) = \omega_\mathit{meas}\Phi_\mathit{meas}(X,U) \\
+                &  & \quad  + \omega_\mathit{reg}\Phi_\mathit{reg}(X,U) \\
+                & ~ \text{s.t.} & ~ \mathbf{g}(X,U) = 0 \ (\text{dynamics}) & \\
+                & & ~ \mathbf{h}(X,U) \leq 0 \ (\text{boundaries}) & \\
+                \end{split}
+                \]
+            </div>
+            <div style="width: 30%; font-size: 0.7em;" class="col">
+                $
+                X = \begin{pmatrix}
+                q_n \\
+                \dot{q}_n
+                \end{pmatrix} 
+                $
+                $U=(\ddot{q}_n)$
+                ${n \in [\![0,N-1]\!]}$
+            </div>
+        </div>    
+        <div class="citation-small">J. Andersson et al., <em>CasADi: a software framework for nonlinear optimization and optimal control</em>, Mathematical Programming, 2019</div>
+        <div class="citation-small">L. Vanroye et al., <em>Fatrop: A fast constrained optimal control problem solver for robot trajectory optimization and control</em>, IEEE IROS, 2023</div>
+    </section>
+</section>

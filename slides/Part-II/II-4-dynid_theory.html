@@ -1,0 +1,150 @@
+<section data-part-group="part-ii" data-part-title="PART II"
+         style="--part-accent: var(--c-secondary-blue);">
+<section data-auto-animate data-auto-animate-restart>
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Identification of the dynamic model</h3>
+
+  <div style="display: flex; align-items: center; width: 100%;">
+    <div style="width: 30%;" class="col">
+        <img src="./assets/part-II/id_setup.png" alt="ID setup"
+    style="width:100%; max-height:300px; object-fit:contain; display:block; margin-top:.25rem;">
+    <!-- green mocap markers (appear with fragment index 1) -->
+        <div class="id-marker fragment" data-fragment-index="2" style="top:12%; left:30%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:14%; left:40%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:24%; left:27%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:58%; left:30%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:60%; left:36%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:70%; left:25%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:74%; left:31%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:15%; left:55%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:14%; left:65%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:58%; left:61%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:57%; left:69%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:72%; left:66%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:70%; left:74%;"></div>
+        <div class="id-marker fragment" data-fragment-index="2" style="top:35%; left:69%;"></div>
+        <svg class="id-force-arrow fragment" data-fragment-index="3"
+               viewBox="0 0 100 100" preserveAspectRatio="none"
+               style="position:absolute; inset:0; pointer-events:none;">
+            <defs>
+                <marker id="arrRed" markerWidth="14" markerHeight="14" refX="6" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+                <polygon points="0,0 12,6 0,12" fill="#d64545"/>
+                </marker>
+            </defs>
+            <line x1="32" y1="50" x2="35" y2="26" stroke="#d64545" stroke-width="4" marker-end="url(#arrRed)"/>
+            <line x1="67" y1="50" x2="65" y2="25" stroke="#d64545" stroke-width="4" marker-end="url(#arrRed)"/>
+          </svg>
+    </div>
+
+    <div style="width: 70%;font-size:0.6em ;" class="col">
+        <div class="r-stack" style="min-height:6.5em;">
+            <div class="fragment fade-in-then-out" data-fragment-index="0" data-auto-animate-id="eom">
+            Floating base equations of motion:
+            $
+            \begin{bmatrix}\textbf{H}_{11}&\textbf{H}_{12}\\ \textbf{H}_{21}&\textbf{H}_{22}\end{bmatrix}
+            \begin{bmatrix}\ddot{q}_1\\ \ddot{q}\end{bmatrix} +
+            \begin{bmatrix}\textbf{B}_1\\ \textbf{B}_2\end{bmatrix} =
+            \begin{bmatrix}0\\ {\tau}\end{bmatrix} +
+            \sum_{k=1}^{N_c}\begin{bmatrix}\textbf{J}_{1k}^{T}\\ \textbf{J}_{2k}^{T}\end{bmatrix} F_k
+            $
+            <div class="citation-small" style="text-align:center;">
+                Y. Fujimoto et al., <em>biped walking with active interaction control between foot and ground</em>, ICRA, 1998
+            </div>
+            </div>
+
+            <!-- 1) Highlight inertial terms in blue -->
+            <div class="fragment fade-in-then-out" data-fragment-index="1" data-auto-animate-id="eom">
+            Floating base equations of motion:
+            $
+            \begin{bmatrix}\color{#2979ff}{\textbf{H}_{11}}&\color{#2979ff}{\textbf{H}_{12}}\\ \color{#2979ff}{\textbf{H}_{21}}&\color{#2979ff}{\textbf{H}_{22}}\end{bmatrix}
+            \begin{bmatrix}\ddot{q}_1\\ \ddot{q}\end{bmatrix} +
+            \begin{bmatrix}\color{#2979ff}{\textbf{B}_1}\\ \color{#2979ff}{\textbf{B}_2}\end{bmatrix} =
+            \begin{bmatrix}0\\ {\tau}\end{bmatrix} +
+            \sum_{k=1}^{N_c}\begin{bmatrix}\textbf{J}_{1k}^{T}\\ \textbf{J}_{2k}^{T}\end{bmatrix} F_k
+            $
+            <div class="citation-small" style="text-align:center;">
+                Y. Fujimoto et al., <em>biped walking with active interaction control between foot and ground</em>, ICRA, 1998
+            </div>
+            </div>
+
+            <!-- 2) Add kinematics in green -->
+            <div class="fragment fade-in-then-out" data-fragment-index="2" data-auto-animate-id="eom">
+            Floating base equations of motion:
+            $
+            \begin{bmatrix}\color{#2979ff}{\textbf{H}_{11}}&\color{#2979ff}{\textbf{H}_{12}}\\ \color{#2979ff}{\textbf{H}_{21}}&\color{#2979ff}{\textbf{H}_{22}}\end{bmatrix}
+            \begin{bmatrix}\color{#1db954}{\ddot{q}_1}\\ \color{#1db954}{\ddot{q}}\end{bmatrix} +
+            \begin{bmatrix}\color{#2979ff}{\textbf{B}_1}\\ \color{#2979ff}{\textbf{B}_2}\end{bmatrix} =
+            \begin{bmatrix}0\\ {\tau}\end{bmatrix} +
+            \sum_{k=1}^{N_c}\begin{bmatrix}\color{#1db954}{\textbf{J}_{1k}^{T}}\\ \color{#1db954}{\textbf{J}_{2k}^{T}}\end{bmatrix} F_k
+            $
+            <div class="citation-small" style="text-align:center;">
+                Y. Fujimoto et al., <em>biped walking with active interaction control between foot and ground</em>, ICRA, 1998
+            </div>
+            </div>
+
+            <!-- 4) Finally add forces in red (timed with your red arrows, index=4) -->
+            <div class="fragment" data-fragment-index="3" data-auto-animate-id="eom">
+            Floating base equations of motion:
+            $
+            \begin{bmatrix}\color{#2979ff}{\textbf{H}_{11}}&\color{#2979ff}{\textbf{H}_{12}}\\ \color{#2979ff}{\textbf{H}_{21}}&\color{#2979ff}{\textbf{H}_{22}}\end{bmatrix}
+            \begin{bmatrix}\color{#1db954}{\ddot{q}_1}\\ \color{#1db954}{\ddot{q}}\end{bmatrix} +
+            \begin{bmatrix}\color{#2979ff}{\textbf{B}_1}\\ \color{#2979ff}{\textbf{B}_2}\end{bmatrix} =
+            \begin{bmatrix}0\\ \color{#d64545}{{\tau}}\end{bmatrix} +
+            \sum_{k=1}^{N_c}\begin{bmatrix}\color{#1db954}{\textbf{J}_{1k}^{T}}\\ \color{#1db954}{\textbf{J}_{2k}^{T}}\end{bmatrix} \color{#d64545}{F_k}
+            $
+            <div class="citation-small" style="text-align:center;">
+                Y. Fujimoto et al., <em>biped walking with active interaction control between foot and ground</em>, ICRA, 1998
+            </div>
+            </div>
+        </div>
+        <div class="fragment eq2-wrap" data-fragment-index="4">
+            <div class="eq2-math">
+                Linear identification model:
+                $
+                \require{html} % so we can add a class
+                \class{w-spot}{\color{#1db954}{\mathbf{W}}}
+                \;\color{#2979ff}{\boldsymbol{\chi}} =
+                \begin{bmatrix} 0 \\ \color{#d64545}{\tau}\end{bmatrix}
+                + \sum_{k=1}^{N_c}
+                \begin{bmatrix}
+                    \color{#1db954}{\textbf{J}_{1k}^{T}} \\
+                    \color{#1db954}{\textbf{J}_{2k}^{T}}
+                \end{bmatrix}
+                \color{#d64545}{F_k}
+                $
+            </div>
+
+            <div class="eq2-note" style="transform: translateX(3em) translateY(-1em); font-size: 0.8em;max-width:min-content;">regressor matrix</div>
+        
+            <!-- the arrow (from the note → W) -->
+            <svg class="eq2-arrow" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                    <marker id="arrBlack" markerWidth="14" markerHeight="14" refX="6" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+                    <polygon points="0,0 12,6 0,12" fill="#000000"/>
+                    </marker>
+                </defs>
+                <line x1="160" y1="150" x2="210" y2="140" stroke="#000000" stroke-width="4" marker-end="url(#arrBlack)"/>
+            </svg>
+
+        <div class="citation-small" style="text-align: center;">M. Gautier and W. Khalil, <em>Identification of the minimum inertial parameters of robots</em>, ICRA, 1989  </div>
+    </div>
+</div>    
+</section>
+
+<section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
+    <h3 style="background-color:#3c6cd3d0; margin-top:0;">Identification of the dynamic model</h3>
+    <div style="width:100%;" class="col">
+      <ul class="pc-list">
+        <li class="pro">Least squares solutions or QP to enforce consistency</li>
+        <li class="con">Specific motions that excite the dynamics are required </li>
+      </ul>
+    </div>
+
+    <div class="fragment" data-fragment-index="1" style="font-size: 0.8em; text-align: center;">
+        One quality index, the relative standard deviation of the identified parameters:
+        \[
+        \sigma_{\chi}^{\%} = 100\frac{\sigma_{\chi^*}}{\lvert \chi^* \rvert}
+        \]
+    </div>
+</section>

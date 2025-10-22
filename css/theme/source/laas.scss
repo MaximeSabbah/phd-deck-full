@@ -1,0 +1,104 @@
+/**
+ * Theme for reveal.js matching visual identity of LAAS-CNRS.
+ * 
+ * Made according to the documentation available on the intranet for LAAS agents.
+ * 
+ * By Côme Perrot.
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+// IBM Plex for the headers
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+// The body uses the satoshi fonte and Arial is the defaule font.
+@import url(./fonts/satoshi/css/satoshi.css);
+
+/**
+ * LAAS-CNRS color according to the corporate identity and style guide.
+ */
+html * {
+    color-profile: sRGB;
+    rendering-intent: auto;
+}
+
+// CNRS colors
+// Main colors should be used in priority.
+$base_yellow: #ffeb6e;
+$base_blue: #00284b;
+// Complentary colors can be used for dynamism and variety.
+$complementary_grey1: #ebf0f5;
+$complementary_grey2: #8296a5;
+$complementary_purple: #6941eb;
+
+// Secondary colors should only be used as background or for graphical emphasis.
+$secondary_green: #b0ee89;
+$secondary_orange: #ffbc75;
+$secondary_blue: #9ae2ff;
+
+// LAAS colors
+$laas_deep_blue: #00294b;
+$laas_blue: #62c4dd;
+$laas_red: #e94b57;
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+// Default font color should be black
+$mainColor: #000;
+$headingColor: #000;
+
+$mainFontSize: 42px;
+$mainFont: 'Satoshi', Arial, Helvetica, sans-serif;
+$headingFont: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
+
+$heading1Size: 1em;
+$heading2Size: 1em;
+$heading3Size: 0.8em;
+$heading4Size: 0.8em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+/*********************************************
+ * CUSTOM COLORS
+ *********************************************/
+:root {
+    --c-base-yellow: #{$base_yellow};
+    --c-base-blue: #{$base_blue};
+    --c-complementary-grey1: #{$complementary_grey1};
+    --c-complementary-grey2: #{$complementary_grey2};
+    --c-complementary-purple: #{$complementary_purple};
+    --c-secondary-green: #{$secondary_green};
+    --c-secondary-orange: #{$secondary_orange};
+    --c-secondary-blue: #{$secondary_blue};
+    --c-laas_deep-blue: #{$laas_deep_blue};
+    --c-laas-blue: #{$laas_blue};
+    --c-laas-red: #{$laas_red};
+}
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal .progress {
+	height: 8px;
+	color: #{$base_blue};
+}

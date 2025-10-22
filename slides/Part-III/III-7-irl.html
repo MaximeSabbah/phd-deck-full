@@ -1,0 +1,77 @@
+<section data-part-group="part-iii" data-part-title="PART III"
+         style="--part-accent: var(--c-secondary-green);">
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Inverse Reinforcement Learning
+    </h3>
+    <div style="display:grid; justify-items:center; width:100%; position:relative;font-size: 0.9em; padding-bottom:6.6rem;">
+
+        <div style="grid-area:1/1;">
+            Stochastic formulation:
+            \[
+            \begin{split}
+            & P(\mathcal{Y}^*|\bar{\mathcal{Y}},\boldsymbol{\omega}) = \frac{1}{Z(\boldsymbol{\omega})} \exp(-\Phi_{tot}(\mathcal{Y}^*,\boldsymbol{\omega})) \\
+            \end{split}
+            \]
+        </div>
+
+        <div class="fragment" data-fragment-index="1" style="grid-area:1/1;">
+            Stochastic formulation:
+            \[
+            \begin{split}
+            & P(\mathcal{Y}^*|\bar{\mathcal{Y}},\boldsymbol{\omega}) = \frac{1}{\color{#d64545}{Z(\boldsymbol{\omega})}} \exp(-\Phi_{tot}(\mathcal{Y}^*,\boldsymbol{\omega})) \\
+            \end{split}
+            \]
+        </div>
+
+        <div class="fragment" data-fragment-index="1"
+           style="position:absolute; left:7%; top:60%; color:#d64545; font-size:0.9em;">
+        Partition function \(Z(\boldsymbol{\omega}) = \int_{\mathcal{Y} \in \bar{\mathcal{Y}}} \exp(-\Phi_{tot}(\mathcal{Y},\boldsymbol{\omega})) d\mathcal{Y}\)
+        </div>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        B. Ziebart et al., <em>Maximum Entropy Inverse Reinforcement Learning</em>, Aaai, 2008
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        M. Kalakrishnan et al., <em>Learning objective functions for manipulation</em>, ICRA, 2013
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
+    <h3 style="background-color:#34c22fb9; margin-top:0;">
+      Inverse Reinforcement Learning
+    </h3>
+
+    <div style="font-size: 0.7em;text-align: center;">
+        <span>\(\boldsymbol{\omega}\)</span>
+        <span>&nbsp;is found by minimizing the negative log likelihood associated with </span> <span>\(P\)</span>
+    </div>
+
+    <div>
+        \[
+        \begin{split}
+        \min_{\boldsymbol{\omega}} & -\log\left(P(\mathcal{Y}^*|\bar{\mathcal{Y}},\boldsymbol{\omega})\right) \\
+        \text{s.t.} & \quad \boldsymbol{\omega} \geq 0 \\ 
+        \end{split}
+        \]
+    </div>
+
+    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.75em;">
+        <ul class="pc-list">
+            <li class="pro">Very quick to solve → time varying weights possible $\boldsymbol{\omega}(t)$</li>
+        </ul>
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        B. Ziebart et al., <em>Maximum Entropy Inverse Reinforcement Learning</em>, Aaai, 2008
+    </div>
+
+    <div class="citation-small" style="text-align: center;">
+        M. Kalakrishnan et al., <em>Learning objective functions for manipulation</em>, ICRA, 2013
+    </div>
+  </section>
+</section>

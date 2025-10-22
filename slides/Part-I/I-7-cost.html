@@ -1,0 +1,140 @@
+<section data-part-group="part-i" data-part-title="PART I"
+         style="--part-accent: var(--c-laas-red);">
+    <!-- <section data-auto-animate data-auto-animate-restart>
+        <h2 style="background-color:var(--c-laas-red); margin:0px;">
+        [PART_NAME_I]
+        </h2>
+        <h3 style="background-color:#e94b58d2; margin-top:0px;">
+            Cost function
+        </h3>
+    <div>
+        <div style="text-align: left; width: 30%;" class="col">
+            Cost function:
+        </div>
+        <div style="text-align: left; width: 70%;" class="col">
+            encodes the information about the desired behavior of the estimator
+        </div>
+    </div>
+    <div style="margin-top: 3.8em; font-size: 0.95em;">
+        $\Phi_{tot}(X,U) =
+          \omega_\mathit{meas}\Phi_\mathit{meas}(X,U)
+        + \omega_\mathit{reg}\Phi_\mathit{reg}(X,U)
+        $
+    </div>
+    <div style="text-align: left; margin-top: 0.8em; font-size: 0.9em;">Weights to enforce practical priorities:</div>
+    <div>
+        $\omega_\mathit{meas}\gg \omega_\mathit{reg}$
+    </div>
+</section> -->
+<section data-auto-animate data-auto-animate-restart>
+    <h2 style="background-color:var(--c-laas-red); margin:0px;">
+        [PART_NAME_I]
+        </h2>
+        <h3 style="background-color:#e94b58d2; margin-top:0px;">
+            Cost functions
+        </h3>
+
+        <table style="width:100%; margin:auto;">
+        <tr>
+            <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_\mathit{meas}$
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;">
+                Measurement tracking error:
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;">
+                <ul>
+                    <li class="fragment custom emphasize" data-fragment-index="1">
+                        Positions of markers
+                    </li>
+                </ul>
+            </td>
+            <td style="vertical-align: top; text-align: right;  font-size: 0.55em; transform: translateX(2.0em);" class="fragment"
+                data-fragment-index="1">$||\mathbf{p}_{meas} - \mathbf{p}_{est}||^2$</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_\mathit{reg}$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em;">
+                Regularization:
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em;">
+                <ul>
+                    <li class="fragment custom emphasize" data-fragment-index="1">
+                        State (Joints positions and velocities)
+                    </li>
+                    <li class="fragment custom emphasize" data-fragment-index="1">
+                        Joint accelerations
+                    </li>
+                </ul>
+            </td>
+            <td style="vertical-align: top; text-align: right;  font-size: 0.55em;" class="fragment"
+                data-fragment-index="1">
+                $||X - X_{0}||^2$
+            </td>
+            <td style="vertical-align: top; text-align: right;  font-size: 0.55em; transform: translateX(-9.45rem) translateY(4.1em);" class="fragment"
+                data-fragment-index="1">
+                $||U - U_{0}||^2$
+            </td>
+        </tr>
+    </table>
+
+    <!-- <table style="width:100%; margin:auto;">
+        <tr>
+            <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_\mathit{meas}$
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;">
+                Measurement tracking error:
+            </td>
+            <td style="vertical-align: middle; font-size: 0.6em;">
+                <ul>
+                    <li class="fragment custom emphasize" data-fragment-index="1">
+                        Positions of markers
+                    </li>
+                    <li>
+                        IMU data (linear acc, angular vel)
+                    </li>
+                    <li>
+                        Ground reaction forces and moments
+                    </li>
+                    <li>
+                        Other measurements sources 
+                    </li>
+                </ul>
+            </td>
+            <td style="vertical-align: top; text-align: right;  font-size: 0.55em; transform: translateX(2.0em);" class="fragment"
+                data-fragment-index="1">$||\mathbf{p}_{meas} - \mathbf{p}_{est}||^2$</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                $\Phi_\mathit{reg}$
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em;">
+                Regularization:
+            </td>
+            <td style="vertical-align: middle;  font-size: 0.6em;">
+                <ul>
+                    <li class="fragment custom emphasize" data-fragment-index="1">
+                        State (Joints positions and velocities)
+                    </li>
+                    <li class="fragment custom emphasize" data-fragment-index="1">
+                        Joint accelerations
+                    </li>
+                    <li>
+                        Joint torques
+                    </li>
+                </ul>
+            </td>
+            <td style="vertical-align: top; text-align: right;  font-size: 0.55em;" class="fragment"
+                data-fragment-index="1">
+                $||X - X_{0}||^2$
+            </td>
+            <td style="vertical-align: top; text-align: right;  font-size: 0.55em; transform: translateX(-9.45rem) translateY(4.1em);" class="fragment"
+                data-fragment-index="1">
+                $||U - U_{0}||^2$
+            </td>
+        </tr>
+    </table> -->
+</section>
