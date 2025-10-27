@@ -68,10 +68,21 @@
 
   <div class = "col" style="width:50%; font-size:0.75em; text-align:center;">
     <div class="r-stack">
-      <img class="fragment" data-fragment-index="1" src="./assets/part-II/identif_fitting.png" style="width:70%;"/>
-      <figcaption class="fragment" data-fragment-index="1" style="font-size:0.5em;position: absolute; transform: translate(0%,1550%);">
-        Average RMSE : $\text{SS}_{\text{ID}}$ = 3.8N, 5.9N.m , $\text{IMU}_{\text{ID}}$ = 5.8N, 10.6N.m
-      </figcaption>
+      <div class="fragment" data-fragment-index="1"> <!-- reveal -->
+        <div class="fragment fade-out" data-fragment-index="3"> <!-- hide later -->
+          <img src="./assets/part-II/identif_fitting.png" style="height:100%;"/>
+          <figcaption style="font-size:0.5em; position:absolute; transform: translate(10%,-100%);">
+            Average RMSE : $\text{SS}_{\text{ID}}$ = 3.8N, 5.9N.m , $\text{IMU}_{\text{ID}}$ = 5.8N, 10.6N.m
+          </figcaption>
+        </div>
+      </div>
+      <div class="fragment" data-fragment-index="3"
+          style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+        <img src="./assets/part-II/torque_fitting.png" style="height:100%;"/>
+        <figcaption style="font-size:0.45em; position:absolute; transform: translate(0%,1100%);">
+          Average (N)RMSE : $\text{SS}_{\text{AT}}$ = 10.9N.m, 14.9% , $\text{IMU}_{\text{ID}}$ = 15.2N.m, 26.2%
+        </figcaption>
+      </div>
     </div>
   </div>
 

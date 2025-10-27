@@ -409,7 +409,7 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
   gap: .25rem 2rem;
   align-items: start;
   margin: -.25rem 0 .25rem;        /* pull closer to the pill */
-  font-size: .7em;                 /* same size you used inline */
+  font-size: .9em;                 /* same size you used inline */
 }
 
 /* push columns to the edges */
@@ -456,6 +456,10 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
   white-space: nowrap;
   font-size: .5em;
 }
+
+.mo-blue { color:#2979ff; }            /* a readable blue */
+.moirl-overlay { position:absolute; inset:0; }
+.moirl-eqL, .moirl-eqR { position:relative; }
 
 /* Make slide a positioning context and allow drawings to spill out */
 .reveal .slides section { overflow: visible; }
@@ -515,3 +519,256 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
 
 
 
+/* Map layout */
+.world-wrap{
+  position: relative;
+  width: 100%;
+  max-width: none;      /* let it grow to the slide’s width */
+  margin: .4rem auto 0;
+}
+.world-map{
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border-radius: 0;     /* optional: no rounded corners */
+}
+
+/* Pins positioned by % over an equirectangular map */
+.pin{ --x:50%; --y:50%; position:absolute; left:var(--x); top:var(--y);
+      transform: translate(-50%, -100%); pointer-events:auto; }
+.dot{ width:.7rem; height:.7rem; border-radius:999px; background:#0ea5e9;
+      border:2px solid #fff; box-shadow:0 0 0 2px rgba(14,165,233,.35); }
+
+/* Info card (always visible, no animations) */
+.card{
+  position:absolute; top:-.2rem; min-width:280px; max-width:360px;
+  background:#fff; color:#0f172a; border:1px solid rgba(2,6,23,.12);
+  border-radius:.75rem; padding:.6rem .7rem; box-shadow:0 8px 24px rgba(2,6,23,.18);
+  transform: translateX(0); z-index:3;
+}
+/* Side: place card to right (default) or left of pin */
+.pin[data-side="right"] .card{ left: calc(50% + .8rem); }
+.pin[data-side="left"]  .card{ right: calc(50% + .8rem); }
+
+/* Card header */
+.lab{ display:flex; align-items:center; gap:.55rem; margin-bottom:.4rem; }
+.logo{ width:88px; height:88px; object-fit:contain; }
+.meta .name{ font-weight:700; line-height:1.1; }
+.meta .city{ font-size:.85em; opacity:.8; }
+
+/* People chips */
+.people{ display:flex; flex-wrap:wrap; gap:.6rem .8rem; margin-top:.25rem; }
+.person{ display:flex; align-items:center; gap:.4rem; }
+.person img{ width:32px; height:32px; border-radius:999px; object-fit:cover;
+             border:1px solid rgba(2,6,23,.15); }
+.person span{ font-size:.3em; }
+
+/* Small screens */
+@media (max-width: 900px){
+  .card{ min-width:240px; font-size:.9em; }
+}
+/* Turn the existing lab-card into a circle with a single extra class */
+.card.lab-card.circle{
+  /* one knob for the diameter */
+  --lab-d: 260px;                 /* try 240–300px depending on content */
+
+  width: var(--lab-d);
+  height: var(--lab-d);
+  min-width: var(--lab-d);
+  max-width: var(--lab-d);
+
+  border-radius: 999px;           /* circle */
+  padding: .6rem;                 /* keep it tight */
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow: hidden;               /* clip to the circle */
+}
+
+/* keep your existing lab-card styles; just adapt sizes to the circle */
+.card.lab-card.circle .lab-hero{ margin: .2rem 0 .35rem; }
+.card.lab-card.circle .logo-xl{
+  width: calc(var(--lab-d) * .32);   /* ~1/3 of the circle */
+  height: auto; object-fit: contain; display: block;
+  margin: 0 auto .2rem;
+}
+.card.lab-card.circle .city{
+  font-size: .85em; opacity: .85; line-height: 1.1;
+}
+
+/* compact avatar grid inside the circle */
+.card.lab-card.circle .people.tiles{
+  margin-top: .35rem;
+  width: 100%;
+  padding: 0 .2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* 3 per row fits well */
+  gap: .35rem .5rem;
+  justify-items: center;
+}
+.card.lab-card.circle .people.tiles .avatar{
+  width: 40px; height: 40px; border-radius: 999px;
+  object-fit: cover; border: 1px solid rgba(2,6,23,.15);
+}
+.card.lab-card.circle .people.tiles .person span{
+  font-size: .72em; line-height: 1.05; white-space: nowrap;
+}
+
+/* optional quick size variants per card */
+.card.lab-card.circle.sm { --lab-d: 230px; }
+.card.lab-card.circle.lg { --lab-d: 290px; }
+
+/* Pin basics (you likely already have this) */
+.pin{
+  --x: 50%; --y: 50%;
+  position:absolute; left:var(--x); top:var(--y);
+  transform: translate(-50%,-100%);
+}
+
+/* ===== Minimal circular badge (logo + portraits only) ===== */
+.badge-min{
+  /* per-badge knobs */
+  --d: 240px;       /* diameter of the circle */
+  --gap: .8rem;     /* base gap from pin to badge */
+  --dx: 0px;        /* fine X offset from its anchor */
+  --dy: 0px;        /* fine Y offset from its anchor */
+  --logo: 80px;     /* logo size */
+  --avatar: 40px;   /* portrait size */
+  --cols: 3;        /* portraits per row in the grid */
+
+  position:absolute;
+  width:var(--d); height:var(--d);
+  border-radius:999px; background:#fff;
+  border:1px solid rgba(2,6,23,.12);
+  display:flex; flex-direction:column; align-items:center;
+  overflow:hidden; text-align:center; z-index:3;
+}
+
+/* Anchor positions around the pin */
+.pin[data-pos="right"]  .badge-min{ left:calc(50% + var(--gap)); top:50%; transform:translate(calc(var(--dx)), calc(-50% + var(--dy))); }
+.pin[data-pos="left"]   .badge-min{ right:calc(50% + var(--gap)); top:50%; transform:translate(calc(var(--dx)), calc(-50% + var(--dy))); }
+.pin[data-pos="top"]    .badge-min{ left:50%; bottom:calc(50% + var(--gap)); transform:translate(calc(-50% + var(--dx)), calc(var(--dy))); }
+.pin[data-pos="bottom"] .badge-min{ left:50%; top:calc(50% + var(--gap));    transform:translate(calc(-50% + var(--dx)), calc(var(--dy))); }
+
+/* Logo (center hero) */
+.badge-min .logo{
+  width:var(--logo); height:var(--logo);
+  object-fit:contain; display:block; margin:.25rem auto .35rem;
+}
+
+/* Portrait grid */
+.badge-min .people{
+  display:grid; gap:.45rem .6rem; width:100%;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  justify-items:center; align-content:start;
+}
+.badge-min .avatar{
+  width:var(--avatar); height:var(--avatar);
+  border:1px solid rgba(2,6,23,.15); background:#fff;
+}
+
+/* --- Independent DOT (absolute on the map) --- */
+.pin-dot{
+  /* % coords relative to .world-wrap */
+  --x: 50%;
+  --y: 50%;
+  position: absolute;
+  left: var(--x);
+  top:  var(--y);
+  transform: translate(-50%, -50%);
+  z-index: 4; /* above the map, below badges */
+}
+.pin-dot .dot{
+  width:.3rem; height:.3rem; border-radius:999px;
+  background:#0ea5e9; border:2px solid #fff;
+  box-shadow:0 0 0 2px rgba(14,165,233,.35);
+}
+
+/* --- Your existing minimal circular badge (logo + portraits) stays the same --- */
+/* (keeps .badge-min sizing knobs: --d, --logo, --avatar, --cols, etc.) */
+
+/* NEW: Absolute-positioned badge (own coordinates) */
+.badge-min.abs{
+  /* % coords relative to .world-wrap */
+  --bx: 55%;
+  --by: 40%;
+  position: absolute;
+  left: var(--bx);
+  top:  var(--by);
+  transform: translate(-50%, -50%);
+  z-index: 5; /* above dot */
+}
+
+/* OLD anchored mode still works if badge is inside a .pin container */
+.pin[data-pos="right"]  .badge-min:not(.abs){ left: calc(50% + var(--gap)); top:50%; transform:translate(calc(var(--dx)), calc(-50% + var(--dy))); }
+.pin[data-pos="left"]   .badge-min:not(.abs){ right:calc(50% + var(--gap)); top:50%; transform:translate(calc(var(--dx)), calc(-50% + var(--dy))); }
+.pin[data-pos="top"]    .badge-min:not(.abs){ left:50%; bottom:calc(50% + var(--gap)); transform:translate(calc(-50% + var(--dx)), calc(var(--dy))); }
+.pin[data-pos="bottom"] .badge-min:not(.abs){ left:50%; top:   calc(50% + var(--gap)); transform:translate(calc(-50% + var(--dx)), calc(var(--dy))); }
+
+/* Per-element absolute positioning INSIDE a badge when you add .free */
+.badge-min.free { position: absolute; /* already true, keeps as anchor */ }
+
+.badge-min.free .logo{
+  /* set --lx / --ly per badge (percent or px) */
+  position: absolute;
+  left: var(--lx, 50%);
+  top:  var(--ly, 38%);
+  transform: translate(-50%, -50%);
+  margin: 0;           /* remove any extra gap */
+  display: block;      /* kill inline baseline gap */
+}
+
+.badge-min.free .people{
+  position: absolute; inset: 0;   /* full badge canvas */
+}
+
+.badge-min.free .person{
+  /* set --px / --py per portrait (percent or px) */
+  position: absolute;
+  left: var(--px, 50%);
+  top:  var(--py, 72%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Slide-wide overlay for connectors */
+.world-links{
+  position:absolute; inset:0; width:100%; height:100%;
+  pointer-events:none; z-index:4;          /* under badges (z=5), over map */
+}
+
+/* Default style (override per-line via CSS vars or classes) */
+.map-link{
+  stroke: var(--link-color, #f7c213);
+  stroke-width: var(--link-w, 2.5);
+  stroke-linecap: round;
+  opacity: .95;
+}
+.map-link.dashed{ stroke-dasharray: 6 6; }
+
+/* Full-slide overlay for freely positioned portraits */
+.collab-free {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none;          /* doesn't block clicks (e.g., nav arrows) */
+  z-index: 6;                    /* above slide content */
+}
+
+/* A single portrait: position by --x / --y (%) and size by --size */
+.collab-free .p {
+  position: absolute;
+  left: var(--x);                /* % of slide width */
+  top:  var(--y);                /* % of slide height */
+  transform: translate(-50%, -50%);  /* center at (x,y) */
+  width:  var(--size, 72px);
+  height: var(--size, 72px);
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+  pointer-events: none;          /* keep non-interactive */
+}

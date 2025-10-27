@@ -34,40 +34,64 @@
 
     <div style="font-size: 0.8em;"><b>Motion Estimation</b></div>
 
-    <div class="fragment" style="font-size: 0.7em; text-align: left;"><li>Multimodality to cope with occlusions or very cluttered environments</li></div>
 
-    <div class="fragment" style="font-size: 0.8em; margin-top: 1em;">
-        <table style="width:100%; margin:auto;">
-        <tr>
-            <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_\mathit{meas}$
-            </td>
-            <td style="vertical-align: middle; font-size: 0.6em;">
-                Measurement tracking error:
-            </td>
-            <td style="vertical-align: middle; font-size: 0.6em;">
-                <ul>
-                    <li>
-                        Positions of markers
-                    </li>
-                    <li>
-                        IMU data (linear acc, angular vel)
-                    </li>
-                    <li>
-                        GRFM
-                    </li>
-                    <li>
-                        Other measurements sources 
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+    <div class="col" style="width:50%">
+        <div class="fragment" data-fragment-index="1">
+            <div style="font-size: 0.5em; text-align: left;"><li>Multimodality to cope with occlusions or very cluttered environments</li></div>
+
+            <div style="font-size: 0.8em; margin-top: 1em;">
+                <table style="width:100%; margin:auto;">
+                <tr>
+                    <td style="text-align: left; vertical-align: middle; font-size: 0.8em;">
+                        $\Phi_\mathit{meas}$
+                    </td>
+                    <td style="vertical-align: middle; font-size: 0.6em;">
+                        Measurement tracking error:
+                    </td>
+                    <td style="vertical-align: middle; font-size: 0.6em;">
+                        <ul>
+                            <li>
+                                Positions of markers
+                            </li>
+                            <li>
+                                IMU data (linear acc, angular vel)
+                            </li>
+                            <li>
+                                GRFM
+                            </li>
+                            <li>
+                                Other measurements sources 
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="fragment" data-fragment-index="3" style="font-size: 0.5em;text-align: left;"><li>Dynamic consistency enforcing contacts (at the feet level or with objects)</li></div>
+
+        <div class="fragment" data-fragment-index="4" style="font-size: 0.5em;text-align: left;"><li>Validation of SMPL and monocular approaches?</li></div>    
     </div>
 
-    <div class="fragment" style="font-size: 0.7em;text-align: left;"><li>Dynamic consistency enforcing contacts (at the feet level or with objects)</li></div>
+    <div class="col" style="width:50%;">
+        <div class="fragment" data-fragment-index="2">
+            <img src="./assets/conclu/batch_insoles.png" alt="batch_insoles" style="width:100%;"/>
+            <img src="./assets/conclu/insoles_kahina.png" alt="insoles_kahina" style="width:80%;"/>
+            <figcaption style="font-size:0.5em; position:absolute; transform: translate(60%,0%);">
+                Insole proof of concept
+            </figcaption>
+        </div>
+    </div>
 
-    <div class="fragment" style="font-size: 0.7em;text-align: left;"><li>Validation of SMPL and monocular approaches?</li></div>    
+    <div class="fragment" data-fragment-index="2">
+        <div class="collab-free">
+            <!-- portrait 1 -->
+            <img class="p"
+                style="--x: 100%; --y: 19%; --size: 76px;"
+                src="./assets/conclu/collab/chalabi.png" alt="K. Chalabi">
+        </div>
+    </div>
 
     </section>
 
@@ -81,14 +105,12 @@
 
     <div style="font-size: 0.8em;"><b>Motion Prediction</b></div>
 
-    <div class="fragment" style="font-size: 0.7em; text-align: left;"><li>Handling human variability</li></div>
+    <div class="fragment" data-fragment-index="1" style="font-size: 0.7em; text-align: left;"><li>Handling human variability</li></div>
+    <div class="fragment" data-fragment-index="2" style="font-size: 0.7em;text-align: left;"><li>Human motion foundational model based on realistic human motion simulations?</li></div>
+    <div class="fragment" data-fragment-index="2">
+         <img src="./assets/conclu/human_motion_foundational_model.png" alt="human_motion_foundational_model" />
+    </div>
 
-    <div class="fragment" style="font-size: 0.7em;text-align: left;"><li>Running IRL at runtime in an sliding window fashion</li></div>
-
-    <div class="fragment" style="font-size: 0.7em;text-align: left;"><li>Human motion foundational model based on realistic human motion simulations?</li></div>
-    
-    <div class="fragment" style="font-size: 0.7em;text-align: left;"><li>Jointly solving human motion estimation (in the present) and prediction (in the future)?</li></div>
-    
     </section>
 
     <section data-auto-animate data-auto-animate-restart>
@@ -100,11 +122,184 @@
     </h3>
 
     <div style="font-size: 0.8em;"><b>Physical HRC</b></div> 
-    <div class="fragment" style="font-size: 0.7em; text-align: left;"><li>Incorporation of IRL prediction directly into an MPC controller for true physical HRC (box lifting)</li></div>
-    <div class="fragment" style="font-size: 0.7em; text-align: left;"><li> Focus on force exchanges and dynamic force control</li></div>
-    <div class="fragment" style="font-size: 0.7em; text-align: left;"><li>New control architectures? Reinforcement Learning? Visual Language Action models?</li></div>
+    <div class ="col" style="width: 35%;">
+        <div class="fragment" data-fragment-index="1" style="font-size: 0.65em; text-align: left;"><li>Incorporation of IRL prediction directly into an MPC controller for true physical HRC (box lifting)</li></div>
+        <div class="fragment" style="font-size: 0.65em; text-align: left;"><li> Focus on force exchanges and dynamic force control</li></div>
+        <div class="fragment" style="font-size: 0.65em; text-align: left;"><li>New control architectures? Reinforcement Learning? Visual Language Action models?</li></div>
+    </div>
+    <div class = "col" style="width: 65%;">
+        <div class="fragment" data-fragment-index="1">
+        <img src="./assets/conclu/hrc_box_lifting.png" alt="hrc_box_lifting" style="width:100%;"/>
+        </div>
+    </div>
     </section>
 </section>
+
+<section data-part-group="conclu" data-part-title="Conclusion"
+         style="--part-accent: var(--c-secondary-dark-blue);">
+  <h2 style="margin:0; color:white;">Conclusion</h2>
+  <h3 style="margin-top:0; color:white;">Collaborations</h3>
+
+  <div class="world-wrap">
+    <!-- Your planisphere -->
+    <img class="world-map" src="./assets/conclu/planisphere.png" alt="World map">
+
+    <svg class="world-links" preserveAspectRatio="none">
+    <!-- LAAS: dot (44.4,44.78) -> badge (37.8,60.5) -->
+    <line class="map-link" x1="44.4%" y1="44.78%" x2="37.8%" y2="60.5%"/>
+
+    <!-- NYU: dot (25.4,44.78) -> badge (15.8,65.5) -->
+    <line class="map-link" x1="25.4%" y1="44.78%" x2="15.8%" y2="65.5%"/>
+
+    <!-- NUS: dot (71.4,66.78) -> badge (85.8,55.5) -->
+    <line class="map-link" x1="71.4%" y1="66.78%" x2="85.8%" y2="55.5%"/>
+
+    <!-- LBMC: dot (45.8,42) -> badge (50.8,24.5) -->
+    <line class="map-link" x1="45.8%" y1="42%" x2="50.8%" y2="24.5%"/>
+
+    <!-- ETF: dot (49.7,43.5) -> badge (55.8,60.5) -->
+    <line class="map-link" x1="49.7%" y1="43.5%" x2="55.8%" y2="60.5%"/>
+
+    <!-- LS2N: dot (44,42) -> badge (31.5,25.5) -->
+    <line class="map-link" x1="44%" y1="42%" x2="31.5%" y2="25.5%"/>
+
+    <!-- LIRMM: dot (45,44) -> badge (47.5,88.5) -->
+    <line class="map-link" x1="45%" y1="44%" x2="47.5%" y2="88.5%"/>
+    </svg>
+
+
+    <!-- Dot (Toulouse) -->
+    <div class="pin-dot" style="--x:44.4%; --y:44.78%;">
+        <div class="dot"></div>
+    </div>
+
+    <!-- Badge placed independently (nudge with --bx / --by) -->
+    <div class="badge-min abs free"
+        style="--bx:36%; --by:60.5%; --d:160px; --logo:70px; --avatar:80px;">
+        <!-- Place the logo exactly where you want -->
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/Logo_LAAS.png" alt="LAAS-CNRS">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="Gepetto" style="--px:50%; --py:65%;">
+            <img class="avatar" src="./assets/conclu/collab/gepetto.png" alt="Gepetto">
+            </div>
+        </div>
+    </div>
+
+    <div class="pin-dot" style="--x:25.4%; --y:44.78%;">
+        <div class="dot"></div>
+    </div>
+
+    <div class="badge-min abs free"
+        style="--bx:15.8%; --by:65.5%; --d:220px; --logo:80px; --avatar:80px; --cols:2;">   
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/nyu-logo.svg" alt="NYU">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="L. Righetti" style="--px:60%; --py:50%;">
+            <img class="avatar" src="./assets/conclu/collab/righetti.png" alt="L. Righetti">
+            </div>
+            <div class="person" title="S. Mehrdad" style="--px:25%; --py:65%;">
+            <img class="avatar" src="./assets/conclu/collab/mehrdad.png" alt="S. Mehrdad">
+            </div>
+        </div>
+    </div>
+
+    <div class="pin-dot" style="--x:71.4%; --y:66.78%;">
+        <div class="dot"></div>
+    </div>
+
+    <div class="badge-min abs free"
+        style="--bx:85.8%; --by:55.5%; --d:220px; --logo:100px; --avatar:80px; --cols:2;">   
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/nus_logo.png" alt="NUS">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="D. Hsu" style="--px:60%; --py:50%;">
+            <img class="avatar" src="./assets/conclu/collab/hsu.png" alt="D. Hsu">
+            </div>
+            <div class="person" title="H. Soh" style="--px:25%; --py:65%;">
+            <img class="avatar" src="./assets/conclu/collab/soh.png" alt="H. Soh">
+            </div>
+        </div>
+    </div>
+
+    <!-- Dot (Toulouse) -->
+    <div class="pin-dot" style="--x:45.8%; --y:42%;">
+        <div class="dot"></div>
+    </div>
+
+    <!-- Badge placed independently (nudge with --bx / --by) -->
+    <div class="badge-min abs free"
+        style="--bx:50.8%; --by:24.5%; --d:160px; --logo:70px; --avatar:100px;">
+        <!-- Place the logo exactly where you want -->
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/lbmc_logo.png" alt="LBMC">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="R. Dumas" style="--px:50%; --py:65%;">
+            <img class="avatar" src="./assets/conclu/collab/dumas.png" alt="R. Dumas">
+            </div>
+        </div>
+    </div>
+
+    <!-- Dot (Toulouse) -->
+    <div class="pin-dot" style="--x:49.7%; --y:43.5%;">
+        <div class="dot"></div>
+    </div>
+
+    <!-- Badge placed independently (nudge with --bx / --by) -->
+    <div class="badge-min abs free"
+        style="--bx:55.8%; --by:60.5%; --d:160px; --logo:50px; --avatar:100px;">
+        <!-- Place the logo exactly where you want -->
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/etf_logo.png" alt="ETF">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="F. Becanovic" style="--px:50%; --py:68%;">
+            <img class="avatar" src="./assets/conclu/collab/becanovic.png" alt="F. Becanovic">
+            </div>
+        </div>
+    </div>
+
+    <div class="pin-dot" style="--x:44%; --y:42%;">
+        <div class="dot"></div>
+    </div>
+
+    <div class="badge-min abs free"
+        style="--bx:31.5%; --by:25.5%; --d:200px; --logo:100px; --avatar:80px; --cols:2;">   
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/ls2n_logo.png" alt="LS2N">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="M. Gautier" style="--px:65%; --py:50%;">
+            <img class="avatar" src="./assets/conclu/collab/gautier.png" alt="M. Gautier">
+            </div>
+            <div class="person" title="A. Cherubini" style="--px:25%; --py:65%;">
+            <img class="avatar" src="./assets/conclu/collab/cherubini.png" alt="A. Cherubini">
+            </div>
+        </div>
+    </div>
+
+    <div class="pin-dot" style="--x:45%; --y:44%;">
+        <div class="dot"></div>
+    </div>
+
+    <div class="badge-min abs free"
+        style="--bx:47.5%; --by:88.5%; --d:160px; --logo:70px; --avatar:80px;">   
+        <img class="logo" style="--lx:50%; --ly:20%;" src="./assets/logos/lirmm_logo.png" alt="LIRMM">
+
+        <!-- Place each portrait exactly where you want -->
+        <div class="people">
+            <div class="person" title="W. Li" style="--px:50%; --py:68%;">
+            <img class="avatar" src="./assets/conclu/collab/li.png" alt="W. Li">
+            </div>
+        </div>
+    </div> 
+  </div>
+</section>
+
 
 <section data-part-group="conclu" data-part-title="Conclusion"
          style="--part-accent: var(--c-secondary-dark-blue);">

@@ -17,24 +17,55 @@
       <div class="moirl-grid">
         <!-- Row 1: left equation -->
         <div class="moirl-eqL">
-          \[
-          \begin{split}
-            & P(\mathcal{Y}^*|\bar{\mathcal{Y}},\boldsymbol{\omega})
-              = \frac{1}{Z(\boldsymbol{\omega})}\exp\!\big(-\Phi_{\mathrm{tot}}(\mathcal{Y}^*,\boldsymbol{\omega})\big) \\
-            & Z(\boldsymbol{\omega}) = \int_{\mathcal{Y} \in \bar{\mathcal{Y}}}
-              \exp\!\big(-\Phi_{\mathrm{tot}}(\mathcal{Y},\boldsymbol{\omega})\big)\, d\mathcal{Y}
-          \end{split}
-          \]
+          <!-- original (fades out at step 1) -->
+          <div class="fragment fade-out" data-fragment-index="1">
+            \[
+            \begin{split}
+              & P(\mathcal{Y}^*|\bar{\mathcal{Y}},\boldsymbol{\omega})
+                = \frac{1}{Z(\boldsymbol{\omega})}\exp\!\big(-\Phi_{\mathrm{tot}}(\mathcal{Y}^*,\boldsymbol{\omega})\big) \\
+              & Z(\boldsymbol{\omega}) = \int_{\mathcal{Y} \in \bar{\mathcal{Y}}}
+                \exp\!\big(-\Phi_{\mathrm{tot}}(\mathcal{Y},\boldsymbol{\omega})\big)\, d\mathcal{Y}
+            \end{split}
+            \]
+          </div>
+
+          <!-- colored overlay (appears at step 1) -->
+          <div class="fragment moirl-overlay" data-fragment-index="1">
+            \[
+            \begin{split}
+              & P\!\Big(\mathcal{Y}^* \,\Big|\, \bar{\mathcal{Y}},\, \class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}}\Big)
+                = \frac{1}{Z\!\Big(\class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}}\Big)}
+                  \exp\!\Big(-\Phi_{\mathrm{tot}}\!\Big(\mathcal{Y}^*,\,\class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}}\Big)\Big) \\
+              & Z\!\Big(\class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}}\Big)
+                = \int_{\mathcal{Y} \in \bar{\mathcal{Y}}}
+                  \exp\!\Big(-\Phi_{\mathrm{tot}}\!\Big(\mathcal{Y},\,\class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}}\Big)\Big)\, d\mathcal{Y}
+            \end{split}
+            \]
+          </div>
         </div>
 
         <!-- Row 1: right equation -->
         <div class="moirl-eqR">
-          \[
-          \begin{split}
-            \min_{\boldsymbol{\omega}}\;& -\log\!\left(P(\mathcal{Y}^* \mid \bar{\mathcal{Y}}, \boldsymbol{\omega})\right) \\
-            \text{s.t.}\;& \boldsymbol{\omega} \ge 0
-          \end{split}
-          \]
+          <!-- original (fades out at step 1) -->
+          <div class="fragment fade-out" data-fragment-index="1">
+            \[
+            \begin{split}
+              \min_{\boldsymbol{\omega}}\;& -\log\!\left(P(\mathcal{Y}^* \mid \bar{\mathcal{Y}}, \boldsymbol{\omega})\right) \\
+              \text{s.t.}\;& \boldsymbol{\omega} \ge 0
+            \end{split}
+            \]
+          </div>
+
+          <!-- colored overlay (appears at step 1) -->
+          <div class="fragment moirl-overlay" data-fragment-index="1">
+            \[
+            \begin{split}
+              \min_{\class{mo-blue}{\Delta\boldsymbol{\omega}}}\;&
+                -\log\!\Big(P\big(\mathcal{Y}^* \mid \bar{\mathcal{Y}}, \class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}}\big)\Big) \\
+              \text{s.t.}\;& \class{mo-blue}{\boldsymbol{\omega}+\Delta\boldsymbol{\omega}} \ge 0
+            \end{split}
+            \]
+          </div>
         </div>
 
         <!-- Row 2: arrow + label -->
@@ -49,7 +80,10 @@
                   stroke="currentColor" stroke-width="2.4"
                   marker-end="url(#arrowhead)"/>
           </svg>
-          <div class="moirl-linesearch">linesearch on \(\Delta\boldsymbol{\omega}\)</div>
+          <div class="moirl-linesearch">
+            linesearch
+            <span class="mo-blue">\(\boldsymbol{\omega}+\Delta\boldsymbol{\omega}\)</span>
+          </div>
         </div>
 
         <!-- Row 3: caption -->
@@ -61,14 +95,16 @@
         <div class="fragment moirl-update" data-fragment-index="1">
           \[
           \begin{aligned}
-            & \min_{\Delta\boldsymbol{\omega}}
+            & \min_{\class{mo-blue}{\Delta\boldsymbol{\omega}}}
               \sum_{d} -\theta_{d}\,\log \frac{1}{\,1+\sum_{\mathcal{Y}\in \bar{\mathcal{Y}}_{d}} \gamma_{d}
-              \exp\!\big(-\Delta\boldsymbol{\omega}^{\top}\bar{\Phi}_{d,\mathcal{Y}}\big)} + \lambda\,\lvert \Delta\boldsymbol{\omega} \rvert
-            + \frac{\beta}{2}\,\lVert \Delta\boldsymbol{\omega} \rVert_2^{2} \\
-            & \text{s.t.} \ \ \  0 \le \boldsymbol{\omega} + \Delta\boldsymbol{\omega}
+              \exp\!\big(-\class{mo-blue}{\Delta\boldsymbol{\omega}}^{\top}\bar{\Phi}_{d,\mathcal{Y}}\big)}
+              + \lambda\,\lvert \class{mo-blue}{\Delta\boldsymbol{\omega}} \rvert
+              + \frac{\beta}{2}\,\lVert \class{mo-blue}{\Delta\boldsymbol{\omega}} \rVert_2^{2} \\
+            & \text{s.t.}\ \ \  0 \le \class{mo-blue}{\boldsymbol{\omega} + \Delta\boldsymbol{\omega}}
           \end{aligned}
           \]
         </div>
+
         <!-- Citations -->
         <div class="citation-small" style="text-align:center;font-size:0.35em">
           S. Mehrdad et al., <em>Cost Function Estimation Using Inverse Reinforcement Learning with Minimal Observations</em>, IEEE IROS, 2025
@@ -77,6 +113,18 @@
           <b>M. Sabbah</b> et al., <em>Minimal Observations Inverse Reinforcement Learning for Predicting Human Box-Lifting Motions</em>, IEEE Humanoids, 2025
         </div>
       </div>
+    </div>
+
+    <!-- Free-position collaborator portraits (top-right column) -->
+    <div class="collab-free">
+      <!-- portrait 1 -->
+      <img class="p"
+          style="--x: 100%; --y: 19%; --size: 76px;"
+          src="./assets/conclu/collab/mehrdad.png" alt="S. Mehrdad">
+      <!-- portrait 2 -->
+      <img class="p"
+          style="--x: 100%; --y: 33%; --size: 76px;"
+          src="./assets/conclu/collab/righetti.png" alt="L. Righetti">
     </div>
   </section>
 
@@ -126,5 +174,16 @@
                 background:#fff;">
         </div>
   </div>
+
+  <div class="collab-free">
+      <!-- portrait 1 -->
+      <img class="p"
+          style="--x: 100%; --y: 19%; --size: 76px;"
+          src="./assets/conclu/collab/mehrdad.png" alt="S. Mehrdad">
+      <!-- portrait 2 -->
+      <img class="p"
+          style="--x: 100%; --y: 33%; --size: 76px;"
+          src="./assets/conclu/collab/righetti.png" alt="L. Righetti">
+    </div>
 </section>
 </section>
