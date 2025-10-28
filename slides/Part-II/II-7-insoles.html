@@ -3,31 +3,44 @@
 <section data-auto-animate data-auto-animate-restart>
   <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
   <h3 style="background-color:#3c6cd3d0; margin-top:0;">Better insoles measurements</h3>
-    <div style="display: flex; align-items: center; width: 100%;">
-        <div style="width: 50%;" class="col">
-        <img src="./assets/part-II/insoles.png" alt="Insoles" style="width: 30%;">
-        </div>
-        <div style="width: 50%;" class="col">
-        <img src="./assets/part-II/insoles2.png" alt="Insoles2" style="width: 40%;">
-        </div>
+    <div class="img-wrap" style="position:relative; display:flex; align-items:center; width:100%;">
+      <div style="width:50%;" class="col">
+        <img src="./assets/part-II/insoles.png" alt="Insoles" style="width:30%;">
+      </div>
+      <div style="width:50%;" class="col">
+        <img src="./assets/part-II/insoles2.png" alt="Insoles2" style="width:40%;">
+      </div>
+
+      <!-- Red hotspots: show with the last bullet -->
+      <div class="fragment" data-fragment-index="3"
+          style="position:absolute; inset:0; z-index:5; pointer-events:none;">
+        <!-- Rectangle 1 (left image) -->
+        <div style="position:absolute; left:19%; top:35%; width:3%; height:10%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
+        <!-- Rectangle 2 (left image) -->
+        <div style="position:absolute; left:27.5%; top:35%; width:3%; height:10%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
+        <!-- Rectangle 3 (right image) -->
+        <div style="position:absolute; left:78%; top:10%; width:3%; height:18%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
       </div>
     </div>
 
-    <div class="fragment" style="text-align:left; font-size:0.50em;">
+    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.50em;">
       <ul>
         <li>Embedded insoles measuring normal forces only → how to go 6D ?</li>
       </ul>
     </div>
 
-    <div class="fragment" style="text-align:left; font-size:0.50em;">
+    <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.50em;">
       <ul>
         <li>Accuracy of <b>40N</b> only validated for gait or single support tasks</li>
       </ul>
     </div>
 
-    <div class="fragment" style="text-align:left; font-size:0.50em;">
+    <div class="fragment" data-fragment-index="3" style="text-align:left; font-size:0.50em;">
       <ul>
-        <li>Multimodality + Non-observability → typical <b>ML/DL</b> applications !</li>
+        <li>Multimodality (Vertical force + <span style="color:#e11d48;">IMU</span>) + Non-observability → typical <b>ML/DL</b> applications !</li>
       </ul>
     </div>
 
