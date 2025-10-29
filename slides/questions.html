@@ -1,0 +1,117 @@
+<section>
+     <h2 style="margin:0px; color: white;">
+        Question
+    </h2>
+    <h3 style="margin-top:0px; color: white;">
+        How to handle human variability ?
+    </h3>
+    
+    <div class="fragment" data-fragment-index="1">
+        <div class="citation-small" style="text-align:center;">
+        B. Berret et al., <em>Stochastic optimal feedforward-feedback control determines timing and variability of arm movements with or without vision</em>, PLoS Comput Biol, 2021
+        </div>
+    </div>
+
+    <div class="fragment" data-fragment-index="1">
+        <div class="citation-small" style="text-align:center;">
+        A. Orhan et al., <em>Using Artificial Demonstrations Emulating Human Movement Variability for a Learning-based Exoskeleton Flow Controller</em>, 2025
+        </div>
+    </div>
+
+    <div class="fragment" data-fragment-index="2" style="font-size: 0.6em;">
+        <ul>
+            <li>Main idea: Generate motion variability using stochastic optimal control → Train a ProMP to infer at runtime.</li>
+        </ul>
+    </div>
+
+    <div class="fragment" data-fragment-index="3" style="font-size: 0.6em;">
+        <ul>
+            <li>Improve the framework using the advances in GPU parallelization → RL or even sampling based technique at runtime.</li>
+        </ul>
+    </div>
+
+</section>
+
+<section>
+     <h2 style="margin:0px; color: white;">
+        Question
+    </h2>
+    <h3 style="margin-top:0px; color: white;">
+        Why not optimizing over a manifold for inertia matrices?
+    </h3>
+    
+    <div class="fragment" data-fragment-index="1">
+        <ul class="pc-list" style="font-size: 0.6em;">
+            <li class="pro">Already done!</li>
+        </ul>
+        <div class="citation-small" style="text-align:center;">
+        S. Traversaro et al., <em>Identification of fully physical consistent inertial parameters using optimization on manifolds</em>, IEEE IROS, 2016
+        </div>
+        <div class="citation-small" style="text-align:center;">
+        P. Wensing et al., <em>Linear matrix inequalities for physically consistent inertial parameter identification: A statistical perspective on the mass distribution</em>, RAL, 2017
+        </div>
+    </div>
+
+    <div class="fragment" data-fragment-index="2" style="font-size: 0.6em;">
+        <ul>
+            <li>No need for speed efficiency.</li>
+            <li>QP already working for IK.</li>
+            <li>The influence of cross inertias is very small for human motion.</li>
+        </ul>
+    </div>
+
+</section>
+
+<section>
+     <h2 style="margin:0px; color: white;">
+        Question
+    </h2>
+    <h3 style="margin-top:0px; color: white;">
+        More details on base parameters for dynamic identification
+    </h3>
+    
+    <div class="fragment eq2-wrap" data-fragment-index="1" style="font-size: 0.6em; text-align: left;">
+        <div class="eq2-math">
+            Linear identification model:
+            $
+            \\
+            \require{html} % so we can add a class
+            \class{w-spot}{\color{#1db954}{\mathbf{W}}}
+            \;\color{#2979ff}{\boldsymbol{\chi}} =
+            \begin{bmatrix} 0 \\ \color{#d64545}{\tau}\end{bmatrix}
+            + \sum_{k=1}^{N_c}
+            \begin{bmatrix}
+                \color{#1db954}{\textbf{J}_{1k}^{T}} \\
+                \color{#1db954}{\textbf{J}_{2k}^{T}}
+            \end{bmatrix}
+            \color{#d64545}{F_k}
+            \;\xrightarrow{\text{Least-Squares}}\;
+            \hat{\color{#2979ff}{\boldsymbol{\chi}}} =
+            \class{w-spot}{\color{#1db954}{\mathbf{W}}}^{\dagger}
+            \left(
+            \begin{bmatrix} 0 \\ \color{#d64545}{\tau}\end{bmatrix}
+            + \sum_{k=1}^{N_c}
+            \begin{bmatrix}
+                \color{#1db954}{\textbf{J}_{1k}^{T}} \\
+                \color{#1db954}{\textbf{J}_{2k}^{T}}
+            \end{bmatrix}
+            \color{#d64545}{F_k}
+            \right)
+            $
+            </div>
+        <div class="eq2-note" style="transform: translateX(-2em) translateY(-1em); font-size: 0.8em;max-width:min-content;">regressor matrix</div>
+    </div>
+
+    <div class="fragment" data-fragment-index="2" style="font-size: 0.8em; text-align: center;">
+        What happens when ${\color{#1db954}{\mathbf{W}}}$ is rank deficient?
+    </div>
+
+    <div class="fragment" data-fragment-index="3" style="font-size: 0.8em; text-align: left;">
+        <ul>
+            <li>QR decomposition of ${\color{#1db954}{\mathbf{W}}}$.</li>
+            <li>$\color{#2979ff}{\boldsymbol{\chi}_B}$: Set of base parameters (group of the only observable parameters in the least square sense).</li>
+            <li>If needed, $\color{#2979ff}{\boldsymbol{\chi}}$ can be retrieved solving a constrained QP.</li>
+        </ul>
+    </div>
+
+</section>
