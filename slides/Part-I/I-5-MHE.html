@@ -2,12 +2,10 @@
          style="--part-accent: var(--c-laas-red);">
 <section data-auto-animate data-auto-animate-restart>
     <h2 style="background-color:var(--c-laas-red); margin:0px;">
-        [PART_NAME_I]
+        Sliding Window IK
     </h2>
-    <h3 style="background-color:#e94b58d2; margin-top:0px;">
-        Sliding Window Inverse Kinematics Algorithm (SWIKA)
-    </h3>
-    <div style="text-align: left;">
+
+    <div style="text-align: left; margin-top: 5%;">
         <div style="width: 30%;" class="col">
             Requirements:
         </div>
@@ -40,23 +38,36 @@
 
 <section data-auto-animate>
     <h2 style="background-color:var(--c-laas-red); margin:0px;">
-        [PART_NAME_I]
+        Sliding Window IK
     </h2>
-    <h3 style="background-color:#e94b58d2; margin-top:0px;">
-        Sliding Window Inverse Kinematics Algorithm (SWIKA)
-    </h3>
 
+    <div style="width: 90%; margin-top: 5%;" class="col">
     <div class="r-stack">
     <img src="./assets/part-I/MHE/mhe_v2_1.svg" style="width:100%;"/>
     <img class="fragment" data-fragment-index="0" src="./assets/part-I/MHE/mhe_v2_2.svg" style="width:100%;"/>
     <img class="fragment" data-fragment-index="1" src="./assets/part-I/MHE/mhe_v2_3.svg" style="width:100%;"/>
     <img class="fragment" data-fragment-index="2" src="./assets/part-I/MHE/mhe_v2_4.svg" style="width:100%;"/>
     </div>
+    </div>
+
+    <div style="width: 10%; font-size: 0.5em; margin-top: 20%;" class="col">
+                $
+                X = \begin{pmatrix}
+                q_n \\
+                \dot{q}_n
+                \end{pmatrix} 
+                $
+                $U=(\ddot{q}_n)$
+                ${n \in [\![0,N-1]\!]}$
+                $N=7$
+    </div>
 
 
   <!-- Single citation (smaller) -->
-    <div class="citation-small" style="font-size:.4em; text-align:center;">
+   <div class = "col" style = "width: 100%;">
+    <div class="citation-small" style="text-align:center;">
       M. Adjel, <b> M. Sabbah </b> et al. <em>Multi-modal upper limbs human motion estimation from a reduced set of affordable sensors</em>, IEEE IROS, 2023
+    </div>
     </div>
     
     <div class="collab-free">

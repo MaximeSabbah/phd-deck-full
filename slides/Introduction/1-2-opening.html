@@ -1,18 +1,39 @@
 <section data-part-group="intro" data-part-title="Introduction"
          style="--part-accent: var(--c-secondary-dark-blue);">
+
 <section>
-    <h2 style="margin:0px; color: white;">
-        Introduction
-    </h2>
-    <h3 style="margin-top:0px; color: white;">
-        Motivation
-    </h3>
-    <div style="display:flex; gap:1.25rem; flex-wrap:wrap; justify-content:flex-start; align-items:stretch; margin-top:0.5rem;">
+  <h2 style="margin:0; color:white;">Motivation</h2>
+
+    <div class="col" style="width: 50%; margin-top: 5%;">
+      <div class="fragment" data-fragment-index="1">
+      <video data-autoplay muted playsinline data-loops="1" style="width: 100%;">
+        <!-- replace with your file -->
+        <source data-src="./videos/intro/franck.mp4" type="video/mp4">
+      </video>
+      </div>
+    </div>
+    <div class="col" style="width: 50%; margin-top: 5%;">
+      <div class="fragment" data-fragment-index="2">
+      <video data-autoplay muted playsinline data-loops="1" style="width: 100%;">
+        <!-- replace with your file -->
+        <source data-src="./videos/intro/ted_and_john.mp4" type="video/mp4">
+      </video>
+      </div>
+    </div>
+
+    <div class="fragment" data-fragment-index="3" style="margin-top: 1rem; font-size: 0.8em;">
+      <b>They need help!</b>
+    </div>
+</section>
+
+<section>
+  <h2 style="margin:0px; color: white;">Motivation</h2>
+  <div style="display:flex; gap:1.25rem; flex-wrap:wrap; justify-content:flex-start; align-items:stretch; margin-top:0.5rem;">
     <!-- MSD -->
     <div style="flex:1 1 420px; max-width:640px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:1rem 1.25rem;">
         <img src="./assets/intro/MSD.png" alt="MSD statistics"
     style="width:100%; max-height:300px; object-fit:contain; display:block; margin-top:.25rem;">
-        <p style="margin:0.5rem 0 0; color: var(--c-complementary-black); font-size:0.7em;">Around <span style="font-weight: bold;">60%</span> of European workers reported MSD symptoms</p>
+        <p style="margin:0.5rem 0 0; color: var(--c-complementary-black); font-size:0.6em;">Around <span style="font-weight: bold;">60%</span> of European workers reported MSD symptoms</p>
         <div class="citation-small" style="text-align: center;"> Source: European Agency for Safety and Health at Work (EU-OSHA)</div>
         <div style="position:absolute; inset:0; pointer-events:none; z-index:2;">
           <!-- Example stars — change left/top to your exact spots -->
@@ -24,23 +45,27 @@
     <div style="flex:1 1 420px; max-width:640px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:1rem 1.25rem;">
       <img src="./assets/intro/ageing.png" alt="Ageing statistics"
     style="width:100%; max-height:300px; object-fit:contain; display:block; margin-top:.25rem;">  
-      <p style="margin:0.5rem 0 0; color: var(--c-complementary-black); font-size:0.7em;">In 2024, <span style="font-weight: bold;">21.6%</span> of European residents are 65+</p>
+      <p style="margin:0.5rem 0 0; color: var(--c-complementary-black); font-size:0.6em;">In 2024, <span style="font-weight: bold;">21.6%</span> of European residents are 65+</p>
         <div class="citation-small" style="text-align: center;"> Source: Eurostat</div>
     </div>
     </div>
+
+    <div class="fragment" data-fragment-index="3" style="margin-top: 1rem; font-size: 0.8em;">
+      <b>Robotics needs to change people's lives at scale!</b>
+    </div>
 </section>
 </section>
+
 
 <section data-part-group="intro" data-part-title="Introduction"
          style="--part-accent: var(--c-secondary-dark-blue);">
   <!-- Panel 1: Humanoids SOTA (Boston Dynamics + Unitree) -->
   <section data-auto-animate data-auto-animate-reset>
-    <h2 style="margin:0px; color:white;">Introduction</h2>
-    <h3 style="margin-top:0px; color:white;">State-of-the-art</h3>
+    <h2 style="margin:0px; color:white;">Dynamic! But unsafe ...</h2>
 
     <div class="two-up">
       <div class="v">
-        <video data-autoplay loop muted playsinline>
+        <video data-autoplay muted playsinline data-loops="1">
           <!-- replace with your file -->
           <source data-src="./videos/intro/sota/boston_dynamics.mp4" type="video/mp4">
         </video>
@@ -49,7 +74,7 @@
         </figcaption>
       </div>
       <div class="v">
-        <video data-autoplay loop muted playsinline>
+        <video data-autoplay muted playsinline data-loops="1">
           <!-- replace with your file -->
           <source data-src="./videos/intro/sota/unitree.mp4" type="video/mp4">
         </video>
@@ -67,12 +92,6 @@
 
     <div class="fragment" style="text-align:left; font-size:0.6em;">
     <ul class="pc-list">
-        <li class="con">Imitation learning requires a very large number of demonstrations</li>
-    </ul>
-    </div>
-
-    <div class="fragment" style="text-align:left; font-size:0.6em;">
-    <ul class="pc-list">
         <li class="con">Robots operating alone, no humans around</li>
     </ul>
     </div>
@@ -81,12 +100,11 @@
 
   <!-- Panel 2: HRC SOTA (two examples showing the gap) -->
   <section data-auto-animate>
-    <h2 style="margin:0px; color:white;">Introduction</h2>
-    <h3 style="margin-top:0px; color:white;">State-of-the-art: physical Human-Robot Collaboration (HRC)</h3>
+    <h2 style="margin:0px; color:white;">Safe! But not so dynamic ...</h2>
     
     <div class="two-up">
       <div class="v">
-        <video data-autoplay loop muted playsinline>
+        <video data-autoplay muted playsinline data-loops="1">
           <!-- replace with your file -->
           <source data-src="./videos/intro/sota/rapetti_icra.mp4" type="video/mp4">
         </video>
@@ -95,7 +113,7 @@
         </figcaption>
       </div>
       <div class="v">
-        <video data-autoplay loop muted playsinline>
+        <video data-autoplay muted playsinline data-loops="1">
           <!-- replace with your file -->
           <source data-src="./videos/intro/sota/figueroa_rss.mp4" type="video/mp4">
         </video>
@@ -104,26 +122,50 @@
         </figcaption>
       </div>
     </div>
-    <div class="fragment" style="text-align:left; font-size:0.5em;">
+    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.5em;">
       <ul class="pc-list">
           <li class="pro">Safety first !</li>
       </ul>
     </div>
-    <div class="fragment" style="text-align:left; font-size:0.5em;">
+
+    <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.5em;">
       <ul class="pc-list">
-          <li class="con">Cumbersome and/or inaccurate motion estimation.</li>
+          <li class="pro">Human monitoring and modeling</li>
       </ul>
     </div>
-    <div class="fragment" style="text-align:left; font-size:0.5em;">
+
+    <div class="fragment" data-fragment-index="3" style="text-align:left; font-size:0.5em;">
       <ul class="pc-list">
-          <li class="con">Ground Reaction Forces and Moments (GRFM) and/or contact wrench determination is crucial.</li>
+          <li class="con">Passive robots lacking anticipation</li>
       </ul>
-    </div>
-    <div class="fragment" style="text-align:left; font-size:0.5em;">
-      <ul class="pc-list">
-          <li class="con">Incorrect modeling of human can have dramatic effects: <b>up to 50% error in joint torques estimations</b>.</li>
-      </ul>
-      <div class="citation" style="text-align: center;"> A. Cappozo et al., <em>The interplay of muscular and external forces in human ambulation</em>, Journal of Biomechanics, 1976 </div>  
     </div>
   </section>
+</section>
+
+<section data-part-group="intro" data-part-title="Introduction"
+         style="--part-accent: var(--c-secondary-dark-blue);">
+    <h2 style="margin:0px; color: white;">
+        The ultimate challenge
+    </h2>
+    <p>
+      How do we synthesize <span style="font-weight: bold;">predictive and proactive</span> intelligence that guarantee <span style="font-weight: bold;">safety</span> and human <span style="font-weight: bold;">ergonomics</span> throughout collaboration?
+    </p>
+
+    <div class="fragment" style="text-align: left; font-size: 0.85em;">
+        <div style="width: 25%;" class="col">
+            Focus:
+        </div>
+        <div style="width: 37.5%;" class="col">
+            <ul>
+                <li>Force</li>
+                <li>Anticipation</li>
+            </ul>
+        </div>
+        <div style="width: 37.5%;" class="col">
+            <ul>
+                <li>Safety</li>
+                <li>Dynamism</li>
+            </ul>
+        </div>
+    </div>
 </section>

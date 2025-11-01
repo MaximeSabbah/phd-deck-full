@@ -24,7 +24,7 @@
             <!-- Introduction -->
             <include src="slides/Introduction/1-2-opening.html"></include>
             <include src="slides/Introduction/3-context.html"></include>
-            <include src="slides/Introduction/4-5-6-problem.html"></include>
+            <!-- <include src="slides/Introduction/4-5-6-problem.html"></include> -->
             <!-- Part I -->
             <include src="slides/Part-I/I-1-outline.html"></include>
             <include src="slides/Part-I/I-2-3-focus.html"></include>
@@ -34,7 +34,7 @@
             <include src="slides/Part-I/I-7-cost.html"></include>
             <include src="slides/Part-I/I-9-comfi_dataset.html"></include>
             <include src="slides/Part-I/I-8-demo.html"></include>
-            <!-- <include src="slides/Part-I/I-10-results.html"></include> -->
+            <include src="slides/Part-I/I-10-conclusion.html"></include>
 
 
             <!-- Part II -->
@@ -45,16 +45,18 @@
             <include src="slides/Part-II/II-5-biofeedback.html"></include>
             <include src="slides/Part-II/II-6-results_sensors.html"></include>
             <include src="slides/Part-II/II-7-insoles.html"></include>
+            <include src="slides/Part-II/II-8-conclusion.html"></include>
 
             <!-- Part III -->
             <include src="slides/Part-III/III-1-outline.html"></include>
-            <include src="slides/Part-III/III-2-focus.html"></include>
+            <!-- <include src="slides/Part-III/III-2-focus.html"></include> -->
             <include src="slides/Part-III/III-3-4-5-sota.html"></include>
             <include src="slides/Part-III/III-6-ioc.html"></include>
             <include src="slides/Part-III/III-7-irl.html"></include>
             <include src="slides/Part-III/III-9-results_handover.html"></include>
             <include src="slides/Part-III/III-8-moirl.html"></include>
             <include src="slides/Part-III/III-10-results_lifting.html"></include>
+            <include src="slides/Part-III/III-11-conclusion.html"></include>
             <!-- Conclusion -->
             <include src="slides/conclusion.html"></include>
 
@@ -68,6 +70,43 @@
     <script src="plugin/highlight/highlight.js"></script>
     <script src="plugin/math/math.js"></script>
     <script src="js/part-progress.js"></script>
+    <script>
+    (function () {
+    function wireLimitLoops(root = document) {
+        root.querySelectorAll('video[data-loops]').forEach(video => {
+        if (video.dataset.loopInit) return;         // avoid double-binding
+        video.dataset.loopInit = '1';
+        video.loop = false;                          // ensure no infinite loop
+        video.removeAttribute('loop');
+
+        const max = Math.max(1, parseInt(video.dataset.loops || '1', 10));
+        let count = 0;                               // counts completed plays
+
+        const onEnded = () => {
+            count++;
+            if (count < max) {
+            try { video.currentTime = 0; } catch(_) {}
+            const p = video.play();
+            if (p && p.catch) p.catch(() => {});
+            } else {
+            video.removeEventListener('ended', onEnded);
+            // optional: video.pause();
+            }
+        };
+        video.addEventListener('ended', onEnded);
+        });
+    }
+
+    // Work nicely with Reveal.js lazy-loading
+    if (window.Reveal && Reveal.on) {
+        Reveal.on('ready', () => wireLimitLoops(Reveal.getCurrentSlide()));
+        Reveal.on('slidechanged', e => wireLimitLoops(e.currentSlide));
+    } else {
+        document.addEventListener('DOMContentLoaded', () => wireLimitLoops());
+    }
+    })();
+    </script>
+
     <script>
     (function () {
     function fitCurrentOutline() {

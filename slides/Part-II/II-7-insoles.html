@@ -1,18 +1,69 @@
 <section data-part-group="part-ii" data-part-title="PART II"
          style="--part-accent: var(--c-secondary-blue);">
+    <h2 style="background-color:var(--c-secondary-blue); margin:0px;">
+        Question
+    </h2>
+    <div style="margin-top: 5%;">
+        Can we <b>improve</b> the force measurements coming from <b>wearable sensors</b>, such as force insoles?
+    </div>
+</section>
+
+<section data-part-group="part-ii" data-part-title="PART II"
+         style="--part-accent: var(--c-secondary-blue);">
 <section data-auto-animate data-auto-animate-restart>
-  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
-  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Better insoles measurements</h3>
-    <div class="img-wrap" style="position:relative; display:flex; align-items:center; width:100%;">
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">Better insoles measurements</h2>
+    <div class="img-wrap" style="position:relative; display:flex; align-items:center; width:100%;margin-top: 5%;">
       <div style="width:50%;" class="col">
         <img src="./assets/part-II/insoles.png" alt="Insoles" style="width:30%;">
+        <figcaption
+                style="font-size:0.5em;margin-top: -5%;">
+          <b>100N</b>
+        </figcaption>
       </div>
+      <!-- Arrow + label between images (shows with fragment 1) -->
+      <div class="fragment" data-fragment-index="1"
+        style="position:absolute; left:49%; top:50%;
+                transform:translate(-50%,-50%);
+                width:22%; text-align:center; pointer-events:none; z-index:4;">
+
+      <!-- Set the arrow color here (or remove color to inherit) -->
+      <svg viewBox="0 0 100 16" width="100%" height="auto"
+          style="display:block; color:black;">
+        <defs>
+          <marker id="arrowHeadInsoles"
+                  viewBox="0 0 16 16"
+                  markerWidth="16" markerHeight="16"
+                  refX="13" refY="8"
+                  orient="auto"
+                  markerUnits="userSpaceOnUse">
+            <!-- tip sits at x=15 (inside the 0..16 box) -->
+            <polygon points="0,0 15,8 0,16" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <line x1="0" y1="8" x2="100" y2="8"
+              stroke="currentColor" stroke-width="2"
+              marker-end="url(#arrowHeadInsoles)"/>
+      </svg>
+
+      <div style="margin-top:.4rem; font-weight:700; font-size:0.5em">
+        hardware refinement
+      </div>
+    </div>
+
+
       <div style="width:50%;" class="col">
+        <div class="fragment" data-fragment-index="1">
         <img src="./assets/part-II/insoles2.png" alt="Insoles2" style="width:40%;">
+        <figcaption class="fragment" data-fragment-index="3"
+                style="font-size:0.5em;margin-top: -5%;">
+          <b>40N</b>
+        </figcaption>
+        </div>
       </div>
 
       <!-- Red hotspots: show with the last bullet -->
-      <div class="fragment" data-fragment-index="3"
+      <div class="fragment" data-fragment-index="4"
           style="position:absolute; inset:0; z-index:5; pointer-events:none;">
         <!-- Rectangle 1 (left image) -->
         <div style="position:absolute; left:19%; top:35%; width:3%; height:10%;
@@ -26,19 +77,19 @@
       </div>
     </div>
 
-    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.50em;">
+    <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.50em;">
       <ul>
-        <li>Embedded insoles measuring normal forces only → how to go 6D ?</li>
+        <li>Embedded insoles measure normal force only</li>
       </ul>
     </div>
 
-    <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.50em;">
+    <div class="fragment" data-fragment-index="3" style="text-align:left; font-size:0.50em;">
       <ul>
         <li>Accuracy of <b>40N</b> only validated for gait or single support tasks</li>
       </ul>
     </div>
 
-    <div class="fragment" data-fragment-index="3" style="text-align:left; font-size:0.50em;">
+    <div class="fragment" data-fragment-index="4" style="text-align:left; font-size:0.50em;">
       <ul>
         <li>Multimodality (Vertical force + <span style="color:#e11d48;">IMU</span>) + Non-observability → typical <b>ML/DL</b> applications !</li>
       </ul>
@@ -50,9 +101,8 @@
 </section>
 
 <section data-auto-animate data-auto-animate-restart>
-  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
-  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Better insoles measurements</h3>
-   <div style="display: flex; align-items: center; width: 100%;">
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">Better insoles measurements</h2>
+   <div style="display: flex; align-items: center; width: 100%;margin-top: 5%;">
     <img src="./assets/part-II/insole_pipeline.png" alt="pipeline">
    </div>
 
@@ -69,9 +119,8 @@
 </section>
 
 <section data-auto-animate data-auto-animate-restart>
-  <h2 style="background-color:var(--c-secondary-blue); margin:0;">[PART_NAME_II]</h2>
-  <h3 style="background-color:#3c6cd3d0; margin-top:0;">Main results</h3>
-    <div style="text-align:left; font-size:0.75em;">
+  <h2 style="background-color:var(--c-secondary-blue); margin:0;">Results</h2>
+    <div style="text-align:left; font-size:0.75em;margin-top: 5%;">
         <div style="width:100%;font-size: 0.75em;" class="col">
         <ul>
             <li>Small dataset: 5 subjects, 4 different tasks (squat, hip and ankle balancing, and hula hoop exercise)</li>
@@ -87,9 +136,9 @@
       </ul>
       </div>
 
-      <div class="fragment" style="text-align:center; font-size:0.75em;">
-          <b>Conclusion: encouraging pilot study results, more diverse sensor types and locations to explore with ML/DL! </b>
-      </div>
+      <!-- <div class="fragment" style="text-align:center; font-size:0.75em;">
+          <b>Conclusion: encouraging pilot study, more to explore with ML/DL! </b>
+      </div> -->
     </div>
 
     <div class = "col" style="width:65%; font-size:0.75em; text-align:center;">

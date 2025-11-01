@@ -1,12 +1,11 @@
 <section data-part-group="part-iii" data-part-title="PART III"
          style="--part-accent: var(--c-secondary-green);">
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 1: Human-robot handover
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 1: Human-robot handover</h2>
 
+    <div style="margin-top: 3%;">
     Blindfolded pointing task :
+    </div>
 
     <div style="display: flex; align-items: center; width: 100%;">
         <div style="width: 50%;" class="col">
@@ -29,94 +28,92 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 1: Human-robot handover
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 1: Human-robot handover</h2>
 
-    <table style="width:100%; margin:auto;">
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_1$
-            </td>
-            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
-                Joint torque
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau^2 \,dt $
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_2$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Joint velocity
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \dot{q}^2 \,dt $
-            </td>
-        </tr>
+    <style>
+    /* keeps column widths stable so fragments don't reflow the table */
+    .cost-table { width:100%; table-layout:fixed; border-collapse:collapse}
+    .cost-table td { padding:.25rem .35rem; }
+    </style>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_3$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Joint acceleration
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \ddot{q}^2 \,dt $
-            </td>
-        </tr>
+    <table class="cost-table" style="margin-top: 5%;">
+    <colgroup>
+        <col style="width:14%"><!-- Phi -->
+        <col style="width:36%"><!-- Name -->
+        <col style="width:50%"><!-- Expression -->
+    </colgroup>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_4$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Cartesian velocity
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \dot{p}^2 \,dt $
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_1$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="1">Joint torque</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="1">$ \int_{0}^{T} \tau^2 \, dt $</span>
+        </td>
+    </tr>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_5$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Joint torque change
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \dot{\tau}^2 \,dt $
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_2$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="1">Joint velocity</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="1">$ \int_{0}^{T} \dot{q}^2 \, dt $</span>
+        </td>
+    </tr>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_6$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Energy
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} \sum_i\left|\dot{q}_i\tau_i\right| \,dt $ 
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_3$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="1">Joint acceleration</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="1">$ \int_{0}^{T} \ddot{q}^2 \, dt $</span>
+        </td>
+    </tr>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_7$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Geodesic
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} (\dot{q}^{\top}H(q)\dot{q})^{\frac{1}{2}} \,dt $ 
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_4$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="2">Hand cartesian velocity</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="2">$ \int_{0}^{T} \dot{p}^2 \, dt $</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_5$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="1">Joint torque change</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="1">$ \int_{0}^{T} \dot{\tau}^2 \, dt $</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_6$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="3">Energy</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="3">$ \int_{0}^{T} \sum_i \left| \dot{q}_i \tau_i \right| \, dt $</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_7$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment" data-fragment-index="3">Geodesic</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">
+        <span class="fragment" data-fragment-index="3">$ \int_{0}^{T} \big(\dot{q}^{\top} H(q) \dot{q}\big)^{\frac{1}{2}} \, dt $</span>
+        </td>
+    </tr>
     </table>
+
 
     <div class="citation-small" style="text-align: center;">
         B. Berret et al., <em>Evidence for composite cost functions in arm movement planning: an inverse optimal control approach</em>, Plos Computational Biology, 2011
@@ -128,12 +125,9 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 1: Human-robot handover
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 1: Human-robot handover</h2>
 
-    <div style="font-size:0.7em; text-align: center;" >
+    <div style="font-size:0.7em; text-align: center; margin-top: 5%;" >
         <span>Variable weights: </span>
         <span>\(\boldsymbol{\omega}(t)\)</span>
         <span>&nbsp;on optical mocap data, 20 participants performing 5 pointing tasks:</span>
@@ -161,12 +155,11 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 1: Human-robot handover
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 1: Human-robot handover</h2>
 
-    On COSMIK data: 
+    <div style="margin-top: 5%;">
+    With RT-COSMIK data:
+    </div> 
 
     <div style="display: flex; align-items: center; width: 100%;">
         <div class="video-legend-wrap">
@@ -191,12 +184,9 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 1: Human-robot handover
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 1: Human-robot handover</h2>
 
-    <div style="display:flex; justify-content:center; margin-top:-2rem; line-height:0;">
+    <div style="display:flex; justify-content:center; margin-top:0rem; line-height:0;">
       <img src="./assets/logos/nus_logo.png" alt="NUS"
            style="height:80px; width:auto; display:block;">
     </div>
@@ -245,12 +235,9 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 1: Human-robot handover
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 1: Human-robot handover</h2>
 
-    <div class ="col" style="width: 70%;">
+    <div class ="col" style="width: 70%; margin-top: 5%;">
         <div style="display: flex; align-items: center; width: 100%;">
             <video data-autoplay loop muted playsinline style="width:100%;">
                 <source data-src="./videos/Part-III/demo_handovers.mp4" type="video/mp4">
@@ -258,12 +245,12 @@
         </div>
     </div>
 
-    <div class="col" style="width:25%;">
+    <div class="col" style="width:25%; margin-top: 5%;">
         <div style="font-size: 0.5em;">Dataset of 10 healthy participants with simulated blindness:</div>
         <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.5em;">
             <ul class="pc-list">
-                <li class="pro">88% of success rate.</li>
-                <li class="pro">The robot arrived <b>0.67s</b> before the human in average and predicted the pose with an accuracy of <b>5.3cm</b> and <b>9.6deg</b>.</li>
+                <li class="pro">Success rate: <b>88%</b></li>
+                <li class="pro">The robot arrived <b>0.67s</b> before the human → replanning </li>
             </ul>
         </div>
         <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.5em;">
@@ -274,7 +261,7 @@
         </div>
     </div>
 
-    <div class ="col" style="width: 100%;">
+    <div class ="col" style="width: 100%; margin-top: 5%;">
         <div class="citation-small" style="text-align: center;">
             <b> M. Sabbah </b> et al., <em>Optimal Motion Prediction for Human-to-Robot Handovers</em>, IEEE ROBIO (Award Finalist), 2025
         </div>

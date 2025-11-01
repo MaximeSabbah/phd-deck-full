@@ -1,23 +1,21 @@
 <section data-part-group="conclu" data-part-title="Conclusion"
          style="--part-accent: var(--c-secondary-dark-blue);">
     <h2 style="margin:0px; color: white;">
-        Conclusion
-    </h2>
-    <h3 style="margin-top:0px; color: white;">
         Contributions
-    </h3>
-    <ol>
+    </h2>
+
+    <ol style="margin-top: 5%;">
         <li>
-            <b>RT-COSMIK:</b> real-time full-body kinematics estimation from two webcams.
+            <b>RT-COSMIK:</b> real-time full-body kinematics estimation from two webcams
         </li>
         <li>
-            <b>Personalized dynamics:</b> online identification of subject-specific models with embedded sensors.
+            <b>Personalized dynamics:</b> online identification of subject-specific models with embedded sensors
         </li>
         <li>
-            <b>Forces from wearables:</b> data-driven GRFM estimation using embedded insoles.
+            <b>Forces from wearables:</b> data-driven GRFM estimation using embedded insoles
         </li>
         <li>
-            <b>Few-shot prediction → MPC:</b> learn from demos and deploy in proactive HRC control.
+            <b>Frugal prediction incorporated in MPC controller:</b> learn from demos and deploy for HRC
         </li>
     </ol>
 </section>
@@ -26,13 +24,10 @@
          style="--part-accent: var(--c-secondary-dark-blue);">
     <section data-auto-animate data-auto-animate-restart>
     <h2 style="margin:0px; color: white;">
-        Conclusion
-    </h2>
-    <h3 style="margin-top:0px; color: white;">
         Future Works
-    </h3>
+    </h2>
 
-    <div style="font-size: 0.8em;"><b>Motion Estimation</b></div>
+    <div style="font-size: 0.8em; margin-top: 5%;"><b>Motion Estimation</b></div>
 
 
     <div class="col" style="width:50%">
@@ -54,13 +49,10 @@
                                 Positions of markers
                             </li>
                             <li>
-                                IMU data (linear acc, angular vel)
+                                IMU data
                             </li>
                             <li>
                                 GRFM
-                            </li>
-                            <li>
-                                Other measurements sources 
                             </li>
                         </ul>
                     </td>
@@ -68,10 +60,12 @@
                 </table>
             </div>
         </div>
+        
+        <div class="fragment" data-fragment-index="2" style="font-size: 0.5em;text-align: left;"><li>Hardware improvements for wearable insoles</li></div>
 
-        <div class="fragment" data-fragment-index="3" style="font-size: 0.5em;text-align: left;"><li>Dynamic consistency enforcing contacts (at the feet level or with objects)</li></div>
+        <div class="fragment" data-fragment-index="3" style="font-size: 0.5em;text-align: left;"><li>Dynamic consistency enforcing contacts</li></div>
 
-        <div class="fragment" data-fragment-index="4" style="font-size: 0.5em;text-align: left;"><li>Validation of SMPL and monocular approaches?</li></div>    
+        <div class="fragment" data-fragment-index="4" style="font-size: 0.5em;text-align: left;"><li>Monocular approaches? SMPL?</li></div>    
     </div>
 
     <div class="col" style="width:50%;">
@@ -96,32 +90,61 @@
     </section>
 
     <section data-auto-animate data-auto-animate-restart>
-    <h2 style="margin:0px; color: white;">
-        Conclusion
-    </h2>
-    <h3 style="margin-top:0px; color: white;">
-        Future Works
-    </h3>
+    <h2 style="margin:0; color:white;">Future Works</h2>
 
-    <div style="font-size: 0.8em;"><b>Motion Prediction</b></div>
+    <div style="font-size:0.8em; margin-top:5%;"><b>Motion Prediction</b></div>
 
-    <div class="fragment" data-fragment-index="1" style="font-size: 0.7em; text-align: left;"><li>Handling human variability</li></div>
-    <div class="fragment" data-fragment-index="2" style="font-size: 0.7em;text-align: left;"><li>Human motion foundational model based on realistic human motion simulations?</li></div>
-    <div class="fragment" data-fragment-index="2">
-         <img src="./assets/conclu/human_motion_foundational_model.png" alt="human_motion_foundational_model" />
+    <div class="fragment" data-fragment-index="1" style="font-size:0.7em; text-align:left;">
+        <li>Handling human variability</li>
+    </div>
+    <div class="fragment" data-fragment-index="2" style="font-size:0.7em; text-align:left;">
+        <li>Human motion foundational model based on realistic human motion simulations?</li>
     </div>
 
+    <!-- Diagram + video overlay -->
+    <div class="fragment" data-fragment-index="3">
+    <div class="diagram-stack" style="position:relative; max-width:1100px; margin:1rem auto 0;">
+        <!-- Your draw.io SVG export -->
+        <img src="./assets/conclu/motion_foundational_model.drawio.svg"
+            alt="Human Motion Foundational Model diagram"
+            style="display:block; width:100%; height:auto;">
+
+        <!-- Video slot exactly over the big rectangle (percentages from 1169×827 coords) -->
+        <div
+            style="
+            position:absolute; 
+            left:21.92%;   /* 310 / 1169 * 100 */
+            top:22.43%;    /* 185.5 / 827 * 100 */
+            width:43.64%;  /* 510 / 1169 * 100 */
+            height:52.85%; /* 437 / 827 * 100 */">
+
+        <video data-autoplay muted playsinline data-loops="1" controls
+         style="width:100%; height:100%; object-fit:contain; display:block;">
+            <source data-src="./videos/Part-III/siggraph_ff_small_old.mp4" type="video/mp4">
+        </video>
+
+        <div class="citation-small"
+            style="
+            position:absolute; left:-3%; right:0; bottom:-22%;
+            display:block; text-align:center; font-size:0.3em;
+            padding:.25rem .4rem; box-sizing:border-box; max-width:100%;
+            white-space:normal; overflow-wrap:anywhere; word-break:break-word;
+            pointer-events:none;">
+        X. Huang et al., <em>Diffuse-CLoC: Guided Diffusion for Physics-based Character Look-ahead Control</em>, SIGGRAPH, 2025
+        </div>
+
+        </div>
+    </div>
+    </div>
     </section>
+
 
     <section data-auto-animate data-auto-animate-restart>
     <h2 style="margin:0px; color: white;">
-        Conclusion
-    </h2>
-    <h3 style="margin-top:0px; color: white;">
         Future Works
-    </h3>
+    </h2>
 
-    <div style="font-size: 0.8em;"><b>Physical HRC</b></div> 
+    <div style="font-size: 0.8em; margin-top: 5%;"><b>Physical HRC</b></div> 
     <div class ="col" style="width: 35%;">
         <div class="fragment" data-fragment-index="1" style="font-size: 0.65em; text-align: left;"><li>Incorporation of IRL prediction directly into an MPC controller for true physical HRC (box lifting)</li></div>
         <div class="fragment" style="font-size: 0.65em; text-align: left;"><li> Focus on force exchanges and dynamic force control</li></div>
@@ -130,8 +153,8 @@
     <div class = "col" style="width: 65%;">
         <div class="fragment" data-fragment-index="1">
         <!-- <img src="./assets/conclu/hrc_box_lifting.png" alt="hrc_box_lifting" style="width:100%;"/> -->
-         <video data-autoplay muted loop playsinline style="width:70%;">
-            <source data-src="./videos/conclu/comparative_video_mpc.mp4" type="video/mp4">
+         <video data-autoplay muted playsinline data-loops="1" style="width:70%;">
+            <source data-src="./videos/conclu/comparative_video_mpc_slow.mp4" type="video/mp4">
         </div>
     </div>
     </section>
@@ -139,10 +162,9 @@
 
 <section data-part-group="conclu" data-part-title="Conclusion"
          style="--part-accent: var(--c-secondary-dark-blue);">
-  <h2 style="margin:0; color:white;">Conclusion</h2>
-  <h3 style="margin-top:0; color:white;">Collaborations</h3>
+  <h2 style="margin:0; color:white;">Collaborations</h2>
 
-  <div class="world-wrap">
+  <div class="world-wrap" style="margin-top: 2%;">
     <!-- Your planisphere -->
     <img class="world-map" src="./assets/conclu/planisphere.png" alt="World map">
 
@@ -305,7 +327,6 @@
 
 <section data-part-group="conclu" data-part-title="Conclusion"
          style="--part-accent: var(--c-secondary-dark-blue);">
-    <section data-auto-animate data-auto-animate-restart>
         <h2 style="margin:0px; color: white;">
             Thank you for your attention ! 
         </h2>
@@ -319,11 +340,11 @@
                 <em>Concurrent Validity of Embedded Solutions for Whole Body Dynamics Analysis</em>,
                 IEEE Sensors, 2024
             </div>
-            <div>
+            <!-- <div>
                 <b> M. Sabbah </b> et al.,
                 <em>RT-COSMIK: a Real-Time low-Cost and Open-Source toolbox for Markerless Inverse Kinematics</em>,
                 Submitted to IEEE TASE, 2025
-            </div>
+            </div> -->
             <div>
                 <b> M. Sabbah </b> et al.,
                 <em>Ground Reaction Forces and Moments Estimation from Embedded Insoles using Machine Learning Regression Models</em>,
@@ -380,7 +401,6 @@
                 IEEE ROBIO, 2025
             </div>
         </div>
-    </section>
 </section>
 
 <!-- <section data-part-group="conclu" data-part-title="Conclusion"

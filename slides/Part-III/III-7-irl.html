@@ -1,11 +1,36 @@
 <section data-part-group="part-iii" data-part-title="PART III"
          style="--part-accent: var(--c-secondary-green);">
+    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+        Question
+    </h2>
+    <div style="margin-top: 5%;">
+        Can human motion prediction be <b>frugal</b>, <b>computationally efficient</b> and <b>explainable</b> for human-robot collaboration?
+    </div>
+
+    <div class="fragment" style="text-align: left; font-size: 0.85em; margin-top: 5%;">
+        <div style="width: 25%;" class="col">
+            Clues:
+        </div>
+        <div style="width: 37.5%;" class="col">
+            <ul>
+                <li>Optimal control</li>
+                <li>Biomechanical cost functions</li>
+            </ul>
+        </div>
+        <div style="width: 37.5%;" class="col">
+            <ul>
+                <li>Problem reformulation</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section data-part-group="part-iii" data-part-title="PART III"
+         style="--part-accent: var(--c-secondary-green);">
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Inverse Reinforcement Learning
-    </h3>
-    <div style="display:grid; justify-items:center; width:100%; position:relative;font-size: 0.9em; padding-bottom:6.6rem;">
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Inverse Reinforcement Learning</h2>
+
+    <div style="display:grid; justify-items:center; width:100%; position:relative;font-size: 0.9em; padding-bottom:6.6rem;margin-top: 5%">
 
         <div style="grid-area:1/1;">
             Stochastic formulation:
@@ -29,6 +54,12 @@
            style="position:absolute; left:7%; top:60%; color:#d64545; font-size:0.9em;">
         Partition function \(Z(\boldsymbol{\omega}) = \int_{\mathcal{Y} \in \bar{\mathcal{Y}}} \exp(-\Phi_{tot}(\mathcal{Y},\boldsymbol{\omega})) d\mathcal{Y}\)
         </div>
+
+        <div class="fragment" data-fragment-index="2" style="position:absolute; left:13%; top:80%; font-size:0.9em;">
+            <ul class="pc-list">
+                <li class="pro">Can scale to any number of demonstrations</li>
+            </ul>
+        </div>
     </div>
 
     <div class="citation-small" style="text-align: center;">
@@ -41,12 +72,9 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Inverse Reinforcement Learning
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Inverse Reinforcement Learning</h2>
 
-    <div style="font-size: 0.7em;text-align: center;">
+    <div style="font-size: 0.7em;text-align: center; margin-top: 5%;">
         <span>\(\boldsymbol{\omega}\)</span>
         <span>&nbsp;is found by minimizing the negative log likelihood associated with </span> <span>\(P\)</span>
     </div>
@@ -60,7 +88,7 @@
         \]
     </div>
 
-    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.75em;">
+    <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.9em;">
         <ul class="pc-list">
             <li class="pro">Very quick to solve → time varying weights possible $\boldsymbol{\omega}(t)$</li>
         </ul>

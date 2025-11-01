@@ -1,50 +1,101 @@
 <section data-part-group="part-i" data-part-title="PART I"
          style="--part-accent: var(--c-laas-red);">
-    <!-- <section id="live-mocap-slide" data-auto-animate data-auto-animate-restart>
         <h2 style="background-color:var(--c-laas-red); margin:0px;">
-        [PART_NAME_I]
+        Demonstration
         </h2>
-        <h3 style="background-color:#e94b58d2; margin-top:0px;">
-            Demonstration
-        </h3>
-        <video id="liveFeed" autoplay playsinline muted
-         style="width:100%;height:72vh;object-fit:contain;background:#111;border-radius:12px;"></video>  
-    </section> -->
-    <section data-auto-animate>
-        <h2 style="background-color:var(--c-laas-red); margin:0px;">
-        [PART_NAME_I]
-        </h2>
-        <h3 style="background-color:#e94b58d2; margin-top:0px;">
-            Demonstration
-        </h3>
-        <div class="col" style="width:70%;">
-            <div class="video-legend-wrap">
-                <video data-autoplay controls style="display:block; margin:auto; width:100%;">
-                <source data-src="./videos/Part-I/polissage_robot.mp4" type="video/mp4">
-                </video>
 
-                <!-- Overlay legend -->
-                <div class="video-legend">
-                    <div class="legend-item">
-                        <span class="legend-dot black"></span> Reference
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-dot green"></span> RT-COSMIK
-                    </div>
+        <div class="video-legend-wrap">
+            <video data-autoplay controls style="display:block; margin:auto; width:50%;">
+            <source data-src="./videos/Part-I/polissage_robot.mp4" type="video/mp4">
+            </video>
+
+            <!-- Overlay legend -->
+            <div class="video-legend">
+                <div class="legend-item">
+                    <span class="legend-dot black"></span> Reference
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot green"></span> RT-COSMIK
                 </div>
             </div>
         </div>
-        <div class="col" style = "width:30%; font-size:0.5em;">
-            <div class="fragment" data-fragment-index="1">
-                <ul class="pc-list">
-                    <li class="pro">Validated with an average accuracy of <b>10.9deg</b> across various tasks (polishing, overhead manipulation, lifting, and collaborative welding and polishing)</li>
-                </ul>
-            </div>
-            <div class="fragment" data-fragment-index="2">
-                <ul class="pc-list">
-                    <li class="con">Still affected by camera occlusions</li>
-                </ul>
-            </div>
+        <div style="font-size: 0.6em;">
+            <ul class="pc-list">
+                <li class="pro">Good tracking results in real-time!</b></li>
+            </ul>
         </div>
-    </section>
+</section>
+
+<section data-part-group="part-i" data-part-title="PART I"
+         style="--part-accent: var(--c-laas-red);">
+        <h2 style="background-color:var(--c-laas-red); margin:0px;">
+        More results to come !
+        </h2>
+
+        <table style="font-size: 0.8em;margin-top: 3%;" class="results-table">
+        <thead>
+            <tr>
+                <th style="width: 35%; border-bottom: 2px solid black;"> Average accuracy [deg] for</th>
+                <th style="text-align: center;
+                vertical-align: middle;
+                width: 25%;
+                border-bottom: 2px solid black;">
+                    Overhead</th>
+                <th style="text-align: center; vertical-align: middle; width: 25%; border-bottom: 2px solid black;">
+                    Robot Polishing</th>
+                <th style="
+                    text-align: center;
+                    vertical-align: middle;
+                    width: 15%;
+                    border-bottom: 2px solid black;
+                    ">
+                    Robot Welding</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div>RT-COSMIK</div>
+                    <div>+ OpenCap's LSTM</div>
+                </td>
+                <td style="text-align: center;">16.2
+                </td>
+                <td style="text-align: center;">11.3
+                </td>
+                <td style="text-align: center;
+                border-bottom: 1px solid black;">11.1</td>
+            </tr>
+            <tr>
+                <td>
+                    <div>RT-COSMIK</div>
+                    <div>+ SMPL</div>
+                </td>
+                <td style="text-align: center;">27.9</td>
+                <td style="text-align: center;">23.2</td>
+                <td style="text-align: center;
+                border-top:none;">22.3</td>
+            </tr>
+            <tr>
+                <td>
+                    <div>RT-COSMIK</div>
+                    <div>+ finetuned LSTM</div>
+                </td>
+                <td style="text-align: center;">?</td>
+                <td style="text-align: center;">?</td>
+                <td style="text-align: center;
+                border-top:none;">?</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <div class="fragment" data-fragment-index="1" style="font-size: 0.6em;">
+            <ul class="pc-list">
+                <li class="con">Accuracy analysis require more elaborated benchmarking</li>
+            </ul>
+        </div>
+        <div class="fragment" data-fragment-index="2" style="font-size: 0.6em;">
+            <ul class="pc-list">
+                <li class="pro">Finetuning of OpenCap's LSTM for our dataset</li>
+            </ul>
+        </div>
 </section>

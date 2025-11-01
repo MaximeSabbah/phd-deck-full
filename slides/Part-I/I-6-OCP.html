@@ -1,35 +1,37 @@
 <section data-part-group="part-i" data-part-title="PART I"
          style="--part-accent: var(--c-laas-red);">
-    <section data-auto-animate data-auto-animate-restart>
-        <h2 style="background-color:var(--c-laas-red); margin:0px;">
-        [PART_NAME_I]
-        </h2>
-        <h3 style="background-color:#e94b58d2; margin-top:0px;">
-            Optimal Control Problem
-        </h3>
-        <div style="display: flex; align-items: center; width: 100%;">
-            <div style="width: 70%; font-size: 0.7em;" class="col">
-                \[
-                \begin{split}
-                & \min_{X,U} & \quad \Phi_{tot}(X,U) = \omega_\mathit{meas}\Phi_\mathit{meas}(X,U) \\
-                &  & \quad  + \omega_\mathit{reg}\Phi_\mathit{reg}(X,U) \\
-                & ~ \text{s.t.} & ~ \mathbf{g}(X,U) = 0 \ (\text{dynamics}) & \\
-                & & ~ \mathbf{h}(X,U) \leq 0 \ (\text{boundaries}) & \\
-                \end{split}
-                \]
-            </div>
-            <div style="width: 30%; font-size: 0.7em;" class="col">
-                $
-                X = \begin{pmatrix}
-                q_n \\
-                \dot{q}_n
-                \end{pmatrix} 
-                $
-                $U=(\ddot{q}_n)$
-                ${n \in [\![0,N-1]\!]}$
-            </div>
-        </div>    
-        <div class="citation-small">J. Andersson et al., <em>CasADi: a software framework for nonlinear optimization and optimal control</em>, Mathematical Programming, 2019</div>
-        <div class="citation-small">L. Vanroye et al., <em>Fatrop: A fast constrained optimal control problem solver for robot trajectory optimization and control</em>, IEEE IROS, 2023</div>
-    </section>
+    <h2 style="background-color:var(--c-laas-red); margin:0px;">
+      Design choices
+    </h2>
+
+    <div style="display: flex; align-items: center; width: 100%; margin-top: 5%;">
+      <!-- LEFT BLOCK -->
+      <div class="fragment braced" data-fragment-index="1" style="font-size: 0.6em;">
+        Some technical points:
+        <ul>
+          <li>Markovian, time structured problem</li>
+          <li>Hard constraints for boundaries and dynamic consistency</li>
+          <li>Modularity in problem formulation</li>
+        </ul>
+
+        <!-- Black under-brace + label (appears with the left fragment) -->
+        <div class="underbrace fragment" data-fragment-index="2" aria-hidden="true">
+          <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+            <path d="M0,10 C15,10 15,0 25,0 C35,0 35,10 50,10 C65,10 65,0 75,0 C85,0 85,10 100,10"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div class="label">Hard problem to solve in real-time if these are not addressed</div>
+        </div>
+      </div>
+
+      <!-- RIGHT BLOCK -->
+      <div class="fragment" data-fragment-index="3" style="font-size: 0.6em;">
+        Implementation details:
+        <ul>
+          <li><b>Pinocchio</b> for efficient rigid body modeling</li>
+          <li><b>CasADi</b> flexible framework for automatic differentiation and numeric optimization</li>
+          <li><b>Fatrop</b> solver for fast (more global?) solution of constrained OCPs</li>
+        </ul>
+      </div>
+    </div>
 </section>

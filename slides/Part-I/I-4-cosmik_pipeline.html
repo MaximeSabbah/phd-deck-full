@@ -1,11 +1,70 @@
 <section data-part-group="part-i" data-part-title="PART I"
          style="--part-accent: var(--c-laas-red);">
-<section data-auto-animate data-transition="fade">
-    <h2 style="background-color:var(--c-laas-red); margin:0;">Estimating human state in real time</h2>
-    <h3 style="background-color:#e94b58d2; margin-top:0;">RT-COSMIK</h3>
+    <h2 style="background-color:var(--c-laas-red); margin:0px;">
+        Question
+    </h2>
+    <div style="margin-top: 5%;">
+        How to achieve <b>laboratory-grade, minimally invasive</b> human kinematics estimation in <b>real-time</b>?
+    </div>
+
+    <div class="fragment" style="text-align: left; font-size: 0.85em; margin-top: 5%;">
+        <div style="width: 25%;" class="col">
+            Clues:
+        </div>
+        <div style="width: 37.5%;" class="col">
+            <ul>
+                <li>Biomechanical modeling</li>
+                <li>Marker-less</li>
+            </ul>
+        </div>
+        <div style="width: 37.5%;" class="col">
+            <ul>
+                <li>Efficient implementation</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section data-part-group="part-i" data-part-title="PART I"
+         style="--part-accent: var(--c-laas-red);">
+  <h2 style="background-color:var(--c-laas-red); margin:0px; ">
+        Human biomechanical model
+  </h2>
+
+  <div style="width: 50%; margin-top: 5%;" class="col">
+    <img src="./assets/intro/human_model.png" alt="Human Model">
+  </div>
+  
+  <div style="width: 50%; font-size:1.50rem;margin-top: 5%;" class="col">
+    <p style="margin:0 0 .3rem 0; font-weight:800;">Gepetto Mannequin:</p>
+    <ul style="margin:0; padding-left:1.2rem;">
+      <li>Built on ISB recommendations<sup>1</sup></li>
+      <li>Scaled using anthropometric tables<sup>2</sup></li>
+      <li>36 actuated DoFs + floating base at the pelvis</li>
+      <li>Model boundaries (joint positions, velocities, torques) derived from literature<sup>3,4</sup></li>
+      <li>Available in open-source under the URDF format<sup>5</sup></li>
+    </ul>
+  <!-- Footnotes (unchanged; small size already) -->
+  <div class="citation-small" style="text-align: left;margin-top: 10%;">
+    <div><sup>1</sup> G. Wu et al., <em>ISB recommendation on definitions of joint coordinate systems of various joints [...]</em>, Journal of Biomechanics, 2022-2025.</div>
+    <div><sup>2</sup> R. Dumas et&nbsp;al., <em>Adjustments to McConville et al. and Young et al. body segment inertial parameters</em>, Journal of Biomechanics, 2007.</div>
+    <div><sup>3</sup> D. Boone and S. Azen, <em>Normal range of motion of joints in male subjects</em>, JBJS, 1979.</div>
+    <div><sup>4</sup> T. Robert et al., <em>Estimation of external contact loads using an inverse dynamics and optimization approach: [...] maneuvers</em>, Journal of Biomechanics, 2013.</div>
+    <div><sup>5</sup> <em>https://github.com/Gepetto/example-robot-data</em></div>
+  </div>
+  </div>
+
+  <div class="overlay-left fragment" data-fragment-index="1">
+    <img src="./assets/intro/human_models_generation.png" alt="Human Model Gen">
+  </div>
+</section>
+
+<section data-part-group="part-i" data-part-title="PART I"
+         style="--part-accent: var(--c-laas-red);">
+    <h2 style="background-color:var(--c-laas-red); margin:0;">Real-time pipeline</h2>
 
     <!-- Compact frame (no fragments: full pipeline appears at once) -->
-    <div class="pipeline-frame">
+    <div class="pipeline-frame" style="margin-top: 5%;">
     <!-- COSMIK badge on the frame border -->
     <div style="position:absolute; left:50%; top:0; transform:translate(-50%,-38%);
             display:inline-flex; align-items:center;">
@@ -29,14 +88,14 @@
         </div>
 
         <!-- Arrow -->
-        <svg class="pipeline-arrow" viewBox="0 0 34 12" width="34" height="12">
+        <svg class="pipeline-arrow fragment" data-fragment-index="1" viewBox="0 0 34 12" width="34" height="12">
         <defs><marker id="arrA" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
             <polygon points="0,0 8,4 0,8" fill="#0d2a4a"/></marker></defs>
         <line x1="1" y1="6" x2="33" y2="6" stroke="#0d2a4a" stroke-width="3" marker-end="url(#arrA)"/>
         </svg>
 
         <!-- CARD 2: Triangulation -->
-        <div class="pipeline-card">
+        <div class="pipeline-card fragment" data-fragment-index="1">
         <h4>Triangulation + Filtering</h4>
         <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
             <source data-src="./videos/Part-I/cosmik_pipeline/viz_jcp.mp4" type="video/mp4">
@@ -44,39 +103,48 @@
         </div>
 
         <!-- Arrow -->
-        <svg class="pipeline-arrow" viewBox="0 0 34 12" width="34" height="12">
+        <svg class="pipeline-arrow fragment" data-fragment-index="2" viewBox="0 0 34 12" width="34" height="12">
         <use href="#arrA"></use>
         <line x1="1" y1="6" x2="33" y2="6" stroke="#0d2a4a" stroke-width="3" marker-end="url(#arrA)"/>
         </svg>
 
 
         <!-- CARD 4: Marker augmentation -->
-        <div class="pipeline-card">
-        <h4>Marker augmentation</h4>
+        <div class="pipeline-card fragment" data-fragment-index="2">
+        <h4>Marker augmentation (LSTM)</h4>
         <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
             <source data-src="./videos/Part-I/cosmik_pipeline/viz_mks.mp4" type="video/mp4">
         </video>
         </div>
 
         <!-- Arrow -->
-        <svg class="pipeline-arrow" viewBox="0 0 34 12" width="34" height="12">
+        <svg class="pipeline-arrow fragment" data-fragment-index="3" viewBox="0 0 34 12" width="34" height="12">
         <use href="#arrA"></use>
         <line x1="1" y1="6" x2="33" y2="6" stroke="#0d2a4a" stroke-width="3" marker-end="url(#arrA)"/>
         </svg>
 
         <!-- CARD 5: Real-time IK (+ optional REBA hint) -->
-        <div class="pipeline-card">
-        <h4>Sliding Window IK</h4>
-        <video data-autoplay loop muted playsinline style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
-            <source data-src="./videos/Part-I/cosmik_pipeline/viz_all_data.mp4" type="video/mp4">
-        </video>
+        <div class="pipeline-card fragment" data-fragment-index="3" style="position:relative;">
+            <h4>Sliding Window IK</h4>
+            <video data-autoplay loop muted playsinline
+                    style="width:100%; border-radius:8px; border:1px solid rgba(0,0,0,.12);">
+                <source data-src="./videos/Part-I/cosmik_pipeline/viz_all_data.mp4" type="video/mp4">
+            </video>
+
+            <!-- Red rectangle highlight (shows on next click) -->
+            <div class="fragment" data-fragment-index="4"
+                style="
+                    position:absolute; inset:-10px;
+                    border:4px solid var(--c-laas-red, #e11d48);
+                    border-radius:14px;
+                    pointer-events:none; z-index:5;">
+            </div>
         </div>
     </div>
     </div>
 
     <!-- Single citation (smaller) -->
     <div class="citation-small" style="font-size:.4em; text-align:center;">
-      <b> M. Sabbah </b> et al., <em>RT-COSMIK: a Real-Time low-Cost and Open-Source toolbox for Markerless Inverse Kinematics</em>, submitted to IEEE TASE, 2025
+      <b> M. Sabbah </b> et al., <em>RT-COSMIK: a Real-Time low-Cost and Open-Source toolbox for Markerless Inverse Kinematics</em>, In preparation
     </div>
-  </section>
 </section>

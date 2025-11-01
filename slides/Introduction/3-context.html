@@ -1,8 +1,6 @@
 <section data-part-group="intro" data-part-title="Introduction"
          style="--part-accent: var(--c-secondary-dark-blue);">
-  <section data-auto-animate>
-    <h2 style="margin:0; color:white;">Introduction</h2>
-    <h3 style="margin-top:0; color:white;">Why such a difference?</h3>
+    <h2 style="margin:0; color:white;">The pillars of physical HRC</h2>
 
     <div style="max-width:1100px; margin:.5rem auto 0;">
       <svg viewBox="0 0 1100 560" width="100%" height="auto" style="display:block;">
@@ -32,68 +30,71 @@
           </style>
         </defs>
 
-        <!-- Coordinates & radii -->
-        <!-- Center top -->
+        <!-- Top center -->
         <g>
           <circle cx="550" cy="150" r="90" class="bubble"/>
-          <text x="550" y="132" text-anchor="middle" font-size="44" fill="#0d2a4a">🧑‍🤝‍🤖</text>
-          <text x="550" y="170" text-anchor="middle" class="centerT">Physical</text>
-          <text x="550" y="195" text-anchor="middle" class="centerT">HRC</text>
+          <image href="./assets/icons/handshake.svg" x="530" y="110" width="40" height="40" />
+          <image href="./assets/icons/face.svg" x="480" y="100" width="50" height="50" />
+          <image href="./assets/icons/robot_2.svg" x="565" y="100" width="50" height="50" />
+
+          <text x="550" y="180" text-anchor="middle" class="centerT">Physical</text>
+          <text x="550" y="205" text-anchor="middle" class="centerT">HRC</text>
         </g>
 
-        <!-- Bottom circles (evenly spaced) -->
-        <!-- radius chosen so all labels fit; arrow endpoints lie exactly on the perimeter -->
-        <!-- Left: center (250, 400), radius 120 -->
+        <!-- HRC bottom point = (550, 240) -->
+
+        <!-- Far-left (kept exactly): cx=131, cy=340, r=130 -->
         <g class="fragment">
-          <!-- connector behind bubble -->
-          <!-- from bottom of HRC (550, 240) to top-right perimeter of left bubble (250+96, 400-72) -->
-          <path d="M550,240 Q450,300 346,328" class="conn"/>
-          <circle cx="250" cy="400" r="120" class="bubble"/>
-          <text x="250" y="380" text-anchor="middle" font-size="40" fill="#0d2a4a">👁️</text>
-          <text x="250" y="408" text-anchor="middle" class="main">Real-time state estimation</text>
-          <text x="250" y="432" text-anchor="middle" class="sub">
-            <tspan x="250" dy="0">Robust and accurate </tspan>
-            <tspan x="250" dy="18">full-body motion estimation</tspan>
+          <!-- Arrow lands on the circle perimeter (~257,310) with a smooth curve -->
+          <path d="M550,240 Q404,297 257,310" class="conn"/>
+          <circle cx="131" cy="340" r="130" class="bubble"/>
+          <image href="./assets/icons/emoji_people.svg" x="95" y="250" width="70" height="70" />
+          <text x="131" y="350" text-anchor="middle" class="main">Biomechanical modeling</text>
+          <text x="131" y="380" text-anchor="middle" class="sub">
+            <tspan x="131" dy="0">Targets individual</tspan>
+            <tspan x="131" dy="18">specificities</tspan>
           </text>
         </g>
 
-        <!-- Middle: center (550, 400), radius 120 -->
+        <!-- Even spacing for the remaining three: x = 409, 687, 965 -->
+        <!-- Left-mid: cx=409, cy=430, r=120 -->
         <g class="fragment">
-          <!-- from bottom of HRC (550,240) to top of middle bubble (550, 280) which is 120 above center -->
-          <path d="M550,240 Q550,265 550,280" class="conn"/>
-          <circle cx="550" cy="400" r="120" class="bubble"/>
-          <text x="550" y="380" text-anchor="middle" font-size="40" fill="#0d2a4a">🔮</text>
-          <text x="550" y="408" text-anchor="middle" class="main">Intent &amp; motion prediction</text>
-          <text x="550" y="432" text-anchor="middle" class="sub">
-            <tspan x="550" dy="0">Forecast and explain</tspan>
-            <tspan x="550" dy="18">incoming motions</tspan>
+          <!-- Arrow lands at (~480,334) -->
+          <path d="M550,240 Q515,305 480,334" class="conn"/>
+          <circle cx="409" cy="430" r="120" class="bubble"/>
+          <image href="./assets/icons/visibility.svg" x="370" y="350" width="70" height="70" />
+          <text x="409" y="438" text-anchor="middle" class="main">Real-time state estimation</text>
+          <text x="409" y="462" text-anchor="middle" class="sub">
+            <tspan x="409" dy="0">Robust and accurate </tspan>
+            <tspan x="409" dy="18">full-body motion estimation</tspan>
           </text>
         </g>
 
-        <!-- Right: center (850, 400), radius 120 -->
+        <!-- Right-mid: cx=687, cy=430, r=120 -->
         <g class="fragment">
-          <!-- from bottom of HRC (550,240) to top-left perimeter of right bubble (850-96, 400-72) -->
-          <path d="M550,240 Q650,300 742,328" class="conn"/>
-          <circle cx="850" cy="400" r="130" class="bubble"/>
-          <text x="850" y="380" text-anchor="middle" font-size="40" fill="#0d2a4a">🦾​</text>
-          <text x="850" y="408" text-anchor="middle" class="main">Proactive &amp; predictive control</text>
-          <text x="850" y="432" text-anchor="middle" class="sub">
-            <tspan x="850" dy="0">Act with anticipation</tspan>
-            <tspan x="850" dy="18"> and safety </tspan>
+          <!-- Arrow lands at (~617,333) -->
+          <path d="M550,240 Q583,304 617,333" class="conn"/>
+          <circle cx="687" cy="430" r="120" class="bubble"/>
+          <image href="./assets/icons/update.svg" x="653" y="350" width="70" height="70" />
+          <text x="687" y="438" text-anchor="middle" class="main">Intent &amp; motion prediction</text>
+          <text x="687" y="462" text-anchor="middle" class="sub">
+            <tspan x="687" dy="0">Forecast and explain</tspan>
+            <tspan x="687" dy="18">incoming motions</tspan>
+          </text>
+        </g>
+
+        <!-- Far-right (kept exactly): cx=965, cy=340, r=130 -->
+        <g class="fragment">
+          <!-- Arrow lands at (~839,310) -->
+          <path d="M550,240 Q694,297 839,310" class="conn"/>
+          <circle cx="965" cy="340" r="130" class="bubble"/>
+          <image href="./assets/icons/precision_manufacturing.svg" x="930" y="250" width="70" height="70" />
+          <text x="965" y="350" text-anchor="middle" class="main">Proactive &amp; predictive control</text>
+          <text x="965" y="380" text-anchor="middle" class="sub">
+            <tspan x="965" dy="0">Act with anticipation</tspan>
+            <tspan x="965" dy="18"> and safety </tspan>
           </text>
         </g>
       </svg>
     </div>
-  </section>
-
-
-  <!-- Slide A2: Takeaway sentence (separate vertical slide so it never overlaps) -->
-  <!-- <section data-auto-animate>
-    <h2 style="margin:0; color:white;">Introduction</h2>
-    <h3 style="margin-top:0; color:white;">Why such a difference?</h3>
-    <p>
-        The robot must be <span style="font-weight: bold;">proactive</span> anticipating hazardous behavior and <span style="font-weight: bold;">guaranteeing user safety at all times</span>, which makes ergonomic physical HRC especially challenging.
-    </p>
-  </section> -->
 </section>
-

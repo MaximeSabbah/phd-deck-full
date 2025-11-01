@@ -1,12 +1,11 @@
 <section data-part-group="part-iii" data-part-title="PART III"
          style="--part-accent: var(--c-secondary-green);">
     <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 2: Human load lifting
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 2: Human load lifting</h2>
 
+    <div style="margin-top: 3%;">
     Lifting task :
+    </div>
 
     <div style="display: flex; align-items: center; width: 100%;">
         <div style="width: 50%;" class="col">
@@ -15,17 +14,17 @@
         <div style="width: 50%; font-size: 0.7em;" class="col">
             <div class="fragment" data-fragment-index="1" style="text-align: left;">
                 <ul>
-                    <li>Dataset of 6 healthy male participants performing box (10 kg) lifting motions.</li>
+                    <li>Dataset of 6 healthy male participants</li>
                 </ul>
             </div>
             <div class="fragment" data-fragment-index="2" style="text-align: left;">
                 <ul class="pc-list">
-                    <li class="con">Solved using "Bi-level" IOC with a prediction accuracy of around 20deg.</li>
+                    <li class="con">"Bi-level" IOC → <b>20deg</b></li>
                 </ul>
             </div>
             <div class="fragment" data-fragment-index="2" style="text-align: left;">
                 <ul class="pc-list">
-                    <li class="con">No variable weights.</li>
+                    <li class="con">No variable weights</li>
                 </ul>
             </div>
         </div>
@@ -44,12 +43,11 @@
   </section>
 
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 2: Human load lifting
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 2: Human load lifting</h2>
 
+    <div style="margin-top: 3%;">
     Lifting task :
+    </div>
 
     <div style="display: flex; align-items: center; width: 100%;">
         <div style="width: 50%;" class="col">
@@ -58,22 +56,22 @@
         <div style="width: 50%;font-size: 0.7em;" class="col">
             <div class="fragment" data-fragment-index="1" style="text-align: left;">
                 <ul>
-                    <li>5 DoFs biomechanical sagittal planar model.</li>
+                    <li>5 DoFs planar model</li>
                 </ul>
             </div>
             <div class="fragment" data-fragment-index="2" style="text-align: left;">
                 <ul>
-                    <li>Collision avoidance constraints: box with table and box with human.</li>
+                    <li>Collision avoidance constraints</li>
                 </ul>
             </div>
             <div class="fragment" data-fragment-index="3" style="text-align: left;">
                 <ul>
-                    <li>Balance constraint with the ZMP.</li>
+                    <li>Balance constraint</li>
                 </ul>
             </div>
             <div class="fragment" data-fragment-index="4" style="text-align: left;">
                 <ul>
-                    <li>Box final position and model limits enforced by constraints.</li>
+                    <li>Box final position and model limits constraints</li>
                 </ul>
             </div>
         </div>
@@ -84,125 +82,91 @@
     </div>
   </section>
   <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-      Case study 2: Human load lifting
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 2: Human load lifting</h2>
 
-    <table style="width:100%; margin:auto;font-size: 0.7em;">
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_1$
-            </td>
-            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
-                <div class="fragment custom emphasize" data-fragment-index="1">Joint torque lower limbs</div>
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau_{ll}^2 \,dt $
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_2$
-            </td>
-            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
-               <div class="fragment custom emphasize" data-fragment-index="1">Joint torque shoulder</div>
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau_{sho}^2 \,dt $
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_3$
-            </td>
-            <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
-                <div class="fragment custom emphasize" data-fragment-index="1">Joint torque elbow</div>
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau_{elb}^2 \,dt $
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_4$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Joint velocity
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \dot{q}^2 \,dt $
-            </td>
-        </tr>
+    <style>
+    /* Keep columns stable; style the emphasized (revealed) names */
+    .cost-table { width:100%; table-layout:fixed; border-collapse:collapse; margin:auto; font-size:.7em; margin-top:5%; }
+    .cost-table td { padding:.25rem .35rem; }
+    .cost-table .emphasize { font-weight:800; color: var(--c-laas-red, #ff0000); }
+    </style>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_5$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Joint acceleration
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \ddot{q}^2 \,dt $
-            </td>
-        </tr>
+    <table class="cost-table" style="margin-top: 5%;">
+    <colgroup>
+        <col style="width:14%"><!-- Phi -->
+        <col style="width:36%"><!-- Name -->
+        <col style="width:50%"><!-- Expression -->
+    </colgroup>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_6$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Cartesian velocity
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \dot{p}^2 \,dt $
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_1$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment emphasize" data-fragment-index="1">Joint torque lower limbs</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;"><span class="fragment emphasize" data-fragment-index="1"> $\int_{0}^{T} \tau_{ll}^2 \, dt $</span></td>
+    </tr>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_7$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Joint torque change
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \dot{\tau}^2 \,dt $
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_2$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment emphasize" data-fragment-index="1">Joint torque shoulder</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;"><span class="fragment emphasize" data-fragment-index="1">$ \int_{0}^{T} \tau_{sho}^2 \, dt $</span></td>
+    </tr>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_8$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Energy
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} \sum_i\left|\dot{q}_i\tau_i\right| \,dt $ 
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_3$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment emphasize" data-fragment-index="1">Joint torque elbow</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;"><span class="fragment emphasize" data-fragment-index="1">$ \int_{0}^{T} \tau_{elb}^2 \, dt $</span></td>
+    </tr>
 
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_9$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                Geodesic
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} (\dot{q}^{\top}H(q)\dot{q})^{\frac{1}{2}} \,dt $ 
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                $\Phi_{10}$
-            </td>
-            <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                <div class="fragment custom emphasize" data-fragment-index="1">Box horizontal position (psychological)</div>
-            </td>
-            <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                $ \int_{0}^{T} \hat{p}_{box,z}^0 \,dt $
-            </td>
-        </tr>
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_4$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">Joint velocity</td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">$ \int_{0}^{T} \dot{q}^2 \, dt $</td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_5$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">Joint acceleration</td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">$ \int_{0}^{T} \ddot{q}^2 \, dt $</td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_6$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">Cartesian velocity</td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">$ \int_{0}^{T} \dot{p}^2 \, dt $</td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_7$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">Joint torque change</td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">$ \int_{0}^{T} \dot{\tau}^2 \, dt $</td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_8$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">Energy</td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">$ \int_{0}^{T} \sum_i \left|\dot{q}_i \tau_i\right| \, dt $</td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_9$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">Geodesic</td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;">$ \int_{0}^{T} (\dot{q}^{\top} H(q) \dot{q})^{\frac{1}{2}} \, dt $</td>
+    </tr>
+
+    <tr>
+        <td style="text-align:center; vertical-align:middle; font-size:.8em;">$\Phi_{10}$</td>
+        <td style="vertical-align:middle; text-align:center; font-size:.6em;">
+        <span class="fragment emphasize" data-fragment-index="2">Box horizontal position (psychological)</span>
+        </td>
+        <td style="vertical-align:top; text-align:center; font-size:.55em;"><span class="fragment emphasize" data-fragment-index="2">$ \int_{0}^{T} \hat{p}_{box,z}^{0} \, dt $</span></td>
+    </tr>
     </table>
+
 
     <div class="citation-small" style="text-align: center;">
         <b> M. Sabbah </b> et al., <em>Minimal Observations Inverse Reinforcement Learning for Predicting Human Box-Lifting Motions</em>, Humanoids, 2025
@@ -210,20 +174,18 @@
   </section>
 
     <section data-auto-animate class="slide-anno-stage">
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">[PART_NAME_III]</h2>
-    <h3 style="background-color:#34c22fb9; margin-top:0;">
-        Case study 2: Human load lifting
-    </h3>
+    <h2 style="background-color:var(--c-secondary-green); margin:0;">Case study 2: Human load lifting</h2>
 
     <!-- Keep your 90% row exactly as-is -->
-    <div style="display:flex; align-items:center; width:90%; margin-inline:auto;">
+    <div style="display:flex; align-items:center; width:90%; margin-inline:auto; margin-top: 5%;">
         <div style="width: 40%; padding-right:1.2rem;" class="col">
             <div class="video-legend-wrap">
-                <video data-autoplay loop muted playsinline>
-                    <source data-src="./videos/Part-III/comparison_lifting_cut.mp4" type="video/mp4">
+                <video data-autoplay muted playsinline data-loops="2">
+                <source data-src="./videos/Part-III/comparison_lifting_cut.mp4" type="video/mp4">
                 </video>
+
                 <figcaption style="text-align:center; font-size:0.5em; margin-top:0.3rem;">
-                    <b>7deg</b> of average error (more errors on upper limbs, planar hypothesis)
+                   Average error: <b>7deg</b>
                 </figcaption>
                 <div class="video-legend"
                     style="--legend-bottom:auto; --legend-right:auto; --legend-top:-2rem; --legend-left:-0.5rem;">
@@ -234,7 +196,7 @@
         </div>
 
         <div style="width: 60%;" class="col">
-        <img src="./assets/part-III/weights_lifting.png" alt="weights" style="width:100%; display:block;">
+        <img src="./assets/part-III/weights_lifting2.png" alt="weights" style="width:100%; display:block;">
         </div>
     </div>
 
@@ -247,25 +209,27 @@
         </defs>
 
         <g class="fragment fade-in-then-semi-out" data-fragment-index="1">
-            <ellipse class="anno-stroke" cx="1050" cy="730" rx="25" ry="180" transform="rotate(40 1135 395)"/>
-            <line class="anno-stroke" x1="970" y1="460" x2="1060" y2="225" marker-end="url(#arrowRed)"/>
-            <circle class="anno-dot" cx="970" cy="460" r="6"/>
-            <text class="anno-text" x="920" y="205">Minimization of lower-limb joint torques</text>
+            <ellipse class="anno-stroke" cx="1030" cy="660" rx="25" ry="160" transform="rotate(40 1135 395)"/>
+            <line class="anno-stroke" x1="990" y1="410" x2="1060" y2="225" marker-end="url(#arrowRed)"/>
+            <circle class="anno-dot" cx="990" cy="410" r="6"/>
+            <text class="anno-text" x="950" y="205">Minimization of lower-limb joint torques</text>
         </g>
 
 
         <g class="fragment fade-in-then-semi-out" data-fragment-index="2">
-            <ellipse class="anno-stroke" cx="1220" cy="650" rx="80" ry="180" transform="rotate(40 1135 395)"/>
-            <line class="anno-stroke" x1="1145" y1="500" x2="1250" y2="315" marker-end="url(#arrowRed)"/>
-            <circle class="anno-dot" cx="1145" cy="500" r="6"/>
-            <text class="anno-text" x="1000" y="295">Combination of joint acceleration, box velocity, and energy</text>
+            <ellipse class="anno-stroke" cx="1200" cy="600" rx="70" ry="180" transform="rotate(40 1135 395)"/>
+            <line class="anno-stroke" x1="1160" y1="450" x2="1100" y2="355" marker-end="url(#arrowRed)"/>
+            <circle class="anno-dot" cx="1160" cy="450" r="6"/>
+            <text class="anno-text" x="850" y="295">Combination of joint acceleration,</text>
+            <text class="anno-text" x="900" y="335">box velocity, and energy</text>
         </g>
 
         <g class="fragment fade-in-then-semi-out" data-fragment-index="3">
-            <ellipse class="anno-stroke" cx="1360" cy="570" rx="30" ry="120" transform="rotate(35 1135 395)"/>
-            <line class="anno-stroke" x1="1290" y1="570" x2="1350" y2="415" marker-end="url(#arrowRed)"/>
-            <circle class="anno-dot" cx="1290" cy="570" r="6"/>
-            <text class="anno-text" x="1140" y="395">Psychological cost appearing from mid-motion</text>
+            <ellipse class="anno-stroke" cx="1330" cy="520" rx="30" ry="100" transform="rotate(35 1135 395)"/>
+            <line class="anno-stroke" x1="1272" y1="528" x2="1350" y2="445" marker-end="url(#arrowRed)"/>
+            <circle class="anno-dot" cx="1272" cy="528" r="6"/>
+            <text class="anno-text" x="1140" y="395">Psychological cost appearing </text>
+            <text class="anno-text" x="1240" y="435">from mid-motion</text>
         </g>
     </svg>
 

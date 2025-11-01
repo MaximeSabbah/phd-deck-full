@@ -390,7 +390,7 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
   position:absolute;
   top:0%;
   left:0%;
-  transform:translate(-10%,25%);
+  transform:translate(-10%,15%);
   z-index:999;                 /* sit above other elements */
   pointer-events:none;         /* clicks pass through */
 }
@@ -475,7 +475,7 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
 .anno-stroke { stroke:#dc2626; stroke-width:3; fill:transparent; }
 .anno-dot    { fill:#dc2626; }
 .anno-text   {
-  font-size:0.5em; font-weight:700; fill:#b91c1c;
+  font-size:0.7em; font-weight:700; fill:#ff0000;
   paint-order: stroke; stroke:#fff; stroke-width:3px;
 }
 
@@ -771,4 +771,37 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
   border: 2px solid #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,.18);
   pointer-events: none;          /* keep non-interactive */
+}
+
+/* add to your CSS */
+.two-col{ display:flex; gap:1rem; align-items:flex-start; }
+.two-col .col{ float:none; }  /* override the global float just here */
+
+
+/* Make the slide a positioning context (no layout change) */
+.outline-fit { position: relative; }
+
+/* Absolute icon helper */
+.abs-icon {
+  position: absolute;
+  transform: translate(-50%, -50%); /* position by center */
+  width: 56px; height: 56px;        /* tweak size as you like */
+  pointer-events: none;              /* don't block clicks */
+  z-index: 5;                        /* stay above content */
+}
+
+/* If your SVG is black and you want it white on colored areas */
+.abs-icon.white { filter: invert(1); }
+
+/* Under-brace just for the left block */
+.braced { position: relative; padding-bottom: 1.6em; } /* room for brace */
+.braced .underbrace {
+  position: absolute; left: 0; right: 0; bottom: -1.6em;
+  color: #000; text-align: center; pointer-events: none;
+}
+.braced .underbrace svg {
+  width: 100%; height: 14px; display: block; transform: scaleY(-1); /* bottom brace */
+}
+.braced .underbrace .label {
+  font-size: .7em; margin-top: .25em; font-weight: 600; letter-spacing: .01em;
 }
