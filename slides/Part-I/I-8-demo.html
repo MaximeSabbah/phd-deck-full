@@ -5,14 +5,14 @@
         </h2>
 
         <div class="video-legend-wrap">
-            <video data-autoplay controls style="display:block; margin:auto; width:50%;">
-            <source data-src="./videos/Part-I/polissage_robot.mp4" type="video/mp4">
+            <video data-autoplay muted playsinline data-loops="1" style="display:block; margin-top: 2%; width:100%;">
+            <source data-src="./videos/Part-I/comparison_cosmik.mp4" type="video/mp4">
             </video>
 
             <!-- Overlay legend -->
             <div class="video-legend">
                 <div class="legend-item">
-                    <span class="legend-dot black"></span> Reference
+                    <span class="legend-dot grey"></span> Reference
                 </div>
                 <div class="legend-item">
                     <span class="legend-dot green"></span> RT-COSMIK
@@ -47,6 +47,7 @@
                     text-align: center;
                     vertical-align: middle;
                     width: 15%;
+                    border: 4px solid var(--c-base-yellow);
                     border-bottom: 2px solid black;
                     ">
                     Robot Welding</th>
@@ -63,6 +64,8 @@
                 <td style="text-align: center;">11.3
                 </td>
                 <td style="text-align: center;
+                border-left: 4px solid var(--c-base-yellow);
+                border-right: 4px solid var(--c-base-yellow);
                 border-bottom: 1px solid black;">11.1</td>
             </tr>
             <tr>
@@ -73,6 +76,8 @@
                 <td style="text-align: center;">27.9</td>
                 <td style="text-align: center;">23.2</td>
                 <td style="text-align: center;
+                border-left: 4px solid var(--c-base-yellow);
+                border-right: 4px solid var(--c-base-yellow);
                 border-top:none;">22.3</td>
             </tr>
             <tr>
@@ -83,19 +88,20 @@
                 <td style="text-align: center;">?</td>
                 <td style="text-align: center;">?</td>
                 <td style="text-align: center;
-                border-top:none;">?</td>
+                border: 4px solid var(--c-base-yellow);
+                border-top:none;">5.5</td>
             </tr>
         </tbody>
     </table>
-
-        <div class="fragment" data-fragment-index="1" style="font-size: 0.6em;">
-            <ul class="pc-list">
-                <li class="con">Accuracy analysis require more elaborated benchmarking</li>
-            </ul>
-        </div>
-        <div class="fragment" data-fragment-index="2" style="font-size: 0.6em;">
-            <ul class="pc-list">
-                <li class="pro">Finetuning of OpenCap's LSTM for our dataset</li>
-            </ul>
-        </div>
+    <div style="font-size: 0.6em;">
+        <ul class="pc-list">
+            <li class="pro">Finetuning of OpenCap's LSTM for our dataset</li>
+        </ul>
+    </div>
+    <div class="fragment" data-fragment-index="2" style="font-size: 0.6em;">
+        <ul class="pc-list">
+            <li class="con">Task generalization ?</li>
+        </ul>
+    </div>
+        
 </section>

@@ -496,6 +496,7 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
   width:.7rem; height:.7rem; border-radius:999px; flex:0 0 auto; border:1px solid rgba(0,0,0,.25);
 }
 .legend-dot.black{ background:#111; }
+.legend-dot.grey{ background:#6e6e6e; }
 .legend-dot.green{ background:#3eff04; } /* RT-COSMIK */
 .legend-dot.red{ background:#ff0000; } 
 
