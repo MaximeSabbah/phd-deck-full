@@ -1,4 +1,5 @@
 <section data-part-group="part-i" data-part-title="PART I"
+        class="has-abs-overlay"
          style="--part-accent: var(--c-laas-red);">
         <h2 style="background-color:var(--c-laas-red); margin:0px;">
         Demonstration
@@ -24,9 +25,21 @@
                 <li class="pro">Good tracking results in real-time!</b></li>
             </ul>
         </div>
+
+        <!-- Independent overlay you can trigger whenever you want -->
+        <div class="chart-overlay fragment fade-in"
+            data-fragment-index="1"
+            style="
+            --chart-left: 50%;
+            --chart-bottom: -5%;          /* set top/left/right/bottom as you like */
+            --chart-transform: translateX(-50%);
+            --chart-width: 30vw;">
+        <img src="./assets/part-I/opencap_vs_ours_bar.png"
+            alt="Bar chart: OpenCap vs Ours (Lower-limbs, Upper-limbs, degrees)">
+        </div>
 </section>
 
-<section data-part-group="part-i" data-part-title="PART I"
+<!-- <section data-part-group="part-i" data-part-title="PART I"
          style="--part-accent: var(--c-laas-red);">
         <h2 style="background-color:var(--c-laas-red); margin:0px;">
         More results to come !
@@ -104,4 +117,4 @@
         </ul>
     </div>
         
-</section>
+</section> -->

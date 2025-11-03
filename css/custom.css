@@ -806,3 +806,29 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
 .braced .underbrace .label {
   font-size: .7em; margin-top: .25em; font-weight: 600; letter-spacing: .01em;
 }
+
+/* Make the slide a positioning context */
+section.has-abs-overlay { position: relative; }
+
+/* Reusable absolute overlay box */
+.chart-overlay {
+  position: absolute;
+  left: var(--chart-left, 50%);
+  right: var(--chart-right, auto);
+  top: var(--chart-top, auto);
+  bottom: var(--chart-bottom, 6%);
+  transform: var(--chart-transform, translateX(-50%));
+  width: var(--chart-width, min(62vw, 900px));
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.25);
+  z-index: 30;              /* above video/legend */
+  pointer-events: none;      /* let clicks pass to video/fragments */
+  padding: .6rem .8rem;
+}
+.chart-overlay img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
