@@ -114,8 +114,8 @@ section.outline-tight .pill h2 { padding:.06em .55em; }
 }
 .reveal .two-up video{
   display:block; width:100%;
-  border-radius:12px; border:1px solid rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.03);
+  /* border-radius:12px; border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.03); */
 }
 /* On narrower screens, stack */
 @media (max-width:1200px){

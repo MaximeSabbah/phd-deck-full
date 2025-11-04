@@ -63,7 +63,7 @@
   <section data-auto-animate data-auto-animate-reset>
     <h2 style="margin:0px; color:white;">Dynamic! But unsafe ...</h2>
 
-    <div class="two-up">
+    <div class="two-up" style="margin-top: 5%;">
       <div class="v">
         <video data-autoplay muted playsinline data-loops="1">
           <!-- replace with your file -->
@@ -102,24 +102,68 @@
   <section data-auto-animate>
     <h2 style="margin:0px; color:white;">Safe! But not so dynamic ...</h2>
     
-    <div class="two-up">
+    <div class="two-up" style="margin-top: 5%;">
       <div class="v">
         <video data-autoplay muted playsinline data-loops="1">
+          <!-- <video muted playsinline preload="auto"
+       onloadedmetadata="this.currentTime=Math.max(0,this.duration-0.01); this.pause();"> -->
           <!-- replace with your file -->
           <source data-src="./videos/intro/sota/rapetti_icra.mp4" type="video/mp4">
         </video>
         <figcaption style="text-align:center; color: var(--c-complementary-grey2); font-size:0.8em; margin-top:0.3rem;">
         <div class="citation-small" style="text-align: center;">L. Rapetti et al., <em>A control approach for human-robot ergonomic payload lifting</em>, ICRA, 2023 </div>
         </figcaption>
+
+        <!-- Red hotspots: show with the last bullet -->
+      <div class="fragment" data-fragment-index="2"
+          style="position:absolute; inset:0; z-index:5; pointer-events:none;">
+        <!-- Rectangle 1 (left image) -->
+        <div style="position:absolute; left:11%; top:42.5%; width:4%; height:5%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
+        <!-- Rectangle 2 (left image) -->
+        <div style="position:absolute; left:13%; top:52%; width:3%; height:4%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
+        <div style="position:absolute; left:15%; top:62%; width:4%; height:4%;
+        border:4px solid #e11d48; border-radius:6px;"></div>
+        <!-- Rectangle 3 (right image) -->
+        <div style="position:absolute; left:15%; top:30%; width:3%; height:3%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
+        <div style="position:absolute; left:17%; top:45%; width:2%; height:3%;
+                    border:4px solid #e11d48; border-radius:6px;"></div>
+      </div>
       </div>
       <div class="v">
         <video data-autoplay muted playsinline data-loops="1">
+        <!-- <video muted playsinline preload="auto"
+       onloadedmetadata="this.currentTime=Math.max(0,this.duration-0.01); this.pause();"> -->
           <!-- replace with your file -->
           <source data-src="./videos/intro/sota/figueroa_rss.mp4" type="video/mp4">
         </video>
         <figcaption style="text-align:center; color: var(--c-complementary-grey2); font-size:0.8em; margin-top:0.3rem;">
         <div class="citation-small" style="text-align: center;">Y. Shao et al., <em>Constraint-aware intent estimation for dynamic human-robot object co-manipulation</em>, RSS, 2024</div>
         </figcaption>
+        <div class="fragment" data-fragment-index="2">
+            <div style="position:absolute; left:93.5%; top:50.5%; width:1%; aspect-ratio:1/1;
+                border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:93%; top:56%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:93%; top:66%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:91.5%; top:68%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:88.5%; top:56.5%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:87.5%; top:65.5%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:84.5%; top:66%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:84.5%; top:58%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:80.5%; top:55.5%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+            <div style="position:absolute; left:82%; top:57%; width:1%; aspect-ratio:1/1;
+            border:4px solid #e11d48; border-radius:50%;"></div>
+        </div>
       </div>
     </div>
     <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.5em;">
