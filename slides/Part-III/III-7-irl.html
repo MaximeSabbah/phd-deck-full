@@ -1,6 +1,5 @@
-<section data-part-group="part-iii" data-part-title="PART III"
-         style="--part-accent: var(--c-secondary-green);">
-    <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+<section>
+    <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">
         Question
     </h2>
     <div style="margin-top: 5%;">
@@ -25,10 +24,9 @@
     </div>
 </section>
 
-<section data-part-group="part-iii" data-part-title="PART III"
-         style="--part-accent: var(--c-secondary-green);">
-  <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">Inverse Reinforcement Learning</h2>
+<section>
+    <section>
+    <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">Inverse Reinforcement Learning</h2>
 
     <div style="display:grid; justify-items:center; width:100%; position:relative;font-size: 0.9em; padding-bottom:6.6rem;margin-top: 5%">
 
@@ -65,14 +63,44 @@
     <div class="citation-small" style="text-align: center;">
         B. Ziebart et al., <em>Maximum Entropy Inverse Reinforcement Learning</em>, AAAI, 2008
     </div>
+ </section>
 
-    <div class="citation-small" style="text-align: center;">
-        M. Kalakrishnan et al., <em>Learning objective functions for manipulation</em>, ICRA, 2013
+ <section>
+    <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">Inverse Reinforcement Learning</h2>
+
+    <div style="color:#d64545; font-size:0.7em;margin-top: 5%;">
+        Partition function \(Z(\boldsymbol{\omega}) = \int_{\mathcal{Y} \in \bar{\mathcal{Y}}} \exp(-\Phi_{tot}(\mathcal{Y},\boldsymbol{\omega})) d\mathcal{Y}\) is <b>intractable</b>
     </div>
-  </section>
 
-  <section data-auto-animate>
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">Inverse Reinforcement Learning</h2>
+    <div class="col" style="width: 50%; margin-top: 2%;">
+        <div class="fragment" data-fragment-index="1" style="text-align:left; font-size:0.6em;">
+            Approximate \(Z(\boldsymbol{\omega})\) using $N_k$ random noised trajectories with minimal acceleration covariance
+        </div>
+
+        <div class="fragment" data-fragment-index="2" style="text-align:left; font-size:0.6em; margin-top: 5%;">
+            \[
+            Z(\boldsymbol{\omega}) = \sum_{k=1}^{N_k} \mathbf{w}^\top \exp(-\Phi_{tot}(\mathcal{Y}_k,\boldsymbol{\omega}))
+            \]
+
+            with $\mathbf{w}$ giving more importance to trajectories close to $\mathcal{Y}^*$
+        </div>
+    </div>
+    <div class="col" style="width: 50%; margin-top: 2%;">
+        <div class="fragment" data-fragment-index="1">
+            <img src="assets/part-III/irl_noise.png" style="width:100%; max-width:400px;">
+        </div>
+    </div>
+
+    
+    <div class="citation-small" style="text-align: center;">
+        <div class="fragment" data-fragment-index="1">
+            M. Kalakrishnan et al., <em>Learning objective functions for manipulation</em>, ICRA, 2013
+        </div>
+    </div>
+ </section>
+
+ <section>
+    <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">Inverse Reinforcement Learning</h2>
 
     <div style="font-size: 0.7em;text-align: center; margin-top: 5%;">
         <span>\(\boldsymbol{\omega}\)</span>
@@ -95,11 +123,7 @@
     </div>
 
     <div class="citation-small" style="text-align: center;">
-        B. Ziebart et al., <em>Maximum Entropy Inverse Reinforcement Learning</em>, Aaai, 2008
-    </div>
-
-    <div class="citation-small" style="text-align: center;">
-        M. Kalakrishnan et al., <em>Learning objective functions for manipulation</em>, ICRA, 2013
+        B. Ziebart et al., <em>Maximum Entropy Inverse Reinforcement Learning</em>, AAAI, 2008
     </div>
   </section>
 </section>

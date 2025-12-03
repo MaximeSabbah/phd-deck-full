@@ -1,6 +1,5 @@
-<section data-part-group="part-iii" data-part-title="PART III"
-         style="--part-accent: var(--c-secondary-green);">
-        <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+<!-- <section>
+        <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">
         Data-driven human motion generation
         </h2>
         
@@ -10,9 +9,6 @@
 
         <div style="text-align: center; width: 70%;" class="col">
             <div class="fragment" data-fragment-index="1">
-                <!-- <video data-autoplay loop muted playsinline style="width:100%;">
-                <source data-src="./videos/Part-III/siggraph_ff_small.mp4" type="video/mp4">
-                </video> -->
                 <img src="./assets/part-III/diffuse_cloc.png" alt="weights" style="width:100%; display:block;">
                 <div class="citation-small" style="text-align:center;">
                 X. Huang et al., <em>Diffuse-CLoC: Guided Diffusion for Physics-based Character Look-ahead Control</em>, SIGGRAPH, 2025
@@ -36,11 +32,10 @@
                 </ul>
             </div>
         </div>
-</section>
+</section> -->
 
-<section data-part-group="part-iii" data-part-title="[PART_NAME_III]"
-         style="--part-accent: var(--c-secondary-green);">
-        <h2 style="background-color:var(--c-secondary-green); margin:0px;">
+<section>
+        <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">
         Optimality principles of human motions
         </h2>
 
@@ -80,115 +75,10 @@
             <span>\(\Phi_{tot}(X,U,\boldsymbol{\omega})\)</span>
             <span>&nbsp; is composed of biomechanical cost functions
         </div>
+</section>
 
-    </section>
-
-    <!-- <section data-auto-animate>
-        <h2 style="background-color:var(--c-secondary-green); margin:0px;">
-        [PART_NAME_III]
-        </h2>
-        <h3 style="background-color:#34c22fb9; margin-top:0px;">
-            Optimality principles of human motions
-        </h3>
-
-        <div style="font-size:0.8em; text-align: center;" >
-            <span>\(\Phi_{tot}(X,U,\boldsymbol{\omega})\)</span>
-            <span>&nbsp;composed of biomechanical cost functions, for instance:</span>
-        </div>
-
-        <div class="fragment" data-fragment-index="1" >
-            <table style="width:100%; margin:auto;">
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_1$
-                </td>
-                <td style="vertical-align: middle; font-size: 0.6em;text-align: center;">
-                    Joint torque
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;"> $ \int_{0}^{T} \tau^2 \,dt $
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_2$
-                </td>
-                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                    Joint velocity
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} \dot{q}^2 \,dt $
-                </td>
-            </tr>
-
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_3$
-                </td>
-                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                    Joint acceleration
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} \ddot{q}^2 \,dt $
-                </td>
-            </tr>
-
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_4$
-                </td>
-                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                    Cartesian velocity
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} \dot{p}^2 \,dt $
-                </td>
-            </tr>
-
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_5$
-                </td>
-                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                    Joint torque change
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} \dot{\tau}^2 \,dt $
-                </td>
-            </tr>
-
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_6$
-                </td>
-                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                    Energy
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                     $ \int_{0}^{T} \sum_i\left|\dot{q}_i\tau_i\right| \,dt $ 
-                </td>
-            </tr>
-
-            <tr>
-                <td style="text-align: center; vertical-align: middle; font-size: 0.8em;">
-                    $\Phi_7$
-                </td>
-                <td style="vertical-align: middle;  font-size: 0.6em; text-align: center;">
-                    Geodesic
-                </td>
-                <td style="vertical-align: top; text-align: center;  font-size: 0.55em;">
-                    $ \int_{0}^{T} (\dot{q}^{\top}H(q)\dot{q})^{\frac{1}{2}} \,dt $ 
-                </td>
-            </tr>
-        </table>
-        <div class="citation-small" style="text-align: center;">
-        B. Berret et al., <em>Evidence for composite cost functions in arm movement planning: an inverse optimal control approach</em>, Plos Computational Biology, 2011
-        </div>
-    </div>
-    </section> -->
-
-<section data-part-group="part-iii" data-part-title="[PART_NAME_III]"
-         style="--part-accent: var(--c-secondary-green);">
-    <h2 style="background-color:var(--c-secondary-green); margin:0;">The inverse problem</h2>
+<section>
+    <h2 style="background-color:var(--c-secondary-dark-blue); margin:0px; color: white;">The inverse problem</h2>
 
 
     <div style="display:grid; justify-items:center; width:100%; position:relative;margin-top: 5%;">
